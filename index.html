@@ -63,6 +63,9 @@
         .check-card:hover { border-color: var(--gold); }
         .check-card input { width: 16px; height: 16px; accent-color: var(--gold); }
 
+        .dynamic-field { margin-top: 10px; display: none; width: 100%; animation: fadeIn 0.3s forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
         .price-summary { background: #000; padding: 30px; text-align: center; border: 1px solid var(--gold); margin-top: 30px; }
         .total-amount { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); font-weight: 600; }
         
@@ -70,15 +73,13 @@
         .btn-submit { padding: 20px; border: none; font-family: 'Cinzel', serif; font-weight: 700; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; font-size: 0.75rem; }
         .btn-total { background: var(--paypal-blue); color: #fff; }
         .btn-acompte { background: transparent; border: 1px solid var(--paypal-blue); color: var(--paypal-blue); }
-        .btn-submit:hover { transform: translateY(-3px); opacity: 0.9; }
 
         #thankYouModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; justify-content: center; align-items: center; text-align: center; }
         .modal-content { background: #111; padding: 30px; border: 1px solid var(--gold); max-width: 450px; width: 90%; }
-        .copy-box { background: #000; border: 1px dashed var(--gold); padding: 15px; margin: 20px 0; font-size: 0.8rem; color: #fff; text-align: left; }
+        .copy-box { background: #000; border: 1px dashed var(--gold); padding: 15px; margin: 20px 0; font-size: 0.8rem; color: #fff; text-align: left; white-space: pre-wrap; }
 
         footer { text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px; line-height: 1.8; }
         .footer-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; font-weight: 600; }
-        .footer-link:hover { border-bottom: 1px solid var(--gold); }
     </style>
 </head>
 <body>
@@ -99,13 +100,10 @@
 
     <div id="thankYouModal">
         <div class="modal-content">
-            <h2 style="font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 10px;">Récapitulatif</h2>
-            <p style="font-size: 0.8rem;">Veuillez copier ce texte pour le coller dans la case <b>"Ajouter une note"</b> sur PayPal :</p>
-            
+            <h2 style="font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 10px;">Récapitulatif Envoyé</h2>
+            <p style="font-size: 0.8rem;">Votre commande a été envoyée par mail. Copiez ce texte pour le coller sur PayPal :</p>
             <div class="copy-box" id="orderSummaryText"></div>
-            
-            <button onclick="redirectToPayPal()" class="btn-submit btn-total" style="width: 100%;">Copier & Aller sur PayPal</button>
-            <p style="font-size: 0.6rem; margin-top: 15px; opacity: 0.7;">Redirection automatique dans quelques secondes...</p>
+            <button onclick="redirectToPayPal()" class="btn-submit btn-total" style="width: 100%;">Aller sur PayPal</button>
         </div>
     </div>
 
@@ -127,14 +125,12 @@
                 <div class="deco-item"><span>Rose sous cloche</span><div class="dots"></div><span>20€</span></div>
                 <div class="deco-item"><span>Perso (Prénom)</span><div class="dots"></div><span>25€</span></div>
             </div>
-
             <div class="deco-cat" data-aos="fade-up">
                 <h3>💎 Collection Bijoux</h3>
                 <div class="deco-item"><span>Rose boîte à bijoux + bague</span><div class="dots"></div><span>20€</span></div>
                 <div class="deco-item"><span>Box bijoux (Bracelet)</span><div class="dots"></div><span>10€</span></div>
                 <div class="deco-item"><span>Option Perso Box</span><div class="dots"></div><span>+5€</span></div>
             </div>
-
             <div class="deco-cat sold-out" data-aos="fade-up">
                 <h3>🌙 Univers Prière <span class="sold-out-badge">RUPTURE</span></h3>
                 <div class="deco-item"><span>Tapis Perso</span><div class="dots"></div><span>16€</span></div>
@@ -147,18 +143,17 @@
     <section class="order-container" id="commander">
         <h2 style="text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 40px; color: var(--gold);">Finalisez votre Commande</h2>
         <form id="orderForm">
-            
             <div class="form-group">
                 <label>Vos Coordonnées</label>
                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
-                    <input type="text" id="clientName" placeholder="Nom Complet" required>
-                    <input type="text" id="clientPhone" placeholder="Téléphone" required>
+                    <input type="text" name="Client" id="clientName" placeholder="Nom Complet" required>
+                    <input type="text" name="Tel" id="clientPhone" placeholder="Téléphone" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Produit Souhaité</label>
-                <select id="mainProduct" onchange="updateFormDisplay()">
+                <select id="mainProduct" name="Produit" onchange="updateFormDisplay()">
                     <optgroup label="🌹 BOUQUETS">
                         <option value="Bouquet Roses" data-price="25">Bouquet de Roses Personnalisé</option>
                     </optgroup>
@@ -176,26 +171,26 @@
             <div id="jewelOptions" class="form-group" style="display:none;">
                 <label>Options Bijoux</label>
                 <label class="check-card">
-                    <input type="checkbox" id="persoBoxJewel" class="extra" value="Perso Box" data-price="5" onchange="calculateTotal()"> 
+                    <input type="checkbox" name="Box_Perso" id="persoBoxJewel" class="extra" value="Perso Box" data-price="5" onchange="calculateTotal()"> 
                     Personnalisation de la Box (+5€)
                 </label>
             </div>
 
             <div id="eternelleOptions" class="form-group" style="display:none;">
                 <label>Configuration Rose Éternelle</label>
-                <select id="eternelleColor">
+                <select name="Couleur_Eternelle" id="eternelleColor">
                     <option value="Rouge">Rouge Classique</option>
                     <option value="Rose">Rose Doux</option>
                     <option value="Bleu">Bleu Royal</option>
                 </select>
                 <div id="prenomField" style="margin-top: 15px; display:none;">
-                    <input type="text" id="eternellePrenom" placeholder="Prénom pour la personnalisation">
+                    <input type="text" name="Prenom_Eternelle" id="eternellePrenom" placeholder="Prénom pour la personnalisation">
                 </div>
             </div>
 
             <div id="bouquetDetails" class="form-group">
                 <label>Nombre de Roses</label>
-                <select id="bouquetQty" onchange="calculateTotal()">
+                <select name="NB_Roses" id="bouquetQty" onchange="calculateTotal()">
                     <option value="13" data-price="25">13 Roses - 25€</option>
                     <option value="18" data-price="35">18 Roses - 35€</option>
                     <option value="30" data-price="59">30 Roses - 59€</option>
@@ -207,32 +202,45 @@
             <div id="personalizationSection" class="form-group">
                 <label>Personnalisez votre Bouquet (Options)</label>
                 <div class="selection-grid">
-                    <label class="check-card"><input type="checkbox" class="extra" value="Stitch Perso" data-price="20" onchange="calculateTotal()"> Stitch Personnalisé (+20€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Mini Stitch" data-price="10" onchange="calculateTotal()"> Mini Stitch Perso (+10€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Coeur Inflam. Perso" data-price="10" onchange="calculateTotal()"> Coeur Inflammable Perso (+10€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Grand Diadème" data-price="8" onchange="calculateTotal()"> Grand Diadème (+8€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Petit Diadème" data-price="4" onchange="calculateTotal()"> Petit Diadème (+4€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Ruban Perso (Prénom/Date)" data-price="4" onchange="calculateTotal()"> Ruban Perso Prénom/Date (+4€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Aiguilles Cristal/Perle" data-price="6" onchange="calculateTotal()"> Aiguilles Cristal/Perle (+6€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Papillons" data-price="2" onchange="calculateTotal()"> Papillons (+2€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Gypsophile" data-price="5" onchange="calculateTotal()"> Gypsophile (+5€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Lettre en fleur" data-price="5" onchange="calculateTotal()"> Lettre en fleur (+5€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Bordure Perles" data-price="4" onchange="calculateTotal()"> Bordure de perles (+4€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Paillettes" data-price="4" onchange="calculateTotal()"> Paillettes (+4€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Stitch Perso" data-price="20" onchange="calculateTotal()"> Stitch Personnalisé (+20€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Mini Stitch" data-price="10" onchange="calculateTotal()"> Mini Stitch Perso (+10€)</label>
+                    
+                    <label class="check-card" style="opacity: 0.5; cursor: not-allowed;">
+                        <input type="checkbox" disabled> Coeur Inflammable <span style="color: var(--out-of-stock); font-size: 0.6rem; margin-left: 5px;">(RUPTURE)</span>
+                    </label>
+
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Grand Diademe" data-price="8" onchange="calculateTotal()"> Grand Diadème (+8€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Petit Diademe" data-price="4" onchange="calculateTotal()"> Petit Diadème (+4€)</label>
+                    
+                    <div style="grid-column: span 1;">
+                        <label class="check-card"><input type="checkbox" name="Deco" class="extra" id="checkRuban" value="Ruban Perso" data-price="4" onchange="togglePersoField('checkRuban', 'fieldRuban')"> Ruban Perso (+4€)</label>
+                        <input type="text" id="fieldRuban" name="Texte_Ruban" class="dynamic-field" placeholder="Texte du ruban (Prénom/Date...)">
+                    </div>
+
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Aiguilles" data-price="6" onchange="calculateTotal()"> Aiguilles Cristal (+6€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Papillons" data-price="2" onchange="calculateTotal()"> Papillons (+2€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Gypsophile" data-price="5" onchange="calculateTotal()"> Gypsophile (+5€)</label>
+                    
+                    <div style="grid-column: span 1;">
+                        <label class="check-card"><input type="checkbox" name="Deco" class="extra" id="checkLettre" value="Lettre Fleur" data-price="5" onchange="togglePersoField('checkLettre', 'fieldLettre')"> Lettre en fleur (+5€)</label>
+                        <input type="text" id="fieldLettre" name="Lettre_Choisie" class="dynamic-field" maxlength="1" placeholder="Tapez 1 seule lettre" style="text-transform: uppercase;">
+                    </div>
+
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Bordure Perle" data-price="4" onchange="calculateTotal()"> Bordure perles (+4€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Paillettes" data-price="4" onchange="calculateTotal()"> Paillettes (+4€)</label>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Mode de Réception</label>
-                <select id="deliveryMethod" onchange="calculateTotal()">
+                <select name="Reception" id="deliveryMethod" onchange="calculateTotal()">
                     <option value="0">Remise en main propre (Lyon) - Gratuit</option>
-                    <option value="10" data-label="Colissimo">Envoi Colissimo (France) - 10€</option>
-                    <option value="15" data-label="International">Envoi International - 15€</option>
+                    <option value="10">Envoi Colissimo (France) - 10€</option>
+                    <option value="15">Envoi International - 15€</option>
                 </select>
             </div>
 
             <div class="price-summary">
-                <div style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">TOTAL DE LA COMMANDE</div>
                 <div class="total-amount"><span id="fullPriceDisplay">25</span>€</div>
                 <div style="font-size: 0.75rem; margin-top: 10px; color: #aaa;">ACOMPTE CALCULÉ (50%) : <span id="depositDisplay">12.50</span>€</div>
             </div>
@@ -246,14 +254,20 @@
 
     <footer>
         BY.LINOUSH CRÉATION © 2026 | LYON <br>
-        SITE RÉALISÉ PAR <a href="https://www.instagram.com/nexusweb69?igsh=MTN6ZXlwc2phcXNleA%3D%3D&utm_source=qr" target="_blank" class="footer-link">NEXUSWEB</a>
+        SITE RÉALISÉ PAR <a href="https://www.instagram.com/nexusweb69" target="_blank" class="footer-link">NEXUSWEB</a>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        let currentPayPalURL = "";
+        function togglePersoField(checkId, fieldId) {
+            const checkbox = document.getElementById(checkId);
+            const field = document.getElementById(fieldId);
+            field.style.display = checkbox.checked ? "block" : "none";
+            if(!checkbox.checked) field.value = "";
+            calculateTotal();
+        }
 
         function updateFormDisplay() {
             const product = document.getElementById('mainProduct').value;
@@ -268,22 +282,21 @@
         function calculateTotal() {
             const productSelect = document.getElementById('mainProduct');
             let total = 0;
-
             if(productSelect.value === 'Bouquet Roses') {
                 total += parseInt(document.getElementById('bouquetQty').options[document.getElementById('bouquetQty').selectedIndex].getAttribute('data-price'));
             } else {
                 total += parseInt(productSelect.options[productSelect.selectedIndex].getAttribute('data-price'));
             }
-
             document.querySelectorAll('.extra:checked').forEach(item => total += parseInt(item.getAttribute('data-price')));
             total += parseInt(document.getElementById('deliveryMethod').value);
-            
             document.getElementById('fullPriceDisplay').innerText = total;
             document.getElementById('depositDisplay').innerText = (total / 2).toFixed(2);
             return total;
         }
 
-        function prepareOrder(isDeposit) {
+        let currentPayPalURL = "";
+
+        async function prepareOrder(isDeposit) {
             const name = document.getElementById('clientName').value;
             const phone = document.getElementById('clientPhone').value;
             if(!name || !phone) { alert("Nom et téléphone requis."); return; }
@@ -292,34 +305,34 @@
             const amount = isDeposit ? (total / 2) : total;
             const type = isDeposit ? "ACOMPTE 50%" : "PAYÉ 100%";
             
-            // Construction de la description
             const product = document.getElementById('mainProduct').value;
             let qty = (product === 'Bouquet Roses') ? document.getElementById('bouquetQty').value + " roses" : "";
-            
             let extras = [];
             document.querySelectorAll('.extra:checked').forEach(e => extras.push(e.value));
             
             let recap = `📌 ${type}\n👤 Client: ${name}\n📞 Tél: ${phone}\n🎁 Produit: ${product} ${qty}`;
             if(extras.length > 0) recap += `\n✨ Décos: ${extras.join(', ')}`;
-            if(product === 'Rose Eternelle Perso') recap += `\n✍️ Prénom: ${document.getElementById('eternellePrenom').value}`;
+            if(document.getElementById('checkRuban').checked) recap += `\n🎗️ Ruban: ${document.getElementById('fieldRuban').value}`;
+            if(document.getElementById('checkLettre').checked) recap += `\n🔡 Lettre: ${document.getElementById('fieldLettre').value.toUpperCase()}`;
+            if(product === 'Rose Eternelle Perso') recap += `\n✍️ Prénom Rose: ${document.getElementById('eternellePrenom').value}`;
             recap += `\n💰 Montant: ${amount.toFixed(2)}€`;
 
-            // Affichage dans le modal
+            const formData = new FormData(document.getElementById('orderForm'));
+            formData.append("Recapitulatif_Complet", recap);
+
+            fetch("https://formspree.io/f/mlgwjnbq", {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
             document.getElementById('orderSummaryText').innerText = recap;
             currentPayPalURL = `https://www.paypal.com/paypalme/cherifilina/${amount.toFixed(2)}`;
-            
-            document.getElementById('thankYouModal').style.display = 'flex';
-
-            // Copie automatique dans le presse-papier
             navigator.clipboard.writeText(recap);
-            
-            // Redirection après 6 secondes pour laisser le temps de lire
-            setTimeout(redirectToPayPal, 6000);
+            document.getElementById('thankYouModal').style.display = 'flex';
         }
 
-        function redirectToPayPal() {
-            window.location.href = currentPayPalURL;
-        }
+        function redirectToPayPal() { window.location.href = currentPayPalURL; }
 
         const bg = document.getElementById('rosesBg');
         for (let i = 0; i < 20; i++) {
