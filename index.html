@@ -58,7 +58,7 @@
         label { display: block; font-family: 'Cinzel', serif; font-size: 0.85rem; margin-bottom: 15px; letter-spacing: 2px; color: var(--gold); }
         select, input, textarea { width: 100%; padding: 15px; background: #000; border: 1px solid var(--light-gray); color: #fff; box-sizing: border-box; }
         
-        .selection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+        .selection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
         .check-card { background: rgba(255,255,255,0.05); padding: 12px; font-size: 0.65rem; display: flex; align-items: center; gap: 12px; cursor: pointer; border: 1px solid transparent; text-transform: uppercase; transition: 0.3s; }
         .check-card:hover { border-color: var(--gold); }
         .check-card input { width: 16px; height: 16px; accent-color: var(--gold); }
@@ -78,7 +78,7 @@
 
         footer { text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px; line-height: 1.8; }
         .footer-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; font-weight: 600; }
-        .footer-link:hover { border-bottom: 1px solid var(--gold); opacity: 1; }
+        .footer-link:hover { border-bottom: 1px solid var(--gold); }
     </style>
 </head>
 <body>
@@ -126,7 +126,7 @@
                 <h3>🌹 Roses Éternelles</h3>
                 <div class="deco-item"><span>Rose sous cloche</span><div class="dots"></div><span>20€</span></div>
                 <div class="deco-item"><span>Perso (Prénom)</span><div class="dots"></div><span>25€</span></div>
-                </div>
+            </div>
 
             <div class="deco-cat" data-aos="fade-up">
                 <h3>💎 Collection Bijoux</h3>
@@ -207,12 +207,18 @@
             <div id="personalizationSection" class="form-group">
                 <label>Personnalisez votre Bouquet (Options)</label>
                 <div class="selection-grid">
-                    <label class="check-card"><input type="checkbox" class="extra" value="Stitch Perso" data-price="20" onchange="calculateTotal()"> Stitch Perso (+20€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Coeur Inflam." data-price="10" onchange="calculateTotal()"> Coeur Inflammable (+10€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Stitch Perso" data-price="20" onchange="calculateTotal()"> Stitch Personnalisé (+20€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Mini Stitch" data-price="10" onchange="calculateTotal()"> Mini Stitch Perso (+10€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Coeur Inflam. Perso" data-price="10" onchange="calculateTotal()"> Coeur Inflammable Perso (+10€)</label>
                     <label class="check-card"><input type="checkbox" class="extra" value="Grand Diadème" data-price="8" onchange="calculateTotal()"> Grand Diadème (+8€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Ruban Perso" data-price="6" onchange="calculateTotal()"> Ruban Perso (+6€)</label>
-                    <label class="check-card"><input type="checkbox" class="extra" value="Aiguilles" data-price="6" onchange="calculateTotal()"> Aiguilles (+6€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Petit Diadème" data-price="4" onchange="calculateTotal()"> Petit Diadème (+4€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Ruban Perso (Prénom/Date)" data-price="4" onchange="calculateTotal()"> Ruban Perso Prénom/Date (+4€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Aiguilles Cristal/Perle" data-price="6" onchange="calculateTotal()"> Aiguilles Cristal/Perle (+6€)</label>
                     <label class="check-card"><input type="checkbox" class="extra" value="Papillons" data-price="2" onchange="calculateTotal()"> Papillons (+2€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Gypsophile" data-price="5" onchange="calculateTotal()"> Gypsophile (+5€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Lettre en fleur" data-price="5" onchange="calculateTotal()"> Lettre en fleur (+5€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Bordure Perles" data-price="4" onchange="calculateTotal()"> Bordure de perles (+4€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Paillettes" data-price="4" onchange="calculateTotal()"> Paillettes (+4€)</label>
                 </div>
             </div>
 
