@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>By.LinoushCréation | L'Art de la Rose & Bijoux</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --white: #ffffff;
+            --black: #0a0a0a; 
+            --light-gray: rgba(255, 255, 255, 0.1);
+            --out-of-stock: #ff4d4d;
+            --paypal-blue: #0070ba;
+            --rose-petal: #d42d42;
+            --gold: #d4af37;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--black); color: var(--white); -webkit-font-smoothing: antialiased; }
+
+        .bg-roses { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%); overflow: hidden; }
+        .petal { position: absolute; background-color: var(--rose-petal); border-radius: 150% 0 150% 0; opacity: 0.3; filter: blur(0.5px); animation: fall linear infinite; }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+            100% { transform: translateY(110vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        header { padding: 25px 5%; text-align: center; background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--light-gray); }
+        .brand-logo { width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--gold); vertical-align: middle; margin-right: 10px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.8rem; letter-spacing: 5px; display: inline-block; color: var(--gold); }
+        nav.nav-links { display: flex; justify-content: center; gap: 30px; margin-top: 15px; }
+        nav.nav-links a { text-decoration: none; color: var(--white); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; transition: 0.3s; }
+        nav.nav-links a:hover { opacity: 1; color: var(--gold); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
+        .section-label { text-align: center; font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 6px; margin-bottom: 50px; text-transform: uppercase; }
+
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .price-card { background: rgba(26, 26, 26, 0.4); border: 1px solid var(--light-gray); padding: 30px; text-align: center; transition: 0.4s; }
+        .price-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .qty { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); }
+
+        .custom-section { background: rgba(0, 0, 0, 0.8); padding: 80px 5%; }
+        .deco-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .deco-cat h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; letter-spacing: 2px; text-align: center; color: var(--gold); }
+        .deco-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .dots { flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.2); margin: 0 10px 5px; }
+        
+        .sold-out { opacity: 0.4; filter: grayscale(1); pointer-events: none; }
+        .sold-out-badge { color: var(--out-of-stock); font-size: 0.6rem; font-weight: bold; border: 1px solid var(--out-of-stock); padding: 2px 5px; margin-left: 10px; }
+
+        .order-container { max-width: 900px; margin: 80px auto; padding: 50px 5%; background: rgba(20, 20, 20, 0.8); border: 1px solid var(--light-gray); border-top: 3px solid var(--gold); }
+        .form-group { margin-bottom: 35px; }
+        label { display: block; font-family: 'Cinzel', serif; font-size: 0.85rem; margin-bottom: 15px; letter-spacing: 2px; color: var(--gold); }
+        select, input, textarea { width: 100%; padding: 15px; background: #000; border: 1px solid var(--light-gray); color: #fff; box-sizing: border-box; }
+        
+        .selection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+        .check-card { background: rgba(255,255,255,0.05); padding: 12px; font-size: 0.65rem; display: flex; align-items: center; gap: 12px; cursor: pointer; border: 1px solid transparent; text-transform: uppercase; transition: 0.3s; }
+        .check-card:hover { border-color: var(--gold); }
+        .check-card input { width: 16px; height: 16px; accent-color: var(--gold); }
+
+        .price-summary { background: #000; padding: 30px; text-align: center; border: 1px solid var(--gold); margin-top: 30px; }
+        .total-amount { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); font-weight: 600; }
+        
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .btn-submit { padding: 20px; border: none; font-family: 'Cinzel', serif; font-weight: 700; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; font-size: 0.75rem; }
+        .btn-total { background: var(--paypal-blue); color: #fff; }
+        .btn-acompte { background: transparent; border: 1px solid var(--paypal-blue); color: var(--paypal-blue); }
+        .btn-submit:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        #thankYouModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; justify-content: center; align-items: center; text-align: center; }
+        .modal-content { background: #111; padding: 30px; border: 1px solid var(--gold); max-width: 450px; width: 90%; }
+        .copy-box { background: #000; border: 1px dashed var(--gold); padding: 15px; margin: 20px 0; font-size: 0.8rem; color: #fff; text-align: left; }
+
+        footer { text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-roses" id="rosesBg"></div>
+
+    <header>
+        <div class="brand-container">
+            <img src="https://i.ibb.co/B2KW28r4/IMG-4055.jpg" alt="Logo" class="brand-logo">
+            <h1 class="logo-text">BY.<span>LINOUSH</span></h1>
+        </div>
+        <nav class="nav-links">
+            <a href="#roses">Compositions</a>
+            <a href="#catalogue">Catalogue</a>
+            <a href="#commander">Commander</a>
+        </nav>
+    </header>
+
+    <div id="thankYouModal">
+        <div class="modal-content">
+            <h2 style="font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 10px;">Récapitulatif</h2>
+            <p style="font-size: 0.8rem;">Veuillez copier ce texte pour le coller dans la case <b>"Ajouter une note"</b> sur PayPal :</p>
+            
+            <div class="copy-box" id="orderSummaryText"></div>
+            
+            <button onclick="redirectToPayPal()" class="btn-submit btn-total" style="width: 100%;">Copier & Aller sur PayPal</button>
+            <p style="font-size: 0.6rem; margin-top: 15px; opacity: 0.7;">Redirection automatique dans quelques secondes...</p>
+        </div>
+    </div>
+
+    <div class="container" id="roses">
+        <h2 class="section-label" data-aos="fade-up">✨ Nos Roses Artisanales ✨</h2>
+        <div class="price-grid">
+            <div class="price-card" data-aos="fade-up"><div class="qty">13 roses</div><div class="amount">25€</div></div>
+            <div class="price-card" data-aos="fade-up" data-aos-delay="100"><div class="qty">18 roses</div><div class="amount">35€</div></div>
+            <div class="price-card" data-aos="fade-up" data-aos-delay="200"><div class="qty">30 roses</div><div class="amount">59€</div></div>
+            <div class="price-card" data-aos="fade-up" data-aos-delay="300"><div class="qty">50 roses</div><div class="amount">99€</div></div>
+            <div class="price-card" data-aos="zoom-in" style="border-color: var(--gold);"><div class="qty">101 roses</div><div class="amount">225€</div><small>3 DÉCOS OFFERTES</small></div>
+        </div>
+    </div>
+
+    <section class="custom-section" id="catalogue">
+        <div class="deco-grid">
+            <div class="deco-cat" data-aos="fade-up">
+                <h3>🌹 Roses Éternelles</h3>
+                <div class="deco-item"><span>Standard</span><div class="dots"></div><span>20€</span></div>
+                <div class="deco-item"><span>Perso (Prénom)</span><div class="dots"></div><span>25€</span></div>
+                <div class="deco-item"><span>Option Ruban Perso</span><div class="dots"></div><span>6€</span></div>
+            </div>
+
+            <div class="deco-cat" data-aos="fade-up">
+                <h3>💎 Collection Bijoux</h3>
+                <div class="deco-item"><span>Box Rose + Bague</span><div class="dots"></div><span>20€</span></div>
+                <div class="deco-item"><span>Box Bracelet + B.O</span><div class="dots"></div><span>10€</span></div>
+                <div class="deco-item"><span>Option Perso Box</span><div class="dots"></div><span>+5€</span></div>
+            </div>
+
+            <div class="deco-cat sold-out" data-aos="fade-up">
+                <h3>🌙 Univers Prière <span class="sold-out-badge">RUPTURE</span></h3>
+                <div class="deco-item"><span>Tapis Perso</span><div class="dots"></div><span>16€</span></div>
+                <div class="deco-item"><span>Coffret S / M</span><div class="dots"></div><span>40€ / 46€</span></div>
+                <div class="deco-item"><span>Coffret L / XL</span><div class="dots"></div><span>48€ / 75€</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="order-container" id="commander">
+        <h2 style="text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 40px; color: var(--gold);">Finalisez votre Commande</h2>
+        <form id="orderForm">
+            
+            <div class="form-group">
+                <label>Vos Coordonnées</label>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <input type="text" id="clientName" placeholder="Nom Complet" required>
+                    <input type="text" id="clientPhone" placeholder="Téléphone" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Produit Souhaité</label>
+                <select id="mainProduct" onchange="updateFormDisplay()">
+                    <optgroup label="🌹 BOUQUETS">
+                        <option value="Bouquet Roses" data-price="25">Bouquet de Roses Personnalisé</option>
+                    </optgroup>
+                    <optgroup label="🌹 ROSES ÉTERNELLES">
+                        <option value="Rose Eternelle Std" data-price="20">Rose Éternelle Standard (20€)</option>
+                        <option value="Rose Eternelle Perso" data-price="25">Rose Éternelle Personnalisée (25€)</option>
+                    </optgroup>
+                    <optgroup label="💎 COLLECTION BIJOUX">
+                        <option value="Box Rose+Bague" data-price="20">Box Rose + Bague (20€)</option>
+                        <option value="Box Bracelet+BO" data-price="10">Box Bracelet + B.O (10€)</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div id="jewelOptions" class="form-group" style="display:none;">
+                <label>Options Bijoux</label>
+                <label class="check-card">
+                    <input type="checkbox" id="persoBoxJewel" class="extra" value="Perso Box" data-price="5" onchange="calculateTotal()"> 
+                    Personnalisation de la Box (+5€)
+                </label>
+            </div>
+
+            <div id="eternelleOptions" class="form-group" style="display:none;">
+                <label>Configuration Rose Éternelle</label>
+                <select id="eternelleColor">
+                    <option value="Rouge">Rouge Classique</option>
+                    <option value="Rose">Rose Doux</option>
+                    <option value="Bleu">Bleu Royal</option>
+                </select>
+                <div id="prenomField" style="margin-top: 15px; display:none;">
+                    <input type="text" id="eternellePrenom" placeholder="Prénom pour la personnalisation">
+                </div>
+            </div>
+
+            <div id="bouquetDetails" class="form-group">
+                <label>Nombre de Roses</label>
+                <select id="bouquetQty" onchange="calculateTotal()">
+                    <option value="13" data-price="25">13 Roses - 25€</option>
+                    <option value="18" data-price="35">18 Roses - 35€</option>
+                    <option value="30" data-price="59">30 Roses - 59€</option>
+                    <option value="50" data-price="99">50 Roses - 99€</option>
+                    <option value="101" data-price="225">101 Roses - 225€</option>
+                </select>
+            </div>
+
+            <div id="personalizationSection" class="form-group">
+                <label>Personnalisez votre Bouquet (Options)</label>
+                <div class="selection-grid">
+                    <label class="check-card"><input type="checkbox" class="extra" value="Stitch Perso" data-price="20" onchange="calculateTotal()"> Stitch Perso (+20€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Coeur Inflam." data-price="10" onchange="calculateTotal()"> Coeur Inflammable (+10€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Grand Diadème" data-price="8" onchange="calculateTotal()"> Grand Diadème (+8€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Ruban Perso" data-price="6" onchange="calculateTotal()"> Ruban Perso (+6€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Aiguilles" data-price="6" onchange="calculateTotal()"> Aiguilles (+6€)</label>
+                    <label class="check-card"><input type="checkbox" class="extra" value="Papillons" data-price="2" onchange="calculateTotal()"> Papillons (+2€)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mode de Réception</label>
+                <select id="deliveryMethod" onchange="calculateTotal()">
+                    <option value="0">Remise en main propre (Lyon) - Gratuit</option>
+                    <option value="10" data-label="Colissimo">Envoi Colissimo (France) - 10€</option>
+                    <option value="15" data-label="International">Envoi International - 15€</option>
+                </select>
+            </div>
+
+            <div class="price-summary">
+                <div style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">TOTAL DE LA COMMANDE</div>
+                <div class="total-amount"><span id="fullPriceDisplay">25</span>€</div>
+                <div style="font-size: 0.75rem; margin-top: 10px; color: #aaa;">ACOMPTE CALCULÉ (50%) : <span id="depositDisplay">12.50</span>€</div>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn-submit btn-acompte" onclick="prepareOrder(true)">Régler l'Acompte (50%)</button>
+                <button type="button" class="btn-submit btn-total" onclick="prepareOrder(false)">Payer le Total (100%)</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>BY.LINOUSH CRÉATION © 2026 | LYON & ALENTOURS</footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        let currentPayPalURL = "";
+
+        function updateFormDisplay() {
+            const product = document.getElementById('mainProduct').value;
+            document.getElementById('bouquetDetails').style.display = (product === 'Bouquet Roses') ? 'block' : 'none';
+            document.getElementById('personalizationSection').style.display = (product === 'Bouquet Roses') ? 'block' : 'none';
+            document.getElementById('eternelleOptions').style.display = product.startsWith('Rose Eternelle') ? 'block' : 'none';
+            document.getElementById('prenomField').style.display = (product === 'Rose Eternelle Perso') ? 'block' : 'none';
+            document.getElementById('jewelOptions').style.display = (product.startsWith('Box')) ? 'block' : 'none';
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const productSelect = document.getElementById('mainProduct');
+            let total = 0;
+
+            if(productSelect.value === 'Bouquet Roses') {
+                total += parseInt(document.getElementById('bouquetQty').options[document.getElementById('bouquetQty').selectedIndex].getAttribute('data-price'));
+            } else {
+                total += parseInt(productSelect.options[productSelect.selectedIndex].getAttribute('data-price'));
+            }
+
+            document.querySelectorAll('.extra:checked').forEach(item => total += parseInt(item.getAttribute('data-price')));
+            total += parseInt(document.getElementById('deliveryMethod').value);
+            
+            document.getElementById('fullPriceDisplay').innerText = total;
+            document.getElementById('depositDisplay').innerText = (total / 2).toFixed(2);
+            return total;
+        }
+
+        function prepareOrder(isDeposit) {
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            if(!name || !phone) { alert("Nom et téléphone requis."); return; }
+
+            const total = calculateTotal();
+            const amount = isDeposit ? (total / 2) : total;
+            const type = isDeposit ? "ACOMPTE 50%" : "PAYÉ 100%";
+            
+            // Construction de la description
+            const product = document.getElementById('mainProduct').value;
+            let qty = (product === 'Bouquet Roses') ? document.getElementById('bouquetQty').value + " roses" : "";
+            
+            let extras = [];
+            document.querySelectorAll('.extra:checked').forEach(e => extras.push(e.value));
+            
+            let recap = `📌 ${type}\n👤 Client: ${name}\n📞 Tél: ${phone}\n🎁 Produit: ${product} ${qty}`;
+            if(extras.length > 0) recap += `\n✨ Décos: ${extras.join(', ')}`;
+            if(product === 'Rose Eternelle Perso') recap += `\n✍️ Prénom: ${document.getElementById('eternellePrenom').value}`;
+            recap += `\n💰 Montant: ${amount.toFixed(2)}€`;
+
+            // Affichage dans le modal
+            document.getElementById('orderSummaryText').innerText = recap;
+            currentPayPalURL = `https://www.paypal.com/paypalme/cherifilina/${amount.toFixed(2)}`;
+            
+            document.getElementById('thankYouModal').style.display = 'flex';
+
+            // Copie automatique dans le presse-papier
+            navigator.clipboard.writeText(recap);
+            
+            // Redirection après 6 secondes pour laisser le temps de lire
+            setTimeout(redirectToPayPal, 6000);
+        }
+
+        function redirectToPayPal() {
+            window.location.href = currentPayPalURL;
+        }
+
+        const bg = document.getElementById('rosesBg');
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.className = 'petal';
+            p.style.width = p.style.height = Math.random() * 15 + 10 + 'px';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDuration = Math.random() * 7 + 8 + 's';
+            bg.appendChild(p);
+        }
+        updateFormDisplay();
+    </script>
+</body>
+</html>
