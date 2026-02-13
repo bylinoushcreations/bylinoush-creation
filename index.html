@@ -83,6 +83,8 @@
 
         footer { text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px; line-height: 1.8; }
         .footer-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; font-weight: 600; }
+        
+        .stock-alert { color: var(--out-of-stock); font-size: 0.7rem; margin-top: 5px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -171,6 +173,30 @@
                 </select>
             </div>
 
+            <div id="bouquetDetails" class="form-group">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <div>
+                        <label>Nombre de Roses</label>
+                        <select name="NB_Roses" id="bouquetQty" onchange="calculateTotal()">
+                            <option value="13" data-price="25">13 Roses - 25€</option>
+                            <option value="18" data-price="35">18 Roses - 35€</option>
+                            <option value="30" data-price="59">30 Roses - 59€</option>
+                            <option value="50" data-price="99">50 Roses - 99€</option>
+                            <option value="101" data-price="225">101 Roses - 225€</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Couleur des Roses</label>
+                        <select name="Couleur_Roses" id="bouquetColor">
+                            <option value="Rouge" disabled style="color: #666;">Rouge (RUPTURE DE STOCK)</option>
+                            <option value="Rose" selected>Rose</option>
+                            <option value="Bleu">Bleu</option>
+                        </select>
+                        <div class="stock-alert">⚠️ Les roses rouges sont indisponibles pour le moment.</div>
+                    </div>
+                </div>
+            </div>
+
             <div id="jewelOptions" class="form-group" style="display:none;">
                 <label>Options Bijoux</label>
                 <label class="check-card">
@@ -182,24 +208,13 @@
             <div id="eternelleOptions" class="form-group" style="display:none;">
                 <label>Configuration Rose Éternelle</label>
                 <select name="Couleur_Eternelle" id="eternelleColor">
-                    <option value="Rouge">Rouge Classique</option>
+                    <option value="Rouge">Rouge Classique (DISPONIBLE)</option>
                     <option value="Rose">Rose Doux</option>
                     <option value="Bleu">Bleu Royal</option>
                 </select>
                 <div id="prenomField" style="margin-top: 15px; display:none;">
                     <input type="text" name="Prenom_Eternelle" id="eternellePrenom" placeholder="Prénom pour la personnalisation">
                 </div>
-            </div>
-
-            <div id="bouquetDetails" class="form-group">
-                <label>Nombre de Roses</label>
-                <select name="NB_Roses" id="bouquetQty" onchange="calculateTotal()">
-                    <option value="13" data-price="25">13 Roses - 25€</option>
-                    <option value="18" data-price="35">18 Roses - 35€</option>
-                    <option value="30" data-price="59">30 Roses - 59€</option>
-                    <option value="50" data-price="99">50 Roses - 99€</option>
-                    <option value="101" data-price="225">101 Roses - 225€</option>
-                </select>
             </div>
 
             <div id="personalizationSection" class="form-group">
@@ -347,6 +362,9 @@
             
             const product = document.getElementById('mainProduct').value;
             let qty = (product === 'Bouquet Roses') ? document.getElementById('bouquetQty').value + " roses" : "";
+            let colorInfo = (product === 'Bouquet Roses') ? `\n🎨 Couleur: ${document.getElementById('bouquetColor').value}` : "";
+            if (product.startsWith('Rose Eternelle')) colorInfo = `\n🎨 Couleur: ${document.getElementById('eternelleColor').value}`;
+            
             let extras = [];
             document.querySelectorAll('.extra:checked').forEach(e => {
                 let val = e.value;
@@ -354,7 +372,7 @@
                 extras.push(val);
             });
             
-            let recap = `📌 ${type}\n👤 Client: ${name}\n📞 Tél: ${phone}\n🎁 Produit: ${product} ${qty}`;
+            let recap = `📌 ${type}\n👤 Client: ${name}\n📞 Tél: ${phone}\n🎁 Produit: ${product} ${qty}${colorInfo}`;
             if(extras.length > 0) recap += `\n✨ Décos: ${extras.join(', ')}`;
             if(document.getElementById('checkRuban').checked) recap += `\n🎗️ Ruban: ${document.getElementById('fieldRuban').value}`;
             if(document.getElementById('checkLettre').checked) recap += `\n🔡 Lettre: ${document.getElementById('fieldLettre').value.toUpperCase()}`;
