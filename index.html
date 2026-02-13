@@ -56,7 +56,7 @@
         .order-container { max-width: 900px; margin: 80px auto; padding: 50px 5%; background: rgba(20, 20, 20, 0.8); border: 1px solid var(--light-gray); border-top: 3px solid var(--gold); }
         .form-group { margin-bottom: 35px; }
         label { display: block; font-family: 'Cinzel', serif; font-size: 0.85rem; margin-bottom: 15px; letter-spacing: 2px; color: var(--gold); }
-        select, input, textarea { width: 100%; padding: 15px; background: #000; border: 1px solid var(--light-gray); color: #fff; box-sizing: border-box; }
+        select, input, textarea { width: 100%; padding: 15px; background: #000; border: 1px solid var(--light-gray); color: #fff; box-sizing: border-box; font-size: 0.8rem; }
         
         .selection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
         .check-card { background: rgba(255,255,255,0.05); padding: 12px; font-size: 0.65rem; display: flex; align-items: center; gap: 12px; cursor: pointer; border: 1px solid transparent; text-transform: uppercase; transition: 0.3s; }
@@ -66,7 +66,10 @@
         .dynamic-field { margin-top: 10px; display: none; width: 100%; animation: fadeIn 0.3s forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-        .price-summary { background: #000; padding: 30px; text-align: center; border: 1px solid var(--gold); margin-top: 30px; }
+        .live-details { text-align: left; font-size: 0.75rem; margin-bottom: 20px; padding: 15px; border-left: 2px solid var(--gold); background: rgba(255,255,255,0.02); }
+        .live-details div { display: flex; justify-content: space-between; margin-bottom: 5px; opacity: 0.8; }
+
+        .price-summary { background: #000; padding: 30px; text-align: center; border: 1px solid var(--gold); margin-top: 10px; }
         .total-amount { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); font-weight: 600; }
         
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
@@ -202,8 +205,17 @@
             <div id="personalizationSection" class="form-group">
                 <label>Personnalisez votre Bouquet (Options)</label>
                 <div class="selection-grid">
-                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Stitch Perso" data-price="20" onchange="calculateTotal()"> Stitch Personnalisé (+20€)</label>
-                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Mini Stitch" data-price="10" onchange="calculateTotal()"> Mini Stitch Perso (+10€)</label>
+                    <div style="grid-column: span 1;">
+                        <label class="check-card"><input type="checkbox" name="Deco" class="extra" id="checkStitchG" value="Stitch Perso" data-price="20" onchange="togglePersoField('checkStitchG', 'fieldStitchG')"> Stitch Personnalisé (+20€)</label>
+                        <select id="fieldStitchG" name="Couleur_Stitch_G" class="dynamic-field" onchange="calculateTotal()">
+                            <option value="Bleu">Couleur : Bleu</option>
+                            <option value="Rose">Couleur : Rose</option>
+                        </select>
+                    </div>
+
+                    <label class="check-card" style="opacity: 0.5; cursor: not-allowed;">
+                        <input type="checkbox" disabled> Mini Stitch <span style="color: var(--out-of-stock); font-size: 0.6rem; margin-left: 5px;">(RUPTURE)</span>
+                    </label>
                     
                     <label class="check-card" style="opacity: 0.5; cursor: not-allowed;">
                         <input type="checkbox" disabled> Coeur Inflammable <span style="color: var(--out-of-stock); font-size: 0.6rem; margin-left: 5px;">(RUPTURE)</span>
@@ -214,7 +226,7 @@
                     
                     <div style="grid-column: span 1;">
                         <label class="check-card"><input type="checkbox" name="Deco" class="extra" id="checkRuban" value="Ruban Perso" data-price="4" onchange="togglePersoField('checkRuban', 'fieldRuban')"> Ruban Perso (+4€)</label>
-                        <input type="text" id="fieldRuban" name="Texte_Ruban" class="dynamic-field" placeholder="Texte du ruban (Prénom/Date...)">
+                        <input type="text" id="fieldRuban" name="Texte_Ruban" class="dynamic-field" placeholder="Texte du ruban (Prénom...)">
                     </div>
 
                     <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Aiguilles" data-price="6" onchange="calculateTotal()"> Aiguilles Cristal (+6€)</label>
@@ -235,10 +247,12 @@
                 <label>Mode de Réception</label>
                 <select name="Reception" id="deliveryMethod" onchange="calculateTotal()">
                     <option value="0">Remise en main propre (Lyon) - Gratuit</option>
-                    <option value="10">Envoi Colissimo (France) - 10€</option>
-                    <option value="15">Envoi International - 15€</option>
+                    <option value="10" data-label="Envoi Colissimo">Envoi Colissimo (France) - 10€</option>
+                    <option value="15" data-label="Envoi International">Envoi International - 15€</option>
                 </select>
             </div>
+
+            <div id="livePricing" class="live-details"></div>
 
             <div class="price-summary">
                 <div class="total-amount"><span id="fullPriceDisplay">25</span>€</div>
@@ -281,14 +295,40 @@
 
         function calculateTotal() {
             const productSelect = document.getElementById('mainProduct');
+            const livePricing = document.getElementById('livePricing');
+            livePricing.innerHTML = "";
+            
             let total = 0;
+            let productPrice = 0;
+            let productName = "";
+
             if(productSelect.value === 'Bouquet Roses') {
-                total += parseInt(document.getElementById('bouquetQty').options[document.getElementById('bouquetQty').selectedIndex].getAttribute('data-price'));
+                const opt = document.getElementById('bouquetQty').options[document.getElementById('bouquetQty').selectedIndex];
+                productPrice = parseInt(opt.getAttribute('data-price'));
+                productName = `Bouquet (${opt.value} roses)`;
             } else {
-                total += parseInt(productSelect.options[productSelect.selectedIndex].getAttribute('data-price'));
+                productPrice = parseInt(productSelect.options[productSelect.selectedIndex].getAttribute('data-price'));
+                productName = productSelect.options[productSelect.selectedIndex].text.split('(')[0];
             }
-            document.querySelectorAll('.extra:checked').forEach(item => total += parseInt(item.getAttribute('data-price')));
-            total += parseInt(document.getElementById('deliveryMethod').value);
+            total += productPrice;
+            livePricing.innerHTML += `<div><span>${productName}</span><span>${productPrice}€</span></div>`;
+
+            document.querySelectorAll('.extra:checked').forEach(item => {
+                let p = parseInt(item.getAttribute('data-price'));
+                total += p;
+                let label = item.value;
+                if(item.id === 'checkStitchG') label += ` (${document.getElementById('fieldStitchG').value})`;
+                livePricing.innerHTML += `<div><span>+ ${label}</span><span>${p}€</span></div>`;
+            });
+
+            const delivery = document.getElementById('deliveryMethod');
+            const delPrice = parseInt(delivery.value);
+            if(delPrice > 0) {
+                total += delPrice;
+                const delLabel = delivery.options[delivery.selectedIndex].getAttribute('data-label') || "Livraison";
+                livePricing.innerHTML += `<div><span>+ ${delLabel}</span><span>${delPrice}€</span></div>`;
+            }
+
             document.getElementById('fullPriceDisplay').innerText = total;
             document.getElementById('depositDisplay').innerText = (total / 2).toFixed(2);
             return total;
@@ -308,7 +348,11 @@
             const product = document.getElementById('mainProduct').value;
             let qty = (product === 'Bouquet Roses') ? document.getElementById('bouquetQty').value + " roses" : "";
             let extras = [];
-            document.querySelectorAll('.extra:checked').forEach(e => extras.push(e.value));
+            document.querySelectorAll('.extra:checked').forEach(e => {
+                let val = e.value;
+                if(e.id === 'checkStitchG') val += ` (${document.getElementById('fieldStitchG').value})`;
+                extras.push(val);
+            });
             
             let recap = `📌 ${type}\n👤 Client: ${name}\n📞 Tél: ${phone}\n🎁 Produit: ${product} ${qty}`;
             if(extras.length > 0) recap += `\n✨ Décos: ${extras.join(', ')}`;
