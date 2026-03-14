@@ -22,7 +22,7 @@
   }
 
 - { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; background-color: #0a0a0a !important; }
+  html { scroll-behavior: smooth; background-color: #0a0a0a !important; scroll-padding-top: 120px; }
 
 body {
 font-family: ‘Jost’, ‘Helvetica Neue’, Arial, sans-serif !important;
@@ -50,8 +50,8 @@ z-index: 1;
 /* NAV */
 nav {
 position: sticky; top: 0; z-index: 100;
-background: var(–black);
-border-bottom: 1px solid var(–border);
+background: #0a0a0a;
+border-bottom: 1px solid rgba(201,168,76,0.25);
 padding: 0 2rem;
 }
 .nav-inner {
@@ -63,21 +63,22 @@ padding: 1.2rem 0 0.8rem; gap: 0.8rem;
 .nav-logo-circle {
 width: 52px; height: 52px; border-radius: 50%;
 background: white; display: flex; align-items: center; justify-content: center;
-font-family: ‘Cinzel’, serif; font-size: 1.1rem; font-weight: 600;
-color: var(–black); flex-shrink: 0;
-box-shadow: 0 0 0 2px var(–gold);
+font-family: ‘Cinzel’, Georgia, serif; font-size: 1.1rem; font-weight: 600;
+color: #0a0a0a; flex-shrink: 0;
+border: 2px solid #c9a84c;
+box-shadow: 0 0 0 2px #c9a84c;
 }
 .nav-title {
-font-family: ‘Cinzel’, serif; font-size: 1.8rem;
-font-weight: 600; letter-spacing: 0.15em; color: var(–gold);
+font-family: ‘Cinzel’, Georgia, serif; font-size: 1.8rem;
+font-weight: 600; letter-spacing: 0.15em; color: #c9a84c;
 }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
 text-decoration: none; font-size: 0.65rem;
 letter-spacing: 0.25em; text-transform: uppercase;
-color: var(–text-muted); transition: color 0.3s; padding-bottom: 0.5rem;
+color: rgba(255,255,255,0.55); transition: color 0.3s; padding-bottom: 0.5rem;
 }
-.nav-links a:hover { color: var(–gold); }
+.nav-links a:hover { color: #c9a84c; }
 
 /* HERO */
 .hero {
@@ -90,25 +91,25 @@ content: ‘’; position: absolute; inset: 0;
 background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
 }
 .hero-sparkle {
-font-size: 1.2rem; color: var(–gold); letter-spacing: 1rem;
+font-size: 1.2rem; color: #c9a84c; letter-spacing: 1rem;
 margin-bottom: 1.5rem; animation: pulse 3s ease infinite;
 }
 @keyframes pulse { 0%,100%{opacity:.7} 50%{opacity:1} }
 .hero-title {
-font-family: ‘Cinzel’, serif;
+font-family: ‘Cinzel’, Georgia, serif;
 font-size: clamp(2rem, 8vw, 4.5rem);
-font-weight: 400; letter-spacing: 0.2em; color: var(–gold); line-height: 1.1; margin-bottom: 1rem;
+font-weight: 400; letter-spacing: 0.2em; color: #c9a84c; line-height: 1.1; margin-bottom: 1rem;
 }
 .hero-sub {
 font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
-color: var(–text-muted); margin-bottom: 2.5rem;
+color: rgba(255,255,255,0.55); margin-bottom: 2.5rem;
 }
 .hero-btn {
-display: inline-block; border: 1px solid var(–gold); color: var(–gold);
+display: inline-block; border: 1px solid #c9a84c; color: #c9a84c;
 padding: 0.9rem 2.8rem; font-size: 0.7rem; letter-spacing: 0.25em;
 text-transform: uppercase; text-decoration: none; transition: background 0.3s, color 0.3s;
 }
-.hero-btn:hover { background: var(–gold); color: var(–black); }
+.hero-btn:hover { background: #c9a84c; color: #0a0a0a; }
 
 /* SECTION */
 .section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
@@ -116,30 +117,30 @@ text-transform: uppercase; text-decoration: none; transition: background 0.3s, c
 display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;
 }
 .section-title-line .line {
-flex: 1; height: 1px; background: var(–border-bright); max-width: 120px;
+flex: 1; height: 1px; background: rgba(201,168,76,0.6); max-width: 120px;
 }
 .section-h2 {
 font-family: ‘Cormorant Garamond’, serif; font-size: 1.6rem; font-weight: 400;
-color: var(–text); display: flex; align-items: center; gap: 0.7rem; white-space: nowrap;
+color: #ffffff; display: flex; align-items: center; gap: 0.7rem; white-space: nowrap;
 }
 
-.section-divider { width: 100%; height: 1px; background: var(–border); margin-top: 1rem; }
+.section-divider { width: 100%; height: 1px; background: rgba(201,168,76,0.25); margin-top: 1rem; }
 
 /* ROSE LIST */
 .rose-list { display: flex; flex-direction: column; gap: 1rem; }
 .rose-card {
-border: 1px solid var(–border); background: var(–dark2);
+border: 1px solid rgba(201,168,76,0.25); background: #181818;
 padding: 1.8rem 2rem; text-align: center;
 transition: border-color 0.3s, background 0.3s;
 }
-.rose-card.featured { border-color: var(–gold); }
-.rose-card:hover { border-color: var(–border-bright); background: var(–dark3); }
+.rose-card.featured { border-color: #c9a84c; }
+.rose-card:hover { border-color: rgba(201,168,76,0.6); background: #222222; }
 .rose-card .qty {
 font-family: ‘Cormorant Garamond’, serif; font-size: 2rem;
-font-weight: 300; font-style: italic; color: var(–gold); margin-bottom: 0.3rem;
+font-weight: 300; font-style: italic; color: #c9a84c; margin-bottom: 0.3rem;
 }
-.rose-card .price { font-size: 0.9rem; letter-spacing: 0.1em; color: var(–text-muted); }
-.rose-card .bonus { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–gold); margin-top: 0.4rem; }
+.rose-card .price { font-size: 0.9rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.55); }
+.rose-card .bonus { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a84c; margin-top: 0.4rem; }
 
 /* MENU LIST */
 .menu-list { display: flex; flex-direction: column; gap: 0; }
@@ -150,93 +151,93 @@ padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
 .menu-item:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
 .menu-name {
 font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
-color: var(–text-muted); display: flex; align-items: center; gap: 0.8rem; flex: 1;
+color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.8rem; flex: 1;
 }
 .menu-dots { flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.1); margin: 0 1rem; min-width: 20px; }
-.menu-price { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: var(–text); white-space: nowrap; }
+.menu-price { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: #ffffff; white-space: nowrap; }
 
 /* CATALOGUE BG */
 .section-bg {
-background: var(–dark2);
-border-top: 1px solid var(–border);
-border-bottom: 1px solid var(–border);
+background: #181818;
+border-top: 1px solid rgba(201,168,76,0.25);
+border-bottom: 1px solid rgba(201,168,76,0.25);
 padding: 3rem 2rem;
 }
 
 /* FORM */
-.form-section { background: var(–dark2); border-top: 1px solid var(–border); }
+.form-section { background: #181818; border-top: 1px solid rgba(201,168,76,0.25); }
 .form-title {
 font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2rem,5vw,3rem);
-font-weight: 300; font-style: italic; color: var(–gold); text-align: center; padding: 3rem 2rem 0;
+font-weight: 300; font-style: italic; color: #c9a84c; text-align: center; padding: 3rem 2rem 0;
 }
 .form-inner { max-width: 760px; margin: 0 auto; padding: 2rem 2rem 4rem; }
 .form-group-title {
 font-family: ‘Cormorant Garamond’, serif; font-size: 0.9rem;
-letter-spacing: 0.2em; text-transform: uppercase; color: var(–gold-pale); margin: 2rem 0 1rem;
+letter-spacing: 0.2em; text-transform: uppercase; color: #f0e0b0; margin: 2rem 0 1rem;
 }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-row.full { grid-template-columns: 1fr; }
 
 input, select, textarea {
-width: 100%; background: var(–dark3); border: 1px solid var(–border);
-color: var(–text); padding: 0.9rem 1.2rem;
+width: 100%; background: #222222 !important; border: 1px solid rgba(201,168,76,0.25);
+color: #ffffff !important; padding: 0.9rem 1.2rem;
 font-family: ‘Jost’, sans-serif; font-size: 0.82rem; letter-spacing: 0.05em;
 outline: none; transition: border-color 0.3s; appearance: none;
+-webkit-appearance: none;
 }
-input:focus, select:focus, textarea:focus { border-color: var(–gold); }
-input::placeholder { color: var(–text-muted); }
-select {
-cursor: pointer;
-background-image: url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘8’%3E%3Cpath d=‘M0 0l6 8 6-8z’ fill=’%23c9a84c’/%3E%3C/svg%3E”);
+input:focus, select:focus, textarea:focus { border-color: #c9a84c; }
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.35) !important; }
+select { cursor: pointer;
+background-image: url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘8’%3E%3Cpath d=‘M0 0l6 8 6-8z’ fill=’%23c9a84c’/%3E%3C/svg%3E”) !important;
 background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
 }
-select option { background: var(–dark3); color: var(–text); }
+select option { background: #222222 !important; color: #ffffff !important; }
 
 /* CHECKBOXES */
 .options-list { display: flex; flex-direction: column; gap: 0.5rem; }
 .option-item {
 display: flex; align-items: center; gap: 1rem;
-background: var(–dark3); border: 1px solid var(–border);
+background: #222222; border: 1px solid rgba(201,168,76,0.25);
 padding: 0.9rem 1.2rem; cursor: pointer; transition: border-color 0.3s, background 0.3s;
 }
-.option-item:hover { border-color: var(–border-bright); background: rgba(201,168,76,0.05); }
+.option-item:hover { border-color: rgba(201,168,76,0.6); background: rgba(201,168,76,0.05); }
 .option-item input[type=“checkbox”] { display: none; }
 .custom-cb {
-width: 20px; height: 20px; border: 1px solid var(–border-bright); border-radius: 4px;
-background: var(–dark2); flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+width: 20px; height: 20px; border: 1px solid rgba(201,168,76,0.6); border-radius: 4px;
+background: #181818; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
 transition: background 0.2s, border-color 0.2s; position: relative;
 }
-.option-item.checked .custom-cb { background: var(–gold); border-color: var(–gold); }
+.option-item.checked .custom-cb { background: #c9a84c; border-color: #c9a84c; }
 .option-item.checked .custom-cb::after {
 content: ‘’; position: absolute;
-width: 5px; height: 9px; border: 2px solid var(–black);
+width: 5px; height: 9px; border: 2px solid #0a0a0a;
 border-top: none; border-left: none; transform: rotate(45deg) translateY(-1px);
 }
-.option-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); flex: 1; }
-.option-price { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: var(–gold); }
+.option-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); flex: 1; }
+.option-price { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: #c9a84c; }
 
 /* DELIVERY */
 .delivery-options { display: flex; flex-direction: column; gap: 0.5rem; }
 .delivery-item {
-background: var(–dark3); border: 1px solid var(–border);
+background: #222222; border: 1px solid rgba(201,168,76,0.25);
 padding: 0.9rem 1.2rem; font-size: 0.78rem; letter-spacing: 0.05em;
-color: var(–text-muted); cursor: pointer; transition: border-color 0.3s, color 0.3s;
+color: rgba(255,255,255,0.55); cursor: pointer; transition: border-color 0.3s, color 0.3s;
 }
-.delivery-item.selected { border-color: var(–gold); color: var(–text); }
+.delivery-item.selected { border-color: #c9a84c; color: #ffffff; }
 
 /* TOTAL */
-.total-box { border: 1px solid var(–gold); padding: 2rem; text-align: center; margin-top: 2rem; }
+.total-box { border: 1px solid #c9a84c; padding: 2rem; text-align: center; margin-top: 2rem; }
 .total-items { margin-bottom: 1.5rem; }
 .total-line {
 display: flex; justify-content: space-between;
-font-size: 0.78rem; letter-spacing: 0.05em; color: var(–text-muted);
+font-size: 0.78rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.55);
 padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .total-amount {
 font-family: ‘Cormorant Garamond’, serif; font-size: 3.5rem;
-font-weight: 300; color: var(–gold); line-height: 1; margin-bottom: 0.3rem;
+font-weight: 300; color: #c9a84c; line-height: 1; margin-bottom: 0.3rem;
 }
-.total-acompte { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–text-muted); margin-bottom: 1rem; }
+.total-acompte { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
 
 /* BUTTONS */
 .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
@@ -246,18 +247,18 @@ font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
 cursor: pointer; border: none; font-weight: 400; transition: opacity 0.2s, transform 0.2s;
 }
 .btn:hover { opacity: 0.85; transform: translateY(-1px); }
-.btn-outline { background: transparent; border: 1px solid var(–gold); color: var(–gold); }
+.btn-outline { background: transparent; border: 1px solid #c9a84c; color: #c9a84c; }
 .btn-solid { background: #2196F3; color: white; }
 
 textarea { resize: vertical; min-height: 80px; }
 
 /* FOOTER */
 footer {
-text-align: center; padding: 2.5rem 2rem; border-top: 1px solid var(–border);
+text-align: center; padding: 2.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.25);
 font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-color: var(–text-muted); line-height: 2;
+color: rgba(255,255,255,0.55); line-height: 2;
 }
-footer span { color: var(–gold); }
+footer span { color: #c9a84c; }
 
 @media (max-width: 600px) {
 .form-row { grid-template-columns: 1fr; }
@@ -270,12 +271,12 @@ footer span { color: var(–gold); }
 
 .adm-tab {
 background: transparent; border: none; border-bottom: 3px solid transparent;
-color: var(–text-muted); padding: 1rem 1.5rem; font-family: ‘Jost’, sans-serif;
+color: rgba(255,255,255,0.55); padding: 1rem 1.5rem; font-family: ‘Jost’, sans-serif;
 font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
 cursor: pointer; transition: color 0.2s, border-color 0.2s; white-space: nowrap;
 }
-.adm-tab:hover { color: var(–text); }
-.adm-tab.active { color: var(–gold); border-bottom-color: var(–gold); }
+.adm-tab:hover { color: #ffffff; }
+.adm-tab.active { color: #c9a84c; border-bottom-color: #c9a84c; }
 
 .adm-tab-content { }
 
@@ -289,9 +290,9 @@ display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem;
 .adm-card-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
 .adm-card-title {
 font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem;
-color: var(–gold-light); margin-bottom: 0.3rem;
+color: #e2c97e; margin-bottom: 0.3rem;
 }
-.adm-card-sub { font-size: 0.72rem; color: var(–text-muted); line-height: 1.6; }
+.adm-card-sub { font-size: 0.72rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
 .adm-toggle-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
@@ -321,8 +322,8 @@ background: #1a1a1a; border: 1px solid rgba(255,255,255,0.06);
 border-radius: 8px; padding: 0.9rem 1.2rem; gap: 1rem;
 }
 .adm-stock-info { flex: 1; }
-.adm-stock-name { font-size: 0.82rem; color: var(–text); margin-bottom: 0.15rem; }
-.adm-stock-price { font-size: 0.68rem; color: var(–text-muted); letter-spacing: 0.05em; }
+.adm-stock-name { font-size: 0.82rem; color: #ffffff; margin-bottom: 0.15rem; }
+.adm-stock-price { font-size: 0.68rem; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; }
 .adm-stock-badge {
 font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
 padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500;
@@ -350,29 +351,29 @@ display: flex; align-items: center; gap: 1rem;
 background: #1a1a1a; border: 1px solid rgba(255,255,255,0.06);
 border-radius: 8px; padding: 0.8rem 1.2rem;
 }
-.adm-prix-label { flex: 1; font-size: 0.82rem; color: var(–text); }
-.adm-prix-hint { font-size: 0.65rem; color: var(–text-muted); }
+.adm-prix-label { flex: 1; font-size: 0.82rem; color: #ffffff; }
+.adm-prix-hint { font-size: 0.65rem; color: rgba(255,255,255,0.55); }
 .adm-prix-input {
 width: 75px !important; text-align: center; padding: 0.5rem !important;
 font-size: 0.9rem !important; background: #111 !important;
-border: 1.5px solid var(–border) !important; border-radius: 6px !important;
-color: var(–gold) !important; font-family: ‘Cormorant Garamond’, serif !important;
+border: 1.5px solid rgba(201,168,76,0.25) !important; border-radius: 6px !important;
+color: #c9a84c !important; font-family: ‘Cormorant Garamond’, serif !important;
 font-weight: 600 !important;
 }
-.adm-prix-input:focus { border-color: var(–gold) !important; outline: none; }
-.adm-euro { font-size: 0.85rem; color: var(–text-muted); }
+.adm-prix-input:focus { border-color: #c9a84c !important; outline: none; }
+.adm-euro { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
 
 ```
 text-align: center;
-font-family: 'Cinzel', serif;
+font-family: 'Cinzel', Georgia, serif;
 font-size: clamp(1.1rem, 3.5vw, 1.8rem);
 letter-spacing: 0.2em;
-color: var(--text);
+color: #ffffff;
 padding: 3rem 2rem 0;
 ```
 
 }
-.roses-big-title .sparkles { color: var(–gold); }
+.roses-big-title .sparkles { color: #c9a84c; }
 </style>
 
 </head>
@@ -685,7 +686,7 @@ padding: 3rem 2rem 0;
 <div class="form-group-title" style="margin-top:2rem;">Code Promo</div>
 <div style="display:flex;gap:0.6rem;">
   <input type="text" id="promo-client-input" placeholder="Entrez votre code promo…" style="flex:1;text-transform:uppercase;">
-  <button onclick="applyPromo()" style="background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.9rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;border-radius:0;">Appliquer</button>
+  <button onclick="applyPromo()" style="background:transparent;border:1px solid #c9a84c;color:#c9a84c;padding:0.9rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;border-radius:0;">Appliquer</button>
 </div>
 <p id="promo-client-msg" style="font-size:0.72rem;margin-top:0.5rem;display:none;"></p>
 
@@ -707,10 +708,9 @@ padding: 3rem 2rem 0;
 <!-- FOOTER -->
 
 <footer>
-  <p>BY.LINOUSH CRÉATION © 2026 | LYON</p>
   <p>Site réalisé avec <span>♥</span> — bylinoushcreations</p>
   <!-- Admin access: triple-click on copyright text -->
-  <span id="admin-trigger" onclick="handleAdminClick()" style="cursor:default;user-select:none;">BY.LINOUSH CRÉATION © 2026 | LYON</span>
+  <span id="admin-trigger" onclick="handleAdminClick()" style="cursor:default;user-select:none;display:block;margin-top:0.5rem;">BY.LINOUSH CRÉATION © 2026 | LYON</span>
 </footer>
 
 <!-- ADMIN OVERLAY -->
@@ -721,12 +721,12 @@ padding: 3rem 2rem 0;
 
   <div id="admin-login" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:rgba(0,0,0,0.97);gap:1.2rem;padding:2rem;">
     <div style="font-size:2.5rem;margin-bottom:.5rem;">🔐</div>
-    <div style="font-family:'Cinzel',serif;font-size:1.6rem;letter-spacing:0.2em;color:var(--gold);">ESPACE ADMIN</div>
-    <div style="font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:1rem;">BY.LINOUSH Créations</div>
+    <div style="font-family:'Cinzel',serif;font-size:1.6rem;letter-spacing:0.2em;color:#c9a84c;">ESPACE ADMIN</div>
+    <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);letter-spacing:0.15em;margin-bottom:1rem;">BY.LINOUSH Créations</div>
     <input id="admin-pwd" type="password" placeholder="Entrez votre mot de passe…" style="max-width:320px;text-align:center;font-size:0.9rem;padding:1rem 1.5rem;" onkeydown="if(event.key==='Enter')checkPwd()">
     <p id="admin-err" style="color:#e05555;font-size:0.72rem;letter-spacing:0.1em;display:none;">❌ Mot de passe incorrect, réessayez.</p>
-    <button onclick="checkPwd()" style="background:var(--gold);color:var(--black);border:none;padding:0.9rem 3rem;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-weight:500;margin-top:.5rem;">Se connecter</button>
-    <button onclick="closeAdmin()" style="background:transparent;border:none;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.1em;cursor:pointer;text-decoration:underline;">Annuler</button>
+    <button onclick="checkPwd()" style="background:#c9a84c;color:#0a0a0a;border:none;padding:0.9rem 3rem;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-weight:500;margin-top:.5rem;">Se connecter</button>
+    <button onclick="closeAdmin()" style="background:transparent;border:none;color:rgba(255,255,255,0.55);font-size:0.72rem;letter-spacing:0.1em;cursor:pointer;text-decoration:underline;">Annuler</button>
   </div>
 
   <!-- MAIN ADMIN PANEL -->
@@ -735,17 +735,17 @@ padding: 3rem 2rem 0;
 
 ```
 <!-- TOP BAR -->
-<div style="background:#111;border-bottom:2px solid var(--gold);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;">
+<div style="background:#111;border-bottom:2px solid #c9a84c;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;">
   <div style="display:flex;align-items:center;gap:1rem;">
     <span style="font-size:1.3rem;">⚙️</span>
     <div>
-      <div style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.15em;color:var(--gold);">PANNEAU ADMIN</div>
-      <div style="font-size:0.6rem;color:var(--text-muted);letter-spacing:0.1em;">BY.LINOUSH Créations</div>
+      <div style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.15em;color:#c9a84c;">PANNEAU ADMIN</div>
+      <div style="font-size:0.6rem;color:rgba(255,255,255,0.55);letter-spacing:0.1em;">BY.LINOUSH Créations</div>
     </div>
   </div>
   <div style="display:flex;gap:0.8rem;align-items:center;">
-    <button onclick="saveAdmin()" id="adm-save-btn" style="background:var(--gold);color:#000;border:none;padding:0.65rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:4px;">💾 Enregistrer</button>
-    <button onclick="closeAdmin()" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:var(--text-muted);padding:0.65rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;cursor:pointer;border-radius:4px;">✕ Fermer</button>
+    <button onclick="saveAdmin()" id="adm-save-btn" style="background:#c9a84c;color:#000;border:none;padding:0.65rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:4px;">💾 Enregistrer</button>
+    <button onclick="closeAdmin()" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.55);padding:0.65rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;cursor:pointer;border-radius:4px;">✕ Fermer</button>
   </div>
 </div>
 
@@ -903,11 +903,11 @@ padding: 3rem 2rem 0;
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem;">
         <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">Code promo</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Code promo</div>
           <input id="promo-code-input" type="text" placeholder="Ex : LINOUSH10, NOEL2026…" style="text-transform:uppercase;">
         </div>
         <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">Type de réduction</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Type de réduction</div>
           <select id="promo-type" onchange="togglePromoType()">
             <option value="pct">Pourcentage (ex : -10%)</option>
             <option value="fixed">Montant fixe (ex : -5€)</option>
@@ -917,23 +917,23 @@ padding: 3rem 2rem 0;
 
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
         <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">Valeur</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Valeur</div>
           <div style="display:flex;align-items:center;gap:0.4rem;">
             <input id="promo-value" type="number" min="1" max="100" placeholder="10" style="flex:1;">
-            <span id="promo-unit" style="color:var(--gold);font-size:0.9rem;font-weight:600;min-width:20px;">%</span>
+            <span id="promo-unit" style="color:#c9a84c;font-size:0.9rem;font-weight:600;min-width:20px;">%</span>
           </div>
         </div>
         <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">Utilisations max</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Utilisations max</div>
           <input id="promo-uses" type="number" min="1" placeholder="Illimité" style="width:100%;">
         </div>
         <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">Date d'expiration</div>
+          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Date d'expiration</div>
           <input id="promo-expiry" type="date" style="width:100%;">
         </div>
       </div>
 
-      <button onclick="addPromoCode()" style="background:var(--gold);color:#000;border:none;padding:0.8rem 2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:6px;">+ Créer ce code</button>
+      <button onclick="addPromoCode()" style="background:#c9a84c;color:#000;border:none;padding:0.8rem 2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:6px;">+ Créer ce code</button>
       <p id="promo-msg" style="font-size:0.72rem;margin-top:0.6rem;display:none;"></p>
     </div>
 
@@ -946,7 +946,7 @@ padding: 3rem 2rem 0;
         </div>
       </div>
       <div id="promo-list" style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-size:0.75rem;color:var(--text-muted);text-align:center;padding:1.5rem;">Aucun code promo créé pour le moment.</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucun code promo créé pour le moment.</div>
       </div>
     </div>
 
@@ -1023,7 +1023,7 @@ padding: 3rem 2rem 0;
       </div>
 
       <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
-        <button onclick="createFacture()" style="background:var(--gold);color:#000;border:none;padding:0.8rem 2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:6px;">🧾 Générer la facture</button>
+        <button onclick="createFacture()" style="background:#c9a84c;color:#000;border:none;padding:0.8rem 2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:6px;">🧾 Générer la facture</button>
       </div>
       <p id="fac-msg" style="font-size:0.72rem;margin-top:0.6rem;display:none;"></p>
     </div>
@@ -1038,7 +1038,7 @@ padding: 3rem 2rem 0;
         </div>
       </div>
       <div id="fac-list" style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-size:0.75rem;color:var(--text-muted);text-align:center;padding:1.5rem;">Aucune facture créée pour le moment.</div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucune facture créée pour le moment.</div>
       </div>
     </div>
 
@@ -1057,9 +1057,9 @@ padding: 3rem 2rem 0;
       </div>
       <div style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
         <input id="adm-banniere" type="text" placeholder="Ex : Fermeture du 20 au 25 déc. · Délais de livraison allongés · Promo -10% ce week-end…" style="flex:1;min-width:200px;">
-        <button onclick="document.getElementById('adm-banniere').value=''" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--text-muted);padding:0.9rem 1rem;font-size:0.7rem;cursor:pointer;white-space:nowrap;border-radius:4px;">Effacer</button>
+        <button onclick="document.getElementById('adm-banniere').value=''" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);padding:0.9rem 1rem;font-size:0.7rem;cursor:pointer;white-space:nowrap;border-radius:4px;">Effacer</button>
       </div>
-      <div style="margin-top:0.8rem;font-size:0.7rem;color:var(--text-muted);line-height:1.6;">
+      <div style="margin-top:0.8rem;font-size:0.7rem;color:rgba(255,255,255,0.55);line-height:1.6;">
         💡 <strong>Exemples :</strong> annonce de fermeture, délai de livraison exceptionnel, promotion en cours, nouvelle collection disponible…
       </div>
     </div>
@@ -1077,7 +1077,7 @@ padding: 3rem 2rem 0;
         <input id="adm-new-pwd2" type="password" placeholder="Confirmer le mot de passe…" style="flex:1;min-width:200px;">
       </div>
       <p id="adm-pwd-msg" style="font-size:0.72rem;margin-top:0.6rem;display:none;"></p>
-      <button onclick="changePwd()" style="margin-top:0.8rem;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:0.7rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;">Mettre à jour le mot de passe</button>
+      <button onclick="changePwd()" style="margin-top:0.8rem;background:transparent;border:1px solid #c9a84c;color:#c9a84c;padding:0.7rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;">Mettre à jour le mot de passe</button>
     </div>
 
     <div class="adm-card">
@@ -1101,7 +1101,7 @@ padding: 3rem 2rem 0;
 
 <!-- BANNIÈRE SITE -->
 
-<div id="site-banniere" style="display:none;background:rgba(201,168,76,0.15);border-bottom:1px solid var(--gold);text-align:center;padding:0.7rem 2rem;font-size:0.78rem;letter-spacing:0.08em;color:var(--gold);position:relative;z-index:200;"></div>
+<div id="site-banniere" style="display:none;background:rgba(201,168,76,0.15);border-bottom:1px solid #c9a84c;text-align:center;padding:0.7rem 2rem;font-size:0.78rem;letter-spacing:0.08em;color:#c9a84c;position:relative;z-index:200;"></div>
 
 <script>
   window._total = 0;
@@ -1416,7 +1416,7 @@ padding: 3rem 2rem 0;
   function renderPromoList() {
     const container = document.getElementById('promo-list'); if (!container) return;
     const codes = adminConfig.promoCodes || [];
-    if (!codes.length) { container.innerHTML='<div style="font-size:0.75rem;color:var(--text-muted);text-align:center;padding:1.5rem;">Aucun code promo créé pour le moment.</div>'; return; }
+    if (!codes.length) { container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucun code promo créé pour le moment.</div>'; return; }
     container.innerHTML='';
     codes.forEach((p,i) => {
       const now = new Date();
@@ -1425,7 +1425,7 @@ padding: 3rem 2rem 0;
       const inactive = !p.active || expired || exhausted;
       const row = document.createElement('div');
       row.style.cssText='display:flex;align-items:center;gap:0.8rem;background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:0.9rem 1.2rem;flex-wrap:wrap;';
-      const codeLbl = `<div style="font-family:monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:${inactive?'rgba(255,255,255,0.25)':'var(--gold)'};min-width:110px;">${p.code}</div>`;
+      const codeLbl = `<div style="font-family:monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:${inactive?'rgba(255,255,255,0.25)':'#c9a84c'};min-width:110px;">${p.code}</div>`;
       const reducLbl = `<div style="font-size:0.82rem;font-weight:600;color:${inactive?'rgba(255,255,255,0.2)':'#81c784'};">${p.type==='pct'?'-'+p.value+'%':'-'+p.value+'€'}</div>`;
       let infoTxt = `<div style="flex:1;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.8;">`;
       infoTxt += `Utilisations : ${p.usedCount} / ${p.uses||'∞'}`;
@@ -1519,7 +1519,7 @@ padding: 3rem 2rem 0;
   function renderFactureList() {
     const container=document.getElementById('fac-list'); if(!container)return;
     const factures=adminConfig.factures||[];
-    if(!factures.length){container.innerHTML='<div style="font-size:0.75rem;color:var(--text-muted);text-align:center;padding:1.5rem;">Aucune facture créée pour le moment.</div>';return;}
+    if(!factures.length){container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucune facture créée pour le moment.</div>';return;}
     container.innerHTML='';
     [...factures].reverse().forEach((f,ri)=>{
       const i=factures.length-1-ri;
@@ -1530,16 +1530,16 @@ padding: 3rem 2rem 0;
       row.onmouseleave=()=>row.style.borderColor='rgba(255,255,255,0.06)';
       const dateStr=new Date(f.date).toLocaleDateString('fr-FR');
       row.innerHTML=`
-        <div style="font-family:monospace;font-size:0.8rem;font-weight:700;color:var(--gold);min-width:140px;">${f.num}</div>
+        <div style="font-family:monospace;font-size:0.8rem;font-weight:700;color:#c9a84c;min-width:140px;">${f.num}</div>
         <div style="flex:1;min-width:120px;">
-          <div style="font-size:0.82rem;color:var(--text);">${f.client.nom}</div>
-          <div style="font-size:0.67rem;color:var(--text-muted);">${dateStr}</div>
+          <div style="font-size:0.82rem;color:#ffffff;">${f.client.nom}</div>
+          <div style="font-size:0.67rem;color:rgba(255,255,255,0.55);">${dateStr}</div>
         </div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--text);">${f.total}€</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:#ffffff;">${f.total}€</div>
         <span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:${sc.bg};color:${sc.col};">${f.statut}</span>`;
       const viewBtn=document.createElement('button');
       viewBtn.textContent='👁️ Voir';
-      viewBtn.style.cssText='background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:0.35rem 0.8rem;font-family:Jost,sans-serif;font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;border-radius:4px;';
+      viewBtn.style.cssText='background:transparent;border:1px solid rgba(201,168,76,0.25);color:rgba(255,255,255,0.55);padding:0.35rem 0.8rem;font-family:Jost,sans-serif;font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;border-radius:4px;';
       viewBtn.onclick=(e)=>{e.stopPropagation();openFacturePreview(f);};
       const delBtn=document.createElement('button');
       delBtn.textContent='🗑️';
@@ -2036,10 +2036,10 @@ document.getElementById(‘nb-roses’).addEventListener(‘change’, calcTotal
 <div id="fac-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9500;overflow-y:auto;padding:2rem;">
   <div style="max-width:720px;margin:0 auto;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem;">
-      <div style="font-family:'Cinzel',serif;font-size:1rem;color:var(--gold);letter-spacing:0.15em;">Aperçu de la facture</div>
+      <div style="font-family:'Cinzel',serif;font-size:1rem;color:#c9a84c;letter-spacing:0.15em;">Aperçu de la facture</div>
       <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-        <button onclick="printFacture()" style="background:var(--gold);color:#000;border:none;padding:0.65rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;font-weight:600;">🖨️ Imprimer / PDF</button>
-        <button onclick="document.getElementById('fac-modal').style.display='none'" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:var(--text-muted);padding:0.65rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.65rem;cursor:pointer;border-radius:4px;">✕ Fermer</button>
+        <button onclick="printFacture()" style="background:#c9a84c;color:#000;border:none;padding:0.65rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;font-weight:600;">🖨️ Imprimer / PDF</button>
+        <button onclick="document.getElementById('fac-modal').style.display='none'" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.55);padding:0.65rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.65rem;cursor:pointer;border-radius:4px;">✕ Fermer</button>
       </div>
     </div>
     <div id="fac-preview" style="background:white;color:#111;border-radius:8px;padding:3rem;font-family:'Jost',sans-serif;"></div>
