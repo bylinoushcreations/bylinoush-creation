@@ -1,2070 +1,393 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BY.LINOUSH Créations</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --gold: #c9a84c;
-    --gold-light: #e2c97e;
-    --gold-pale: #f0e0b0;
-    --black: #0a0a0a;
-    --dark: #111111;
-    --dark2: #181818;
-    --dark3: #222222;
-    --border: rgba(201,168,76,0.25);
-    --border-bright: rgba(201,168,76,0.6);
-    --text: #ffffff;
-    --text-muted: rgba(255,255,255,0.55);
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>By.LinoushCréation | L'Art de la Rose & Bijoux</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; background-color: #0a0a0a !important; scroll-padding-top: 120px; }
+        :root {
+            --white: #ffffff;
+            --black: #0a0a0a; 
+            --light-gray: rgba(255, 255, 255, 0.1);
+            --out-of-stock: #ff4d4d;
+            --paypal-blue: #0070ba;
+            --rose-petal: #d42d42;
+            --gold: #d4af37;
+        }
 
-body {
-font-family: ‘Jost’, ‘Helvetica Neue’, Arial, sans-serif !important;
-background: #0a0a0a !important;
-background-color: #0a0a0a !important;
-color: #ffffff !important;
-overflow-x: hidden;
-}
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--black); color: var(--white); -webkit-font-smoothing: antialiased; }
 
-/* PÉTALES */
-#petals-canvas {
-position: fixed;
-top: 0; left: 0;
-width: 100%; height: 100%;
-pointer-events: none;
-z-index: 0;
-opacity: 0.45;
-}
+        .bg-roses { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%); overflow: hidden; }
+        .petal { position: absolute; background-color: var(--rose-petal); border-radius: 150% 0 150% 0; opacity: 0.3; filter: blur(0.5px); animation: fall linear infinite; }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+            100% { transform: translateY(110vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
 
-nav, .hero, #compositions, .section-bg, .form-section, footer {
-position: relative;
-z-index: 1;
-}
+        header { padding: 25px 5%; text-align: center; background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--light-gray); }
+        .brand-logo { width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--gold); vertical-align: middle; margin-right: 10px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.8rem; letter-spacing: 5px; display: inline-block; color: var(--gold); }
+        nav.nav-links { display: flex; justify-content: center; gap: 30px; margin-top: 15px; }
+        nav.nav-links a { text-decoration: none; color: var(--white); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; transition: 0.3s; }
+        nav.nav-links a:hover { opacity: 1; color: var(--gold); }
 
-/* Force hidden elements */
-#cloche-options, #perso-options, #bijoux-options, #roses-options,
-#adresse-block, #fac-modal {
-display: none;
-}
-/* NAV */
-nav {
-position: sticky; top: 0; z-index: 100;
-background: #0a0a0a;
-border-bottom: 1px solid rgba(201,168,76,0.25);
-padding: 0 2rem;
-}
-.nav-inner {
-max-width: 900px; margin: 0 auto;
-display: flex; flex-direction: column; align-items: center;
-padding: 1.2rem 0 0.8rem; gap: 0.8rem;
-}
-.nav-brand { display: flex; align-items: center; gap: 1rem; }
-.nav-logo-circle {
-width: 52px; height: 52px; border-radius: 50%;
-background: white; display: flex; align-items: center; justify-content: center;
-font-family: ‘Cinzel’, Georgia, serif; font-size: 1.1rem; font-weight: 600;
-color: #0a0a0a; flex-shrink: 0;
-border: 2px solid #c9a84c;
-box-shadow: 0 0 0 2px #c9a84c;
-}
-.nav-title {
-font-family: ‘Cinzel’, Georgia, serif; font-size: 1.8rem;
-font-weight: 600; letter-spacing: 0.15em; color: #c9a84c;
-}
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-text-decoration: none; font-size: 0.65rem;
-letter-spacing: 0.25em; text-transform: uppercase;
-color: rgba(255,255,255,0.55); transition: color 0.3s; padding-bottom: 0.5rem;
-}
-.nav-links a:hover { color: #c9a84c; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
+        .section-label { text-align: center; font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 6px; margin-bottom: 50px; text-transform: uppercase; }
 
-/* HERO */
-.hero {
-min-height: 60vh; display: flex; flex-direction: column;
-align-items: center; justify-content: center;
-text-align: center; padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
-}
-.hero::before {
-content: ‘’; position: absolute; inset: 0;
-background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
-}
-.hero-sparkle {
-font-size: 1.2rem; color: #c9a84c; letter-spacing: 1rem;
-margin-bottom: 1.5rem; animation: pulse 3s ease infinite;
-}
-@keyframes pulse { 0%,100%{opacity:.7} 50%{opacity:1} }
-.hero-title {
-font-family: ‘Cinzel’, Georgia, serif;
-font-size: clamp(2rem, 8vw, 4.5rem);
-font-weight: 400; letter-spacing: 0.2em; color: #c9a84c; line-height: 1.1; margin-bottom: 1rem;
-}
-.hero-sub {
-font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
-color: rgba(255,255,255,0.55); margin-bottom: 2.5rem;
-}
-.hero-btn {
-display: inline-block; border: 1px solid #c9a84c; color: #c9a84c;
-padding: 0.9rem 2.8rem; font-size: 0.7rem; letter-spacing: 0.25em;
-text-transform: uppercase; text-decoration: none; transition: background 0.3s, color 0.3s;
-}
-.hero-btn:hover { background: #c9a84c; color: #0a0a0a; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .price-card { background: rgba(26, 26, 26, 0.4); border: 1px solid var(--light-gray); padding: 30px; text-align: center; transition: 0.4s; }
+        .price-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .qty { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); }
 
-/* SECTION */
-.section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-.section-title-line {
-display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;
-}
-.section-title-line .line {
-flex: 1; height: 1px; background: rgba(201,168,76,0.6); max-width: 120px;
-}
-.section-h2 {
-font-family: ‘Cormorant Garamond’, serif; font-size: 1.6rem; font-weight: 400;
-color: #ffffff; display: flex; align-items: center; gap: 0.7rem; white-space: nowrap;
-}
+        .custom-section { background: rgba(0, 0, 0, 0.8); padding: 80px 5%; }
+        .deco-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .deco-cat h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; letter-spacing: 2px; text-align: center; color: var(--gold); }
+        .deco-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .dots { flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.2); margin: 0 10px 5px; }
+        
+        .sold-out { opacity: 0.4; filter: grayscale(1); pointer-events: none; }
+        .sold-out-badge { color: var(--out-of-stock); font-size: 0.6rem; font-weight: bold; border: 1px solid var(--out-of-stock); padding: 2px 5px; margin-left: 10px; }
 
-.section-divider { width: 100%; height: 1px; background: rgba(201,168,76,0.25); margin-top: 1rem; }
+        .order-container { max-width: 900px; margin: 80px auto; padding: 50px 5%; background: rgba(20, 20, 20, 0.8); border: 1px solid var(--light-gray); border-top: 3px solid var(--gold); }
+        .form-group { margin-bottom: 35px; }
+        label { display: block; font-family: 'Cinzel', serif; font-size: 0.85rem; margin-bottom: 15px; letter-spacing: 2px; color: var(--gold); }
+        select, input, textarea { width: 100%; padding: 15px; background: #000; border: 1px solid var(--light-gray); color: #fff; box-sizing: border-box; font-size: 0.8rem; }
+        
+        .selection-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+        .check-card { background: rgba(255,255,255,0.05); padding: 12px; font-size: 0.65rem; display: flex; align-items: center; gap: 12px; cursor: pointer; border: 1px solid transparent; text-transform: uppercase; transition: 0.3s; }
+        .check-card:hover { border-color: var(--gold); }
+        .check-card input { width: 16px; height: 16px; accent-color: var(--gold); }
 
-/* ROSE LIST */
-.rose-list { display: flex; flex-direction: column; gap: 1rem; }
-.rose-card {
-border: 1px solid rgba(201,168,76,0.25); background: #181818;
-padding: 1.8rem 2rem; text-align: center;
-transition: border-color 0.3s, background 0.3s;
-}
-.rose-card.featured { border-color: #c9a84c; }
-.rose-card:hover { border-color: rgba(201,168,76,0.6); background: #222222; }
-.rose-card .qty {
-font-family: ‘Cormorant Garamond’, serif; font-size: 2rem;
-font-weight: 300; font-style: italic; color: #c9a84c; margin-bottom: 0.3rem;
-}
-.rose-card .price { font-size: 0.9rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.55); }
-.rose-card .bonus { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a84c; margin-top: 0.4rem; }
+        .dynamic-field { margin-top: 10px; display: none; width: 100%; animation: fadeIn 0.3s forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-/* MENU LIST */
-.menu-list { display: flex; flex-direction: column; gap: 0; }
-.menu-item {
-display: flex; justify-content: space-between; align-items: center;
-padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.menu-item:first-child { border-top: 1px solid rgba(255,255,255,0.05); }
-.menu-name {
-font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
-color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 0.8rem; flex: 1;
-}
-.menu-dots { flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.1); margin: 0 1rem; min-width: 20px; }
-.menu-price { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: #ffffff; white-space: nowrap; }
+        .live-details { text-align: left; font-size: 0.75rem; margin-bottom: 20px; padding: 15px; border-left: 2px solid var(--gold); background: rgba(255,255,255,0.02); }
+        .live-details div { display: flex; justify-content: space-between; margin-bottom: 5px; opacity: 0.8; }
 
-/* CATALOGUE BG */
-.section-bg {
-background: #181818;
-border-top: 1px solid rgba(201,168,76,0.25);
-border-bottom: 1px solid rgba(201,168,76,0.25);
-padding: 3rem 2rem;
-}
+        .price-summary { background: #000; padding: 30px; text-align: center; border: 1px solid var(--gold); margin-top: 10px; }
+        .total-amount { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); font-weight: 600; }
+        
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .btn-submit { padding: 20px; border: none; font-family: 'Cinzel', serif; font-weight: 700; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; font-size: 0.75rem; }
+        .btn-total { background: var(--paypal-blue); color: #fff; }
+        .btn-acompte { background: transparent; border: 1px solid var(--paypal-blue); color: var(--paypal-blue); }
 
-/* FORM */
-.form-section { background: #181818; border-top: 1px solid rgba(201,168,76,0.25); }
-.form-title {
-font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2rem,5vw,3rem);
-font-weight: 300; font-style: italic; color: #c9a84c; text-align: center; padding: 3rem 2rem 0;
-}
-.form-inner { max-width: 760px; margin: 0 auto; padding: 2rem 2rem 4rem; }
-.form-group-title {
-font-family: ‘Cormorant Garamond’, serif; font-size: 0.9rem;
-letter-spacing: 0.2em; text-transform: uppercase; color: #f0e0b0; margin: 2rem 0 1rem;
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-row.full { grid-template-columns: 1fr; }
+        #thankYouModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; justify-content: center; align-items: center; text-align: center; }
+        .modal-content { background: #111; padding: 30px; border: 1px solid var(--gold); max-width: 450px; width: 90%; }
+        .copy-box { background: #000; border: 1px dashed var(--gold); padding: 15px; margin: 20px 0; font-size: 0.8rem; color: #fff; text-align: left; white-space: pre-wrap; }
 
-input, select, textarea {
-width: 100%; background: #222222 !important; border: 1px solid rgba(201,168,76,0.25);
-color: #ffffff !important; padding: 0.9rem 1.2rem;
-font-family: ‘Jost’, sans-serif; font-size: 0.82rem; letter-spacing: 0.05em;
-outline: none; transition: border-color 0.3s; appearance: none;
--webkit-appearance: none;
-}
-input:focus, select:focus, textarea:focus { border-color: #c9a84c; }
-input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.35) !important; }
-select { cursor: pointer;
-background-image: url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘8’%3E%3Cpath d=‘M0 0l6 8 6-8z’ fill=’%23c9a84c’/%3E%3C/svg%3E”) !important;
-background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
-}
-select option { background: #222222 !important; color: #ffffff !important; }
-
-/* CHECKBOXES */
-.options-list { display: flex; flex-direction: column; gap: 0.5rem; }
-.option-item {
-display: flex; align-items: center; gap: 1rem;
-background: #222222; border: 1px solid rgba(201,168,76,0.25);
-padding: 0.9rem 1.2rem; cursor: pointer; transition: border-color 0.3s, background 0.3s;
-}
-.option-item:hover { border-color: rgba(201,168,76,0.6); background: rgba(201,168,76,0.05); }
-.option-item input[type=“checkbox”] { display: none; }
-.custom-cb {
-width: 20px; height: 20px; border: 1px solid rgba(201,168,76,0.6); border-radius: 4px;
-background: #181818; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-transition: background 0.2s, border-color 0.2s; position: relative;
-}
-.option-item.checked .custom-cb { background: #c9a84c; border-color: #c9a84c; }
-.option-item.checked .custom-cb::after {
-content: ‘’; position: absolute;
-width: 5px; height: 9px; border: 2px solid #0a0a0a;
-border-top: none; border-left: none; transform: rotate(45deg) translateY(-1px);
-}
-.option-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); flex: 1; }
-.option-price { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: #c9a84c; }
-
-/* DELIVERY */
-.delivery-options { display: flex; flex-direction: column; gap: 0.5rem; }
-.delivery-item {
-background: #222222; border: 1px solid rgba(201,168,76,0.25);
-padding: 0.9rem 1.2rem; font-size: 0.78rem; letter-spacing: 0.05em;
-color: rgba(255,255,255,0.55); cursor: pointer; transition: border-color 0.3s, color 0.3s;
-}
-.delivery-item.selected { border-color: #c9a84c; color: #ffffff; }
-
-/* TOTAL */
-.total-box { border: 1px solid #c9a84c; padding: 2rem; text-align: center; margin-top: 2rem; }
-.total-items { margin-bottom: 1.5rem; }
-.total-line {
-display: flex; justify-content: space-between;
-font-size: 0.78rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.55);
-padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.total-amount {
-font-family: ‘Cormorant Garamond’, serif; font-size: 3.5rem;
-font-weight: 300; color: #c9a84c; line-height: 1; margin-bottom: 0.3rem;
-}
-.total-acompte { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
-
-/* BUTTONS */
-.btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-.btn {
-padding: 1rem 1.5rem; font-family: ‘Jost’, sans-serif;
-font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-cursor: pointer; border: none; font-weight: 400; transition: opacity 0.2s, transform 0.2s;
-}
-.btn:hover { opacity: 0.85; transform: translateY(-1px); }
-.btn-outline { background: transparent; border: 1px solid #c9a84c; color: #c9a84c; }
-.btn-solid { background: #2196F3; color: white; }
-
-textarea { resize: vertical; min-height: 80px; }
-
-/* FOOTER */
-footer {
-text-align: center; padding: 2.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.25);
-font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-color: rgba(255,255,255,0.55); line-height: 2;
-}
-footer span { color: #c9a84c; }
-
-@media (max-width: 600px) {
-.form-row { grid-template-columns: 1fr; }
-.btn-row { grid-template-columns: 1fr; }
-.nav-title { font-size: 1.4rem; }
-.nav-links { gap: 1.5rem; }
-.total-amount { font-size: 2.5rem; }
-.section-h2 { font-size: 1.2rem; }
-}
-
-.adm-tab {
-background: transparent; border: none; border-bottom: 3px solid transparent;
-color: rgba(255,255,255,0.55); padding: 1rem 1.5rem; font-family: ‘Jost’, sans-serif;
-font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-cursor: pointer; transition: color 0.2s, border-color 0.2s; white-space: nowrap;
-}
-.adm-tab:hover { color: #ffffff; }
-.adm-tab.active { color: #c9a84c; border-bottom-color: #c9a84c; }
-
-.adm-tab-content { }
-
-.adm-card {
-background: #161616; border: 1px solid rgba(255,255,255,0.07);
-border-radius: 12px; padding: 1.5rem; margin-bottom: 1.2rem;
-}
-.adm-card-header {
-display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem;
-}
-.adm-card-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
-.adm-card-title {
-font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem;
-color: #e2c97e; margin-bottom: 0.3rem;
-}
-.adm-card-sub { font-size: 0.72rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
-
-.adm-toggle-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-
-/* Pill toggle: disponible / rupture */
-.adm-pill {
-display: flex; align-items: center; gap: 0.7rem;
-padding: 0.6rem 1rem; border-radius: 8px; cursor: pointer;
-border: 1.5px solid; font-size: 0.72rem; letter-spacing: 0.08em;
-transition: all 0.2s; user-select: none; font-family: ‘Jost’, sans-serif;
-}
-.adm-pill.on {
-border-color: #2e7d32; background: rgba(46,125,50,0.12); color: #81c784;
-}
-.adm-pill.off {
-border-color: rgba(200,50,50,0.5); background: rgba(200,50,50,0.08); color: #e07070;
-}
-.adm-pill .pill-dot {
-width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-}
-.adm-pill.on .pill-dot { background: #81c784; }
-.adm-pill.off .pill-dot { background: #e07070; }
-
-/* Stock row (with toggle switch) */
-.adm-stock-row {
-display: flex; align-items: center; justify-content: space-between;
-background: #1a1a1a; border: 1px solid rgba(255,255,255,0.06);
-border-radius: 8px; padding: 0.9rem 1.2rem; gap: 1rem;
-}
-.adm-stock-info { flex: 1; }
-.adm-stock-name { font-size: 0.82rem; color: #ffffff; margin-bottom: 0.15rem; }
-.adm-stock-price { font-size: 0.68rem; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; }
-.adm-stock-badge {
-font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
-padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500;
-}
-.adm-stock-badge.dispo { background: rgba(46,125,50,0.2); color: #81c784; border: 1px solid rgba(46,125,50,0.3); }
-.adm-stock-badge.rupture { background: rgba(200,50,50,0.2); color: #e07070; border: 1px solid rgba(200,50,50,0.3); }
-
-/* Toggle switch */
-.adm-switch { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
-.adm-switch input { opacity: 0; width: 0; height: 0; }
-.adm-switch-track {
-position: absolute; inset: 0; border-radius: 24px;
-background: #333; transition: background 0.3s; cursor: pointer;
-}
-.adm-switch-track::before {
-content: ‘’; position: absolute; width: 18px; height: 18px; border-radius: 50%;
-background: white; top: 3px; left: 3px; transition: transform 0.3s;
-}
-.adm-switch input:checked + .adm-switch-track { background: #2e7d32; }
-.adm-switch input:checked + .adm-switch-track::before { transform: translateX(20px); }
-
-/* Prix row */
-.adm-prix-row {
-display: flex; align-items: center; gap: 1rem;
-background: #1a1a1a; border: 1px solid rgba(255,255,255,0.06);
-border-radius: 8px; padding: 0.8rem 1.2rem;
-}
-.adm-prix-label { flex: 1; font-size: 0.82rem; color: #ffffff; }
-.adm-prix-hint { font-size: 0.65rem; color: rgba(255,255,255,0.55); }
-.adm-prix-input {
-width: 75px !important; text-align: center; padding: 0.5rem !important;
-font-size: 0.9rem !important; background: #111 !important;
-border: 1.5px solid rgba(201,168,76,0.25) !important; border-radius: 6px !important;
-color: #c9a84c !important; font-family: ‘Cormorant Garamond’, serif !important;
-font-weight: 600 !important;
-}
-.adm-prix-input:focus { border-color: #c9a84c !important; outline: none; }
-.adm-euro { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
-
-```
-text-align: center;
-font-family: 'Cinzel', Georgia, serif;
-font-size: clamp(1.1rem, 3.5vw, 1.8rem);
-letter-spacing: 0.2em;
-color: #ffffff;
-padding: 3rem 2rem 0;
-```
-
-}
-.roses-big-title .sparkles { color: #c9a84c; }
-</style>
-
+        footer { text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px; line-height: 1.8; }
+        .footer-link { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; font-weight: 600; }
+    </style>
 </head>
 <body>
 
-<!-- PÉTALES ANIMÉS -->
+    <div class="bg-roses" id="rosesBg"></div>
 
-<canvas id="petals-canvas"></canvas>
-
-<!-- NAVBAR -->
-
-<nav>
-  <div class="nav-inner">
-    <div class="nav-brand">
-      <div class="nav-logo-circle">BL</div>
-      <div class="nav-title">BY.LINOUSH</div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#compositions">Compositions</a></li>
-      <li><a href="#catalogue">Catalogue</a></li>
-      <li><a href="#commander">Commander</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO -->
-
-<div class="hero">
-  <div class="hero-sparkle">✦ ✦ ✦</div>
-  <h1 class="hero-title">BY.LINOUSH</h1>
-  <p class="hero-sub">Créations florales artisanales · Lyon</p>
-  <a href="#commander" class="hero-btn">Commander maintenant</a>
-</div>
-
-<!-- ROSES ARTISANALES -->
-
-<div id="compositions">
-  <p class="roses-big-title">
-    <span class="sparkles">✦</span> NOS ROSES ARTISANALES <span class="sparkles">✦</span>
-  </p>
-  <div class="section" style="padding-top: 2rem;">
-    <div class="rose-list">
-      <div class="rose-card"><div class="qty">13 roses</div><div class="price">25€</div></div>
-      <div class="rose-card"><div class="qty">18 roses</div><div class="price">35€</div></div>
-      <div class="rose-card"><div class="qty">30 roses</div><div class="price">59€</div></div>
-      <div class="rose-card"><div class="qty">50 roses</div><div class="price">99€</div></div>
-      <div class="rose-card featured">
-        <div class="qty">101 roses</div>
-        <div class="price">225€</div>
-        <div class="bonus">3 décos offertes</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CATALOGUE -->
-
-<div class="section-bg" id="catalogue">
-  <div class="section" style="padding-top:0;padding-bottom:0;">
-
-```
-<div style="margin-bottom:3rem;">
-  <div class="section-title-line">
-    <div class="line"></div>
-    <h2 class="section-h2">🌹 Roses Éternelles</h2>
-    <div class="line"></div>
-  </div>
-  <div class="section-divider"></div>
-  <div class="menu-list">
-    <div class="menu-item">
-      <span class="menu-name">Rose sous cloche</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">20€</span>
-    </div>
-    <div class="menu-item">
-      <span class="menu-name">Perso (prénom)</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">25€</span>
-    </div>
-  </div>
-</div>
-
-<div style="margin-bottom:3rem;">
-  <div class="section-title-line">
-    <div class="line"></div>
-    <h2 class="section-h2">💎 Collection Bijoux</h2>
-    <div class="line"></div>
-  </div>
-  <div class="section-divider"></div>
-  <div class="menu-list">
-    <div class="menu-item">
-      <span class="menu-name">Rose boîte à bijoux + bague</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">20€</span>
-    </div>
-    <div class="menu-item">
-      <span class="menu-name">Box bijoux (bracelet)</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">10€</span>
-    </div>
-    <div class="menu-item">
-      <span class="menu-name">Option perso box</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">+5€</span>
-    </div>
-  </div>
-</div>
-
-<div>
-  <div class="section-title-line">
-    <div class="line"></div>
-    <h2 class="section-h2">🌙 Univers Prière</h2>
-    <div class="line"></div>
-  </div>
-  <div class="section-divider"></div>
-  <div class="menu-list">
-    <div class="menu-item">
-      <span class="menu-name">Tapis perso</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">16€</span>
-    </div>
-    <div class="menu-item">
-      <span class="menu-name">Coffret S / M</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">40€ / 46€</span>
-    </div>
-    <div class="menu-item">
-      <span class="menu-name">Coffret L / XL</span>
-      <div class="menu-dots"></div>
-      <span class="menu-price">48€ / 75€</span>
-    </div>
-  </div>
-</div>
-```
-
-  </div>
-</div>
-
-<!-- COMMANDER -->
-
-<div class="form-section" id="commander">
-  <h2 class="form-title">Finalisez votre Commande</h2>
-  <div class="form-inner">
-
-```
-<div class="form-group-title">Vos Coordonnées</div>
-<div class="form-row">
-  <input type="text" id="nom" placeholder="Nom Complet">
-  <input type="tel" id="tel" placeholder="Téléphone">
-</div>
-
-<div class="form-group-title">Produit Souhaité</div>
-<div class="form-row full">
-  <select id="produit" onchange="onProduitChange()">
-    <option value="">Choisir un produit...</option>
-    <optgroup label="Bouquet de Roses">
-      <option value="roses" data-price="0" data-type="roses">Bouquet de Roses Personnalisé</option>
-    </optgroup>
-    <optgroup label="Roses Éternelles">
-      <option value="eternelle-cloche" data-price="20" data-type="cloche">Rose Sous Cloche - 20€</option>
-      <option value="eternelle-perso" data-price="25" data-type="perso">Rose Sous Cloche + Prénom - 25€</option>
-    </optgroup>
-    <optgroup label="Collection Bijoux">
-      <option value="bijoux-boite" data-price="20" data-type="bijoux">Rose Boîte à Bijoux + Bague - 20€</option>
-      <option value="bijoux-box" data-price="10" data-type="bijoux">Box Bijoux Bracelet - 10€</option>
-    </optgroup>
-    <optgroup label="Univers Prière">
-      <option value="tapis" data-price="16" data-type="autre">Tapis Perso - 16€</option>
-      <option value="coffret-s" data-price="40" data-type="autre">Coffret S - 40€</option>
-      <option value="coffret-m" data-price="46" data-type="autre">Coffret M - 46€</option>
-      <option value="coffret-l" data-price="48" data-type="autre">Coffret L - 48€</option>
-      <option value="coffret-xl" data-price="75" data-type="autre">Coffret XL - 75€</option>
-    </optgroup>
-  </select>
-</div>
-
-<!-- Collection Bijoux -->
-<div id="bijoux-options" style="display:none !important;">
-  <div class="form-group-title" style="margin-top:1.5rem;">Options Bijoux</div>
-  <div class="options-list">
-    <div class="option-item" id="bijoux-perso-item" data-price="5" data-label="Personnalisation de la Box" onclick="toggleOpt(this); calcTotal();">
-      <div class="custom-cb"></div>
-      <span class="option-label">Personnalisation de la Box</span>
-      <span class="option-price">+5€</span>
-    </div>
-  </div>
-</div>
-
-<!-- Rose Eternelle Perso -->
-<div id="perso-options" style="display:none !important;">
-  <div class="form-group-title" style="margin-top:1.5rem;">Configuration Rose Éternelle</div>
-  <div class="form-row full">
-    <select id="couleur-perso">
-      <option value="rouge">Rouge Classique</option>
-      <option value="rose">Rose Doux</option>
-      <option value="bleu">Bleu Royal</option>
-    </select>
-  </div>
-  <div class="form-row full" style="margin-top:0.8rem;">
-    <input type="text" id="prenom-perso" placeholder="Prénom pour la personnalisation">
-  </div>
-</div>
-
-<!-- Rose Eternelle Cloche -->
-<div id="cloche-options" style="display:none !important;">
-  <div class="form-group-title" style="margin-top:1.5rem;">Configuration Rose Éternelle</div>
-  <div class="form-row full">
-    <select id="couleur-cloche">
-      <option value="rouge">Rouge Classique</option>
-      <option value="rose">Rose Doux</option>
-      <option value="bleu">Bleu Royal</option>
-    </select>
-  </div>
-</div>
-
-<!-- Roses options -->
-<div id="roses-options" style="display:none !important;">
-  <div class="form-group-title" style="margin-top:1.5rem;">Nombre de Roses &amp; Couleur</div>
-  <div class="form-row">
-    <select id="nb-roses" onchange="calcTotal()">
-      <option value="25" data-label="13 Roses">13 Roses - 25€</option>
-      <option value="35" data-label="18 Roses">18 Roses - 35€</option>
-      <option value="59" data-label="30 Roses">30 Roses - 59€</option>
-      <option value="99" data-label="50 Roses">50 Roses - 99€</option>
-      <option value="225" data-label="101 Roses">101 Roses - 225€</option>
-    </select>
-    <div>
-      <select id="couleur">
-        <option value="">Couleur des roses...</option>
-        <option value="rouge">Rouge</option>
-        <option value="rose">Rose</option>
-        <option value="bleu">Bleu</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-group-title" style="margin-top:1.5rem;">Personnalisez votre Bouquet (Options)</div>
-  <div class="options-list" id="opts-list">
-    <div class="option-item" data-price="20" data-label="Stitch Personnalisé" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Stitch Personnalisé</span><span class="option-price">+20€</span>
-    </div>
-    <div class="option-item" data-price="10" data-label="Mini Stitch" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Mini Stitch</span><span class="option-price">+10€</span>
-    </div>
-    <div class="option-item" data-price="10" data-label="Cœur Inflammable" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Cœur Inflammable</span><span class="option-price">+10€</span>
-    </div>
-    <div class="option-item" data-price="8" data-label="Grand Diadème" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Grand Diadème</span><span class="option-price">+8€</span>
-    </div>
-    <div class="option-item" data-price="4" data-label="Petit Diadème" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Petit Diadème</span><span class="option-price">+4€</span>
-    </div>
-    <div class="option-item" data-price="6" data-label="Ruban Perso" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Ruban Perso</span><span class="option-price">+6€</span>
-    </div>
-    <div class="option-item" data-price="6" data-label="Aiguilles Cristal" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Aiguilles Cristal</span><span class="option-price">+6€</span>
-    </div>
-    <div class="option-item" data-price="2" data-label="Papillons" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Papillons</span><span class="option-price">+2€</span>
-    </div>
-    <div class="option-item" data-price="5" data-label="Gypsophile" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Gypsophile</span><span class="option-price">+5€</span>
-    </div>
-    <div class="option-item" data-price="5" data-label="Lettre en Fleur" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Lettre en Fleur</span><span class="option-price">+5€</span>
-    </div>
-    <div class="option-item" data-price="4" data-label="Bordure Perles" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Bordure Perles</span><span class="option-price">+4€</span>
-    </div>
-    <div class="option-item" data-price="4" data-label="Paillettes" onclick="toggleOpt(this)">
-      <div class="custom-cb"></div><span class="option-label">Paillettes</span><span class="option-price">+4€</span>
-    </div>
-  </div>
-</div>
-
-<div class="form-group-title" style="margin-top:2rem;">Mode de Réception</div>
-<div class="delivery-options">
-  <div class="delivery-item selected" data-cost="0" data-type="main-propre" onclick="selectDelivery(this)">
-    Remise en main propre (Lyon) - Gratuit
-  </div>
-  <div class="delivery-item" data-cost="10" data-type="colissimo-fr" onclick="selectDelivery(this)">
-    Colissimo France - 10€
-  </div>
-  <div class="delivery-item" data-cost="15" data-type="colissimo-intl" onclick="selectDelivery(this)">
-    Colissimo International - 15€
-  </div>
-</div>
-
-<!-- Adresse (visible si livraison) -->
-<div id="adresse-block" style="display:none !important;margin-top:1rem;">
-  <div class="form-row full">
-    <input type="text" id="adresse-ligne1" placeholder="Adresse (numéro, rue...)">
-  </div>
-  <div class="form-row" style="margin-top:0.6rem;">
-    <input type="text" id="adresse-cp" placeholder="Code postal">
-    <input type="text" id="adresse-ville" placeholder="Ville">
-  </div>
-  <div class="form-row full" style="margin-top:0.6rem;">
-    <input type="text" id="adresse-pays" placeholder="Pays" value="France">
-  </div>
-</div>
-
-<div class="form-group-title" style="margin-top:2rem;">Message / Informations complémentaires</div>
-<div class="form-row full">
-  <textarea id="message" placeholder="Date souhaitée, prénom à personnaliser, message cadeau..."></textarea>
-</div>
-
-<div class="form-group-title" style="margin-top:2rem;">Code Promo</div>
-<div style="display:flex;gap:0.6rem;">
-  <input type="text" id="promo-client-input" placeholder="Entrez votre code promo..." style="flex:1;text-transform:uppercase;">
-  <button onclick="applyPromo()" style="background:transparent;border:1px solid #c9a84c;color:#c9a84c;padding:0.9rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;border-radius:0;">Appliquer</button>
-</div>
-<p id="promo-client-msg" style="font-size:0.72rem;margin-top:0.5rem;display:none;"></p>
-
-<div class="total-box" id="total-box" style="display:none !important;">
-  <div class="total-items" id="total-lines"></div>
-  <div class="total-amount" id="total-display">0€</div>
-  <div class="total-acompte" id="acompte-display"></div>
-</div>
-
-<div class="btn-row">
-  <button class="btn btn-outline" onclick="payer(false)">Régler l'acompte (50%)</button>
-  <button class="btn btn-solid" onclick="payer(true)">Payer le total (100%)</button>
-</div>
-```
-
-  </div>
-</div>
-
-<!-- FOOTER -->
-
-<footer>
-  <p>Site réalisé avec <span>♥</span> &mdash; bylinoushcreations</p>
-  <!-- Admin access: triple-click on copyright text -->
-  <span id="admin-trigger" onclick="handleAdminClick()" style="cursor:default;user-select:none;display:block;margin-top:0.5rem;">BY.LINOUSH CRÉATION © 2026 | LYON</span>
-</footer>
-
-<!-- ADMIN OVERLAY -->
-
-<div id="admin-overlay" style="display:none !important;position:fixed;inset:0;z-index:9000;overflow-y:auto;">
-
-  <!-- LOGIN SCREEN -->
-
-  <div id="admin-login" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:rgba(0,0,0,0.97);gap:1.2rem;padding:2rem;">
-    <div style="font-size:2.5rem;margin-bottom:.5rem;">🔐</div>
-    <div style="font-family:'Cinzel',serif;font-size:1.6rem;letter-spacing:0.2em;color:#c9a84c;">ESPACE ADMIN</div>
-    <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);letter-spacing:0.15em;margin-bottom:1rem;">BY.LINOUSH Créations</div>
-    <input id="admin-pwd" type="password" placeholder="Entrez votre mot de passe..." style="max-width:320px;text-align:center;font-size:0.9rem;padding:1rem 1.5rem;" onkeydown="if(event.key==='Enter')checkPwd()">
-    <p id="admin-err" style="color:#e05555;font-size:0.72rem;letter-spacing:0.1em;display:none;">❌ Mot de passe incorrect, réessayez.</p>
-    <button onclick="checkPwd()" style="background:#c9a84c;color:#0a0a0a;border:none;padding:0.9rem 3rem;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-weight:500;margin-top:.5rem;">Se connecter</button>
-    <button onclick="closeAdmin()" style="background:transparent;border:none;color:rgba(255,255,255,0.55);font-size:0.72rem;letter-spacing:0.1em;cursor:pointer;text-decoration:underline;">Annuler</button>
-  </div>
-
-  <!-- MAIN ADMIN PANEL -->
-
-  <div id="admin-panel" style="display:none;min-height:100vh;background:#0d0d0d;">
-
-```
-<!-- TOP BAR -->
-<div style="background:#111;border-bottom:2px solid #c9a84c;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;">
-  <div style="display:flex;align-items:center;gap:1rem;">
-    <span style="font-size:1.3rem;">⚙️</span>
-    <div>
-      <div style="font-family:'Cinzel',serif;font-size:1rem;letter-spacing:0.15em;color:#c9a84c;">PANNEAU ADMIN</div>
-      <div style="font-size:0.6rem;color:rgba(255,255,255,0.55);letter-spacing:0.1em;">BY.LINOUSH Créations</div>
-    </div>
-  </div>
-  <div style="display:flex;gap:0.8rem;align-items:center;">
-    <button onclick="saveAdmin()" id="adm-save-btn" style="background:#c9a84c;color:#000;border:none;padding:0.65rem 1.8rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:4px;">💾 Enregistrer</button>
-    <button onclick="closeAdmin()" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.55);padding:0.65rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;cursor:pointer;border-radius:4px;">✕ Fermer</button>
-  </div>
-</div>
-
-<!-- SAVE TOAST -->
-<div id="adm-toast" style="display:none;position:fixed;bottom:2rem;right:2rem;background:#2e7d32;color:white;padding:0.8rem 1.5rem;border-radius:8px;font-size:0.78rem;letter-spacing:0.1em;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,0.5);">✅ Modifications enregistrées !</div>
-
-<!-- TABS -->
-<div style="display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.08);background:#111;overflow-x:auto;">
-  <button class="adm-tab active" onclick="switchTab('tab-stock')" id="btn-tab-stock">📦 Stock & Disponibilités</button>
-  <button class="adm-tab" onclick="switchTab('tab-prix')" id="btn-tab-prix">💶 Tarifs</button>
-  <button class="adm-tab" onclick="switchTab('tab-couleurs')" id="btn-tab-couleurs">🎨 Couleurs</button>
-  <button class="adm-tab" onclick="switchTab('tab-promo')" id="btn-tab-promo">🎟️ Codes Promo</button>
-  <button class="adm-tab" onclick="switchTab('tab-factures')" id="btn-tab-factures">🧾 Factures</button>
-  <button class="adm-tab" onclick="switchTab('tab-site')" id="btn-tab-site">📢 Site & Messages</button>
-</div>
-
-<div style="max-width:860px;margin:0 auto;padding:2rem 1.5rem 5rem;">
-
-  <!-- ══ TAB: STOCK ══ -->
-  <div id="tab-stock" class="adm-tab-content">
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">🌹</div>
-        <div>
-          <div class="adm-card-title">Bouquets de roses : Disponibilite</div>
-          <div class="adm-card-sub">Désactivez un format pour le masquer dans le formulaire de commande</div>
+    <header>
+        <div class="brand-container">
+            <img src="https://i.ibb.co/B2KW28r4/IMG-4055.jpg" alt="Logo" class="brand-logo">
+            <h1 class="logo-text">BY.<span>LINOUSH</span></h1>
         </div>
-      </div>
-      <div class="adm-toggle-grid" id="stock-bouquets"></div>
+        <nav class="nav-links">
+            <a href="#roses">Compositions</a>
+            <a href="#catalogue">Catalogue</a>
+            <a href="#commander">Commander</a>
+        </nav>
+    </header>
+
+    <div id="thankYouModal">
+        <div class="modal-content">
+            <h2 style="font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 10px;">Récapitulatif Envoyé</h2>
+            <p style="font-size: 0.8rem;">Votre commande a été envoyée par mail. Copiez ce texte pour le coller sur PayPal :</p>
+            <div class="copy-box" id="orderSummaryText"></div>
+            <button onclick="redirectToPayPal()" class="btn-submit btn-total" style="width: 100%;">Aller sur PayPal</button>
+        </div>
     </div>
 
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">✨</div>
-        <div>
-          <div class="adm-card-title">Options &amp; Personnalisations — Ruptures de stock</div>
-          <div class="adm-card-sub">Activez le bouton rouge pour signaler une rupture. L'option sera grisée et bloquée pour les clients.</div>
+    <div class="container" id="roses">
+        <h2 class="section-label" data-aos="fade-up">✨ Nos Roses Artisanales ✨</h2>
+        <div class="price-grid">
+            <div class="price-card" data-aos="fade-up"><div class="qty">13 roses</div><div class="amount">25€</div></div>
+            <div class="price-card" data-aos="fade-up" data-aos-delay="100"><div class="qty">18 roses</div><div class="amount">35€</div></div>
+            <div class="price-card" data-aos="fade-up" data-aos-delay="200"><div class="qty">30 roses</div><div class="amount">59€</div></div>
+            <div class="price-card" data-aos="fade-up" data-aos-delay="300"><div class="qty">50 roses</div><div class="amount">99€</div></div>
+            <div class="price-card" data-aos="zoom-in" style="border-color: var(--gold);"><div class="qty">101 roses</div><div class="amount">225€</div><small>3 DÉCOS OFFERTES</small></div>
         </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;" id="stock-options"></div>
     </div>
 
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">💎</div>
-        <div>
-          <div class="adm-card-title">Autres produits : Disponibilite</div>
-          <div class="adm-card-sub">Désactivez un produit pour le retirer du formulaire de commande</div>
+    <section class="custom-section" id="catalogue">
+        <div class="deco-grid">
+            <div class="deco-cat" data-aos="fade-up">
+                <h3>🌹 Roses Éternelles</h3>
+                <div class="deco-item"><span>Rose sous cloche</span><div class="dots"></div><span>20€</span></div>
+                <div class="deco-item"><span>Perso (Prénom)</span><div class="dots"></div><span>25€</span></div>
+            </div>
+            <div class="deco-cat" data-aos="fade-up">
+                <h3>💎 Collection Bijoux</h3>
+                <div class="deco-item"><span>Rose boîte à bijoux + bague</span><div class="dots"></div><span>20€</span></div>
+                <div class="deco-item"><span>Box bijoux (Bracelet)</span><div class="dots"></div><span>10€</span></div>
+                <div class="deco-item"><span>Option Perso Box</span><div class="dots"></div><span>+5€</span></div>
+            </div>
+            <div class="deco-cat sold-out" data-aos="fade-up">
+                <h3>🌙 Univers Prière <span class="sold-out-badge">RUPTURE</span></h3>
+                <div class="deco-item"><span>Tapis Perso</span><div class="dots"></div><span>16€</span></div>
+                <div class="deco-item"><span>Coffret S / M</span><div class="dots"></div><span>40€ / 46€</span></div>
+                <div class="deco-item"><span>Coffret L / XL</span><div class="dots"></div><span>48€ / 75€</span></div>
+            </div>
         </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;" id="stock-produits"></div>
-    </div>
-
-  </div>
-
-  <!-- ══ TAB: PRIX ══ -->
-  <div id="tab-prix" class="adm-tab-content" style="display:none;">
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">🌹</div>
-        <div>
-          <div class="adm-card-title">Prix des bouquets de roses</div>
-          <div class="adm-card-sub">Modifiez le prix pour chaque format de bouquet</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.6rem;" id="prix-bouquets"></div>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">♾️</div>
-        <div>
-          <div class="adm-card-title">Prix : Roses Éternelles</div>
-          <div class="adm-card-sub">Rose sous cloche standard et avec personnalisation prénom</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.6rem;" id="prix-eternelles"></div>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">💎</div>
-        <div>
-          <div class="adm-card-title">Prix : Collection Bijoux</div>
-          <div class="adm-card-sub">Box bijoux et options de personnalisation</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.6rem;" id="prix-bijoux"></div>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">🕌</div>
-        <div>
-          <div class="adm-card-title">Prix : Univers Prière</div>
-          <div class="adm-card-sub">Tapis personnalisés et coffrets</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.6rem;" id="prix-priere"></div>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">🎀</div>
-        <div>
-          <div class="adm-card-title">Prix : Options &amp; Personnalisations bouquet</div>
-          <div class="adm-card-sub">Suppléments ajoutés au prix du bouquet de roses</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0.6rem;" id="prix-options"></div>
-    </div>
-
-  </div>
-
-  <!-- ══ TAB: COULEURS ══ -->
-  <div id="tab-couleurs" class="adm-tab-content" style="display:none;">
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">🌹</div>
-        <div>
-          <div class="adm-card-title">Couleurs disponibles : Bouquets de roses fraîches</div>
-          <div class="adm-card-sub">Les couleurs désactivées n'apparaîtront plus dans le formulaire de commande des bouquets</div>
-        </div>
-      </div>
-      <div class="adm-toggle-grid" id="couleurs-roses"></div>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">♾️</div>
-        <div>
-          <div class="adm-card-title">Couleurs disponibles : Roses Éternelles (Sous Cloche)</div>
-          <div class="adm-card-sub">Applicable à la Rose Sous Cloche standard ET à la version avec prénom</div>
-        </div>
-      </div>
-      <div class="adm-toggle-grid" id="couleurs-eternelles"></div>
-    </div>
-
-  </div>
-
-  <!-- ══ TAB: CODES PROMO ══ -->
-  <div id="tab-promo" class="adm-tab-content" style="display:none;">
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">🎟️</div>
-        <div>
-          <div class="adm-card-title">Créer un code promo</div>
-          <div class="adm-card-sub">Le client pourra saisir ce code dans le formulaire de commande pour obtenir une réduction.</div>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem;">
-        <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Code promo</div>
-          <input id="promo-code-input" type="text" placeholder="Ex : LINOUSH10, NOEL2026..." style="text-transform:uppercase;">
-        </div>
-        <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Type de réduction</div>
-          <select id="promo-type" onchange="togglePromoType()">
-            <option value="pct">Pourcentage (ex : -10%)</option>
-            <option value="fixed">Montant fixe (ex : -5€)</option>
-          </select>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
-        <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Valeur</div>
-          <div style="display:flex;align-items:center;gap:0.4rem;">
-            <input id="promo-value" type="number" min="1" max="100" placeholder="10" style="flex:1;">
-            <span id="promo-unit" style="color:#c9a84c;font-size:0.9rem;font-weight:600;min-width:20px;">%</span>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Utilisations max</div>
-          <input id="promo-uses" type="number" min="1" placeholder="Illimité" style="width:100%;">
-        </div>
-        <div>
-          <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Date d'expiration</div>
-          <input id="promo-expiry" type="date" style="width:100%;">
-        </div>
-      </div>
-
-      <button onclick="addPromoCode()" style="background:#c9a84c;color:#000;border:none;padding:0.8rem 2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:6px;">+ Créer ce code</button>
-      <p id="promo-msg" style="font-size:0.72rem;margin-top:0.6rem;display:none;"></p>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">📋</div>
-        <div>
-          <div class="adm-card-title">Codes promo actifs</div>
-          <div class="adm-card-sub">Liste de tous vos codes. Cliquez sur la corbeille pour supprimer un code.</div>
-        </div>
-      </div>
-      <div id="promo-list" style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucun code promo créé pour le moment.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ TAB: FACTURES ══ -->
-  <div id="tab-factures" class="adm-tab-content" style="display:none;">
-
-    <!-- Créer une facture manuellement -->
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">✏️</div>
-        <div>
-          <div class="adm-card-title">Créer une facture</div>
-          <div class="adm-card-sub">Remplissez les informations de la commande pour générer une facture numérotée automatiquement.</div>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem;">
-        <div>
-          <div class="adm-prix-label" style="margin-bottom:0.4rem;">Nom du client</div>
-          <input id="fac-nom" type="text" placeholder="Ex : Marie Dupont">
-        </div>
-        <div>
-          <div class="adm-prix-label" style="margin-bottom:0.4rem;">Téléphone</div>
-          <input id="fac-tel" type="text" placeholder="06 XX XX XX XX">
-        </div>
-      </div>
-
-      <div style="margin-bottom:0.8rem;">
-        <div class="adm-prix-label" style="margin-bottom:0.4rem;">Adresse (optionnel)</div>
-        <input id="fac-adresse" type="text" placeholder="Ex : 12 rue des Roses, 69001 Lyon">
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem;">
-        <div>
-          <div class="adm-prix-label" style="margin-bottom:0.4rem;">Date de commande</div>
-          <input id="fac-date" type="date">
-        </div>
-        <div>
-          <div class="adm-prix-label" style="margin-bottom:0.4rem;">Mode de paiement</div>
-          <select id="fac-paiement">
-            <option value="Virement">Virement</option>
-            <option value="Espèces">Espèces</option>
-            <option value="PayPal">PayPal</option>
-            <option value="Lydia / Sumeria">Lydia / Sumeria</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
-      </div>
-
-      <div style="margin-bottom:0.8rem;">
-        <div class="adm-prix-label" style="margin-bottom:0.4rem;">Produit(s) commandé(s)</div>
-        <textarea id="fac-produits" placeholder="Ex : Bouquet 30 roses Rose&#10;+ Grand Diadème&#10;+ Ruban Perso&#10;Livraison Colissimo France" style="min-height:100px;resize:vertical;"></textarea>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
-        <div>
-          <div class="adm-prix-label" style="margin-bottom:0.4rem;">Montant total (€)</div>
-          <input id="fac-total" type="number" min="0" placeholder="75">
-        </div>
-        <div>
-          <div class="adm-prix-label" style="margin-bottom:0.4rem;">Acompte versé (€)</div>
-          <input id="fac-acompte" type="number" min="0" placeholder="37.50">
-        </div>
-        <div>
-          <div class="adm-prix-label" style="margin-bottom:0.4rem;">Statut</div>
-          <select id="fac-statut">
-            <option value="Acompte versé">Acompte versé</option>
-            <option value="Payé intégralement">Payé intégralement</option>
-            <option value="En attente">En attente</option>
-          </select>
-        </div>
-      </div>
-
-      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
-        <button onclick="createFacture()" style="background:#c9a84c;color:#000;border:none;padding:0.8rem 2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:6px;">🧾 Générer la facture</button>
-      </div>
-      <p id="fac-msg" style="font-size:0.72rem;margin-top:0.6rem;display:none;"></p>
-    </div>
-
-    <!-- Liste des factures -->
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">📋</div>
-        <div>
-          <div class="adm-card-title">Historique des factures</div>
-          <div class="adm-card-sub">Cliquez sur une facture pour la visualiser, l'imprimer ou la télécharger en PDF.</div>
-        </div>
-      </div>
-      <div id="fac-list" style="display:flex;flex-direction:column;gap:0.5rem;">
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucune facture créée pour le moment.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══ TAB: SITE ══ -->
-  <div id="tab-site" class="adm-tab-content" style="display:none;">
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">📢</div>
-        <div>
-          <div class="adm-card-title">Bannière d'information</div>
-          <div class="adm-card-sub">Ce message s'affichera en haut du site pour tous les visiteurs. Laissez vide pour ne rien afficher.</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
-        <input id="adm-banniere" type="text" placeholder="Ex : Fermeture du 20 au 25 déc. · Délais de livraison allongés · Promo -10% ce week-end..." style="flex:1;min-width:200px;">
-        <button onclick="document.getElementById('adm-banniere').value=''" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);padding:0.9rem 1rem;font-size:0.7rem;cursor:pointer;white-space:nowrap;border-radius:4px;">Effacer</button>
-      </div>
-      <div style="margin-top:0.8rem;font-size:0.7rem;color:rgba(255,255,255,0.55);line-height:1.6;">
-        💡 <strong>Exemples :</strong> annonce de fermeture, délai de livraison exceptionnel, promotion en cours, nouvelle collection disponible...
-      </div>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">🔐</div>
-        <div>
-          <div class="adm-card-title">Mot de passe administrateur</div>
-          <div class="adm-card-sub">Changez le mot de passe pour accéder à ce panneau. Notez-le bien !</div>
-        </div>
-      </div>
-      <div style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
-        <input id="adm-new-pwd" type="password" placeholder="Nouveau mot de passe..." style="flex:1;min-width:200px;">
-        <input id="adm-new-pwd2" type="password" placeholder="Confirmer le mot de passe..." style="flex:1;min-width:200px;">
-      </div>
-      <p id="adm-pwd-msg" style="font-size:0.72rem;margin-top:0.6rem;display:none;"></p>
-      <button onclick="changePwd()" style="margin-top:0.8rem;background:transparent;border:1px solid #c9a84c;color:#c9a84c;padding:0.7rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;">Mettre à jour le mot de passe</button>
-    </div>
-
-    <div class="adm-card">
-      <div class="adm-card-header">
-        <div class="adm-card-icon">⚠️</div>
-        <div>
-          <div class="adm-card-title">Réinitialisation</div>
-          <div class="adm-card-sub">Remettre tous les paramètres à leurs valeurs par défaut</div>
-        </div>
-      </div>
-      <button onclick="resetAdmin()" style="background:rgba(200,50,50,0.15);border:1px solid rgba(200,50,50,0.4);color:#e07070;padding:0.8rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;">🗑️ Réinitialiser toute la configuration</button>
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </div>
-</div>
-
-<!-- BANNIÈRE SITE -->
-
-<div id="site-banniere" style="display:none !important;background:rgba(201,168,76,0.15);border-bottom:1px solid #c9a84c;text-align:center;padding:0.7rem 2rem;font-size:0.78rem;letter-spacing:0.08em;color:#c9a84c;position:relative;z-index:200;"></div>
-
-<script>
-  window._total = 0;
-
-  function toggleOpt(el) {
-    el.classList.toggle('checked');
-    calcTotal();
-  }
-
-  function onProduitChange() {
-    const sel = document.getElementById('produit');
-    const opt = sel.selectedOptions[0];
-    const type = opt ? opt.dataset.type : '';
-    document.getElementById('roses-options').style.cssText = type === 'roses' ? 'display:block' : 'display:none';
-    document.getElementById('cloche-options').style.cssText = type === 'cloche' ? 'display:block' : 'display:none';
-    document.getElementById('perso-options').style.cssText = type === 'perso' ? 'display:block' : 'display:none';
-    document.getElementById('bijoux-options').style.cssText = type === 'bijoux' ? 'display:block' : 'display:none';
-    // Reset bijoux perso checkbox when switching
-    if (type !== 'bijoux') {
-      document.getElementById('bijoux-perso-item').classList.remove('checked');
-    }
-    calcTotal();
-  }
-
-  function calcTotal() {
-    const sel = document.getElementById('produit');
-    const opt = sel.selectedOptions[0];
-    if (!opt || !opt.value) { document.getElementById('total-box').style.display = 'none'; return; }
-
-    const type = opt.dataset.type;
-    let total = 0, lines = [];
-
-    if (type === 'roses') {
-      const rSel = document.getElementById('nb-roses');
-      const rOpt = rSel.selectedOptions[0];
-      const rPrice = parseInt(rSel.value);
-      total += rPrice;
-      lines.push({ label: 'Bouquet (' + rOpt.dataset.label + ')', price: rPrice });
-
-      document.querySelectorAll('#opts-list .option-item.checked').forEach(el => {
-        const p = parseInt(el.dataset.price);
-        total += p;
-        lines.push({ label: el.dataset.label, price: p });
-      });
-    } else if (type === 'bijoux') {
-      const price = parseInt(opt.dataset.price);
-      total = price;
-      lines.push({ label: opt.text.split(' - ')[0].trim(), price });
-      const persoItem = document.getElementById('bijoux-perso-item');
-      if (persoItem.classList.contains('checked')) {
-        total += 5;
-        lines.push({ label: 'Personnalisation de la Box', price: 5 });
-      }
-    } else {
-      const price = parseInt(opt.dataset.price);
-      total = price;
-      lines.push({ label: opt.text.split(' - ')[0].trim(), price });
-    }
-
-    window._total = total;
-
-    // Ajouter frais de livraison
-    const delivSel = document.querySelector('.delivery-item.selected');
-    const delivCost = delivSel ? parseInt(delivSel.dataset.cost || 0) : 0;
-    if (delivCost > 0) {
-      lines.push({ label: delivSel.textContent.trim(), price: delivCost });
-      total += delivCost;
-    }
-
-    // Appliquer code promo
-    if (activePromo) {
-      let discount = 0;
-      if (activePromo.type === 'pct') discount = Math.round(total * activePromo.value) / 100;
-      else discount = Math.min(activePromo.value, total);
-      discount = Math.round(discount * 100) / 100;
-      lines.push({ label: ' Code "' + activePromo.code + '"', price: -discount });
-      total = Math.max(0, Math.round((total - discount) * 100) / 100);
-    }
-
-    window._total = total;
-    document.getElementById('total-lines').innerHTML = lines.map(function(l) {
-      return '<div class="total-line"><span>' + l.label + '</span><span>' + l.price + 'EUR</span></div>';
-    }).join('');
-    document.getElementById('total-display').textContent = total + 'EUR';
-    document.getElementById('acompte-display').textContent = 'Acompte calcule (50%) : ' + (total * 0.5).toFixed(2) + 'EUR';
-    document.getElementById('total-box').style.display = 'block';
-  }
-
-  function selectDelivery(el) {
-    document.querySelectorAll('.delivery-item').forEach(d => d.classList.remove('selected'));
-    el.classList.add('selected');
-    const type = el.dataset.type;
-    const isLivraison = type === 'colissimo-fr' || type === 'colissimo-intl';
-    document.getElementById('adresse-block').style.display = isLivraison ? 'block' : 'none';
-    calcTotal();
-  }
-
-  function payer(full) {
-    if (!window._total) { alert('Veuillez selectionner un produit.'); return; }
-    const nom = document.getElementById('nom').value.trim() || ' - ';
-    const tel = document.getElementById('tel').value.trim() || ' - ';
-    const prodOpt = document.getElementById('produit').selectedOptions[0];
-    const type = prodOpt ? prodOpt.dataset.type : '';
-    const montant = full ? window._total : Math.round(window._total * 50) / 100;
-
-    let msg = 'ByLinoush Creations  -  Nouvelle Commande\n\n';
-    msg += 'Nom : ' + nom + '\n';
-    msg += 'Telephone : ' + tel + '\n';
-    msg += 'Produit : ' + (prodOpt ? prodOpt.text.split(' - ')[0].trim() : ' - ') + '\n';
-
-    // Details selon type
-    if (type === 'roses') {
-      const rOpt = document.getElementById('nb-roses').selectedOptions[0];
-      const couleur = document.getElementById('couleur').value;
-      msg += 'Bouquet : ' + (rOpt ? rOpt.dataset.label : ' - ') + '\n';
-      msg += 'Couleur : ' + (couleur || ' - ') + '\n';
-
-      const decos = [];
-      document.querySelectorAll('#opts-list .option-item.checked').forEach(el => {
-        decos.push(el.dataset.label + ' (+' + el.dataset.price + 'EUR)');
-      });
-      if (decos.length > 0) {
-        msg += 'Options choisies :\n';
-        decos.forEach(d => { msg += '  - ' + d + '\n'; });
-      } else {
-        msg += 'Options : Aucune\n';
-      }
-    } else if (type === 'cloche') {
-      const couleur = document.getElementById('couleur-cloche').selectedOptions[0];
-      msg += 'Couleur : ' + (couleur ? couleur.text : ' - ') + '\n';
-    } else if (type === 'perso') {
-      const couleur = document.getElementById('couleur-perso').selectedOptions[0];
-      const prenom = document.getElementById('prenom-perso').value.trim();
-      msg += 'Couleur : ' + (couleur ? couleur.text : ' - ') + '\n';
-      msg += 'Prenom : ' + (prenom || ' - ') + '\n';
-    } else if (type === 'bijoux') {
-      const persoBox = document.getElementById('bijoux-perso-item');
-      msg += 'Personnalisation box : ' + (persoBox.classList.contains('checked') ? 'Oui (+5EUR)' : 'Non') + '\n';
-    }
-
-    const livraison = document.querySelector('.delivery-item.selected');
-    const livraisonType = livraison ? livraison.dataset.type : '';
-    msg += 'Livraison : ' + (livraison ? livraison.textContent.trim() : ' - ') + '\n';
-
-    if (livraisonType === 'colissimo-fr' || livraisonType === 'colissimo-intl') {
-      const l1 = document.getElementById('adresse-ligne1').value.trim();
-      const cp = document.getElementById('adresse-cp').value.trim();
-      const ville = document.getElementById('adresse-ville').value.trim();
-      const pays = document.getElementById('adresse-pays').value.trim();
-      msg += 'Adresse : ' + [l1, cp, ville, pays].filter(Boolean).join(', ') + '\n';
-    }
-
-    const message = document.getElementById('message').value.trim();
-    if (message) msg += 'Message : ' + message + '\n';
-
-    msg += '\nMontant : ' + montant + 'EUR (' + (full ? 'paiement total 100%' : 'acompte 50%') + ')';
-    msg += '\nTotal commande : ' + window._total + 'EUR';
-    if (activePromo) msg += '\nCode promo : ' + activePromo.code + ' (' + (activePromo.type==='pct'?'-'+activePromo.value+'%':'-'+activePromo.value+'EUR') + ')';
-
-    window.open('https://wa.me/33623404514?text=' + encodeURIComponent(msg), '_blank');
-  }
-
-  // -- PETALES ANIMES --
-  (function() {
-    var canvas = document.getElementById('petals-canvas');
-    if (!canvas || !canvas.getContext) return;
-    var ctx = canvas.getContext('2d');
-    var W, H, petals = [];
-
-    function resize() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    // Palette doree/rosee sur fond noir
-    const colors = [
-      'rgba(201,168,76,VAL)',   // or
-      'rgba(180,100,100,VAL)',  // rose fonce
-      'rgba(230,180,140,VAL)',  // peche dore
-      'rgba(210,150,150,VAL)',  // rose
-      'rgba(255,215,100,VAL)',  // or clair
-    ];
-
-    function randomColor(alpha) {
-      return colors[Math.floor(Math.random() * colors.length)].replace('VAL', alpha);
-    }
-
-    function createPetal() {
-      const size = 4 + Math.random() * 10;
-      return {
-        x: Math.random() * W,
-        y: -20 - Math.random() * 100,
-        size,
-        speedY: 0.5 + Math.random() * 1.2,
-        speedX: (Math.random() - 0.5) * 0.8,
-        rotation: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.04,
-        sway: Math.random() * Math.PI * 2,
-        swaySpeed: 0.01 + Math.random() * 0.02,
-        swayAmp: 15 + Math.random() * 25,
-        opacity: 0.3 + Math.random() * 0.5,
-        color: randomColor(1),
-        type: Math.floor(Math.random() * 3), // 0=ovale, 1=petale, 2=coeur
-        scaleX: 0.5 + Math.random() * 0.5,
-      };
-    }
-
-    // Spawn initial
-    for (let i = 0; i < 38; i++) {
-      const p = createPetal();
-      p.y = Math.random() * H; // deja sur l'ecran au depart
-      petals.push(p);
-    }
-
-    function drawPetal(p) {
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.rotation);
-      ctx.scale(p.scaleX, 1);
-      ctx.globalAlpha = p.opacity;
-
-      const s = p.size;
-      const col = p.color.replace('1)', p.opacity + ')');
-      ctx.fillStyle = col;
-      ctx.strokeStyle = col.replace('rgba', 'rgba').replace(/[\d.]+\)$/, '0.3)');
-      ctx.lineWidth = 0.5;
-
-      if (p.type === 0) {
-        // Ovale simple
-        ctx.beginPath();
-        ctx.ellipse(0, 0, s * 0.5, s, 0, 0, Math.PI * 2);
-        ctx.fill();
-      } else if (p.type === 1) {
-        // Forme petale (deux courbes de Bezier)
-        ctx.beginPath();
-        ctx.moveTo(0, -s);
-        ctx.bezierCurveTo(s * 0.8, -s * 0.5, s * 0.8, s * 0.5, 0, s);
-        ctx.bezierCurveTo(-s * 0.8, s * 0.5, -s * 0.8, -s * 0.5, 0, -s);
-        ctx.fill();
-      } else {
-        // Petit rond doux
-        ctx.beginPath();
-        ctx.arc(0, 0, s * 0.55, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      ctx.restore();
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, W, H);
-
-      petals.forEach((p, i) => {
-        p.sway += p.swaySpeed;
-        p.x += p.speedX + Math.sin(p.sway) * 0.6;
-        p.y += p.speedY;
-        p.rotation += p.rotSpeed;
-
-        if (p.y > H + 30) {
-          petals[i] = createPetal();
+    </section>
+
+    <section class="order-container" id="commander">
+        <h2 style="text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 40px; color: var(--gold);">Finalisez votre Commande</h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label>Vos Coordonnées</label>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                    <input type="text" name="Client" id="clientName" placeholder="Nom Complet" required>
+                    <input type="text" name="Tel" id="clientPhone" placeholder="Téléphone" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Produit Souhaité</label>
+                <select id="mainProduct" name="Produit" onchange="updateFormDisplay()">
+                    <optgroup label="🌹 BOUQUETS">
+                        <option value="Bouquet Roses" data-price="25">Bouquet de Roses Personnalisé</option>
+                    </optgroup>
+                    <optgroup label="🌹 ROSES ÉTERNELLES">
+                        <option value="Rose Eternelle Std" data-price="20">Rose Éternelle Standard (20€)</option>
+                        <option value="Rose Eternelle Perso" data-price="25">Rose Éternelle Personnalisée (25€)</option>
+                    </optgroup>
+                    <optgroup label="💎 COLLECTION BIJOUX">
+                        <option value="Box Rose+Bague" data-price="20">Box Rose + Bague (20€)</option>
+                        <option value="Box Bijoux (Bracelet)" data-price="10">Box Bijoux (Bracelet) (10€)</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div id="jewelOptions" class="form-group" style="display:none;">
+                <label>Options Bijoux</label>
+                <label class="check-card">
+                    <input type="checkbox" name="Box_Perso" id="persoBoxJewel" class="extra" value="Perso Box" data-price="5" onchange="calculateTotal()"> 
+                    Personnalisation de la Box (+5€)
+                </label>
+            </div>
+
+            <div id="eternelleOptions" class="form-group" style="display:none;">
+                <label>Configuration Rose Éternelle</label>
+                <select name="Couleur_Eternelle" id="eternelleColor">
+                    <option value="Rouge">Rouge Classique</option>
+                    <option value="Rose">Rose Doux</option>
+                    <option value="Bleu">Bleu Royal</option>
+                </select>
+                <div id="prenomField" style="margin-top: 15px; display:none;">
+                    <input type="text" name="Prenom_Eternelle" id="eternellePrenom" placeholder="Prénom pour la personnalisation">
+                </div>
+            </div>
+
+            <div id="bouquetDetails" class="form-group">
+                <label>Nombre de Roses</label>
+                <select name="NB_Roses" id="bouquetQty" onchange="calculateTotal()">
+                    <option value="13" data-price="25">13 Roses - 25€</option>
+                    <option value="18" data-price="35">18 Roses - 35€</option>
+                    <option value="30" data-price="59">30 Roses - 59€</option>
+                    <option value="50" data-price="99">50 Roses - 99€</option>
+                    <option value="101" data-price="225">101 Roses - 225€</option>
+                </select>
+            </div>
+
+            <div id="personalizationSection" class="form-group">
+                <label>Personnalisez votre Bouquet (Options)</label>
+                <div class="selection-grid">
+                    <div style="grid-column: span 1;">
+                        <label class="check-card"><input type="checkbox" name="Deco" class="extra" id="checkStitchG" value="Stitch Perso" data-price="20" onchange="togglePersoField('checkStitchG', 'fieldStitchG')"> Stitch Personnalisé (+20€)</label>
+                        <select id="fieldStitchG" name="Couleur_Stitch_G" class="dynamic-field" onchange="calculateTotal()">
+                            <option value="Bleu">Couleur : Bleu</option>
+                            <option value="Rose">Couleur : Rose</option>
+                        </select>
+                    </div>
+
+                    <label class="check-card" style="opacity: 0.5; cursor: not-allowed;">
+                        <input type="checkbox" disabled> Mini Stitch <span style="color: var(--out-of-stock); font-size: 0.6rem; margin-left: 5px;">(RUPTURE)</span>
+                    </label>
+                    
+                    <label class="check-card" style="opacity: 0.5; cursor: not-allowed;">
+                        <input type="checkbox" disabled> Coeur Inflammable <span style="color: var(--out-of-stock); font-size: 0.6rem; margin-left: 5px;">(RUPTURE)</span>
+                    </label>
+
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Grand Diademe" data-price="8" onchange="calculateTotal()"> Grand Diadème (+8€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Petit Diademe" data-price="4" onchange="calculateTotal()"> Petit Diadème (+4€)</label>
+                    
+                    <div style="grid-column: span 1;">
+                        <label class="check-card"><input type="checkbox" name="Deco" class="extra" id="checkRuban" value="Ruban Perso" data-price="4" onchange="togglePersoField('checkRuban', 'fieldRuban')"> Ruban Perso (+4€)</label>
+                        <input type="text" id="fieldRuban" name="Texte_Ruban" class="dynamic-field" placeholder="Texte du ruban (Prénom...)">
+                    </div>
+
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Aiguilles" data-price="6" onchange="calculateTotal()"> Aiguilles Cristal (+6€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Papillons" data-price="2" onchange="calculateTotal()"> Papillons (+2€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Gypsophile" data-price="5" onchange="calculateTotal()"> Gypsophile (+5€)</label>
+                    
+                    <div style="grid-column: span 1;">
+                        <label class="check-card"><input type="checkbox" name="Deco" class="extra" id="checkLettre" value="Lettre Fleur" data-price="5" onchange="togglePersoField('checkLettre', 'fieldLettre')"> Lettre en fleur (+5€)</label>
+                        <input type="text" id="fieldLettre" name="Lettre_Choisie" class="dynamic-field" maxlength="1" placeholder="Tapez 1 seule lettre" style="text-transform: uppercase;">
+                    </div>
+
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Bordure Perle" data-price="4" onchange="calculateTotal()"> Bordure perles (+4€)</label>
+                    <label class="check-card"><input type="checkbox" name="Deco" class="extra" value="Paillettes" data-price="4" onchange="calculateTotal()"> Paillettes (+4€)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mode de Réception</label>
+                <select name="Reception" id="deliveryMethod" onchange="calculateTotal()">
+                    <option value="0">Remise en main propre (Lyon) - Gratuit</option>
+                    <option value="10" data-label="Envoi Colissimo">Envoi Colissimo (France) - 10€</option>
+                    <option value="15" data-label="Envoi International">Envoi International - 15€</option>
+                </select>
+            </div>
+
+            <div id="livePricing" class="live-details"></div>
+
+            <div class="price-summary">
+                <div class="total-amount"><span id="fullPriceDisplay">25</span>€</div>
+                <div style="font-size: 0.75rem; margin-top: 10px; color: #aaa;">ACOMPTE CALCULÉ (50%) : <span id="depositDisplay">12.50</span>€</div>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn-submit btn-acompte" onclick="prepareOrder(true)">Régler l'Acompte (50%)</button>
+                <button type="button" class="btn-submit btn-total" onclick="prepareOrder(false)">Payer le Total (100%)</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        BY.LINOUSH CRÉATION © 2026 | LYON <br>
+        SITE RÉALISÉ PAR <a href="https://www.instagram.com/nexusweb69" target="_blank" class="footer-link">NEXUSWEB</a>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function togglePersoField(checkId, fieldId) {
+            const checkbox = document.getElementById(checkId);
+            const field = document.getElementById(fieldId);
+            field.style.display = checkbox.checked ? "block" : "none";
+            if(!checkbox.checked) field.value = "";
+            calculateTotal();
         }
 
-        drawPetal(p);
-      });
-
-      // Maintenir ~38 petales
-      if (petals.length < 38) petals.push(createPetal());
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  })();
-
-  // -- CODES PROMO --
-  let activePromo = null;
-
-  function togglePromoType() {
-    const t = document.getElementById('promo-type').value;
-    document.getElementById('promo-unit').textContent = t === 'pct' ? '%' : 'EUR';
-    document.getElementById('promo-value').max = t === 'pct' ? 100 : 9999;
-  }
-
-  function addPromoCode() {
-    const code = document.getElementById('promo-code-input').value.trim().toUpperCase();
-    const type = document.getElementById('promo-type').value;
-    const value = parseFloat(document.getElementById('promo-value').value);
-    const uses = parseInt(document.getElementById('promo-uses').value) || null;
-    const expiry = document.getElementById('promo-expiry').value || null;
-    const msg = document.getElementById('promo-msg');
-    if (!code) { showPromoMsg(msg,'[X] Veuillez entrer un code.','error'); return; }
-    if (!value || value <= 0) { showPromoMsg(msg,'[X] Valeur invalide.','error'); return; }
-    if (type==='pct' && value>100) { showPromoMsg(msg,'[X] Max 100%.','error'); return; }
-    if (!adminConfig.promoCodes) adminConfig.promoCodes = [];
-    if (adminConfig.promoCodes.find(p => p.code===code)) { showPromoMsg(msg,'[X] Ce code existe deja.','error'); return; }
-    adminConfig.promoCodes.push({code, type, value, uses, usedCount:0, expiry, active:true});
-    localStorage.setItem('bylinoush_config', JSON.stringify(adminConfig));
-    showPromoMsg(msg,'[OK] Code "'+code+'" cree !','success');
-    document.getElementById('promo-code-input').value='';
-    document.getElementById('promo-value').value='';
-    document.getElementById('promo-uses').value='';
-    document.getElementById('promo-expiry').value='';
-    renderPromoList();
-  }
-
-  function showPromoMsg(el, text, type) {
-    el.textContent=text; el.style.color=type==='success'?'#81c784':'#e07070';
-    el.style.display='block'; setTimeout(()=>el.style.display='none',4000);
-  }
-
-  function renderPromoList() {
-    const container = document.getElementById('promo-list'); if (!container) return;
-    const codes = adminConfig.promoCodes || [];
-    if (!codes.length) { container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucun code promo cree pour le moment.</div>'; return; }
-    container.innerHTML='';
-    codes.forEach((p,i) => {
-      const now = new Date();
-      const expired = p.expiry && new Date(p.expiry) < now;
-      const exhausted = p.uses!==null && p.usedCount>=p.uses;
-      const inactive = !p.active || expired || exhausted;
-      const row = document.createElement('div');
-      row.style.cssText='display:flex;align-items:center;gap:0.8rem;background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:0.9rem 1.2rem;flex-wrap:wrap;';
-      var codeColor=inactive?'rgba(255,255,255,0.25)':'#c9a84c'; var codeLbl='<div style="font-family:monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:'+codeColor+';min-width:110px;">'+p.code+'</div>';
-      var reducColor=inactive?'rgba(255,255,255,0.2)':'#81c784'; var reducTxt=p.type==='pct'?'-'+p.value+'%':'-'+p.value+'EUR'; var reducLbl='<div style="font-size:0.82rem;font-weight:600;color:'+reducColor+';">'+reducTxt+'</div>';
-      var infoTxt='<div style="flex:1;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.8;">Utilisations : '+p.usedCount+' / '+(p.uses||'&#8734;'); if(p.expiry)infoTxt+='  .  Expire le '+new Date(p.expiry).toLocaleDateString('fr-FR'); infoTxt+='</div>';
-      let stBg='rgba(46,125,50,0.2)', stCol='#81c784', stTxt='OK Actif';
-      if (expired){stBg='rgba(150,50,50,0.2)';stCol='#e07070';stTxt='Expire';}
-      else if(exhausted){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Epuise';}
-      else if(!p.active){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Desactive';}
-      var stBadge='<span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:'+stBg+';color:'+stCol+';">'+stTxt+'</span>';
-      row.innerHTML = codeLbl+reducLbl+infoTxt+stBadge;
-      const togBtn=document.createElement('button');
-      togBtn.textContent=p.active?'Desactiver':'Activer';
-      togBtn.style.cssText='background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);padding:0.35rem 0.8rem;font-family:Jost,sans-serif;font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;border-radius:4px;';
-      togBtn.onclick=()=>{adminConfig.promoCodes[i].active=!adminConfig.promoCodes[i].active;localStorage.setItem('bylinoush_config',JSON.stringify(adminConfig));renderPromoList();};
-      const delBtn=document.createElement('button');
-      delBtn.textContent='';
-      delBtn.style.cssText='background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.3);color:#e07070;padding:0.35rem 0.6rem;cursor:pointer;border-radius:4px;';
-      delBtn.onclick=()=>{if(!confirm('Supprimer "'+p.code+'" ?'))return;adminConfig.promoCodes.splice(i,1);localStorage.setItem('bylinoush_config',JSON.stringify(adminConfig));renderPromoList();};
-      row.appendChild(togBtn); row.appendChild(delBtn);
-      container.appendChild(row);
-    });
-  }
-
-  function applyPromo() {
-    const input = document.getElementById('promo-client-input').value.trim().toUpperCase();
-    const msg = document.getElementById('promo-client-msg');
-    if (!input) { showPromoMsg(msg,'[X] Entrez un code promo.','error'); return; }
-    const codes = adminConfig.promoCodes || [];
-    const promo = codes.find(p=>p.code===input && p.active);
-    if (!promo) { showPromoMsg(msg,'[X] Code invalide ou desactive.','error'); activePromo=null; calcTotal(); return; }
-    if (promo.expiry && new Date(promo.expiry)<new Date()) { showPromoMsg(msg,'[X] Ce code a expire.','error'); activePromo=null; calcTotal(); return; }
-    if (promo.uses!==null && promo.usedCount>=promo.uses) { showPromoMsg(msg,'[X] Code epuise.','error'); activePromo=null; calcTotal(); return; }
-    activePromo = promo;
-    const label = promo.type==='pct'?'-'+promo.value+'%':'-'+promo.value+'EUR';
-    showPromoMsg(msg,'[OK] Code "'+promo.code+'" applique : '+label,'success');
-    calcTotal();
-  }
-
-  const DEFAULT_PASSWORD = 'linoush2026';
-
-  // ======================================
-  //  SYSTEME DE FACTURES
-  // ======================================
-
-  function getNextFactureNum() {
-    if (!adminConfig.factures) adminConfig.factures = [];
-    const year = new Date().getFullYear();
-    const count = adminConfig.factures.filter(f => f.num.startsWith('FAC-'+year)).length + 1;
-    return 'FAC-' + year + '-' + String(count).padStart(3,'0');
-  }
-
-  function createFacture() {
-    const nom      = document.getElementById('fac-nom').value.trim();
-    const tel      = document.getElementById('fac-tel').value.trim();
-    const adresse  = document.getElementById('fac-adresse').value.trim();
-    const date     = document.getElementById('fac-date').value;
-    const paiement = document.getElementById('fac-paiement').value;
-    const produits = document.getElementById('fac-produits').value.trim();
-    const total    = parseFloat(document.getElementById('fac-total').value);
-    const acompte  = parseFloat(document.getElementById('fac-acompte').value) || 0;
-    const statut   = document.getElementById('fac-statut').value;
-
-    if (!nom)     { showFacMsg('[X] Nom du client requis.','error'); return; }
-    if (!produits){ showFacMsg('[X] Produits requis.','error'); return; }
-    if (!total || total<=0){ showFacMsg('[X] Montant total requis.','error'); return; }
-
-    if (!adminConfig.factures) adminConfig.factures = [];
-    const facture = {
-      num: getNextFactureNum(),
-      date: date || new Date().toISOString().split('T')[0],
-      client: {nom, tel, adresse},
-      produits, total, acompte,
-      reste: Math.max(0, Math.round((total-acompte)*100)/100),
-      paiement, statut, createdAt: Date.now()
-    };
-    adminConfig.factures.push(facture);
-    localStorage.setItem('bylinoush_config', JSON.stringify(adminConfig));
-    showFacMsg('[OK] Facture '+facture.num+' creee !','success');
-    ['fac-nom','fac-tel','fac-adresse','fac-produits','fac-total','fac-acompte','fac-date'].forEach(id => document.getElementById(id).value='');
-    renderFactureList();
-    openFacturePreview(facture);
-  }
-
-  function showFacMsg(text, type) {
-    const el=document.getElementById('fac-msg');
-    el.textContent=text; el.style.color=type==='success'?'#81c784':'#e07070';
-    el.style.display='block'; setTimeout(()=>el.style.display='none',4000);
-  }
-
-  function renderFactureList() {
-    const container=document.getElementById('fac-list'); if(!container)return;
-    const factures=adminConfig.factures||[];
-    if(!factures.length){container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucune facture creee pour le moment.</div>';return;}
-    container.innerHTML='';
-    factures.slice().reverse().forEach((f,ri)=>{
-      const i=factures.length-1-ri;
-      const sc={'Paye integralement':{bg:'rgba(46,125,50,0.2)',col:'#81c784'},'Acompte verse':{bg:'rgba(201,168,76,0.15)',col:'#c9a84c'},'En attente':{bg:'rgba(200,50,50,0.15)',col:'#e07070'}}[f.statut]||{bg:'rgba(80,80,80,0.2)',col:'#888'};
-      const row=document.createElement('div');
-      row.style.cssText='display:flex;align-items:center;gap:0.8rem;background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:0.9rem 1.2rem;flex-wrap:wrap;cursor:pointer;transition:border-color 0.2s;';
-      row.onmouseenter=()=>row.style.borderColor='rgba(201,168,76,0.3)';
-      row.onmouseleave=()=>row.style.borderColor='rgba(255,255,255,0.06)';
-      const dateStr=new Date(f.date).toLocaleDateString('fr-FR');
-      row.innerHTML=
-        '<div style="font-family:monospace;font-size:0.8rem;font-weight:700;color:#c9a84c;min-width:140px;">'+f.num+'</div>'+
-        '<div style="flex:1;min-width:120px;">'+
-          '<div style="font-size:0.82rem;color:#ffffff;">'+f.client.nom+'</div>'+
-          '<div style="font-size:0.67rem;color:rgba(255,255,255,0.55);">'+dateStr+'</div>'+
-        '</div>'+
-        '<div style="font-family:\'Cormorant Garamond\',serif;font-size:1.1rem;font-weight:600;color:#ffffff;">'+f.total+'EUR</div>'+
-        '<span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:'+sc.bg+';color:'+sc.col+';">'+f.statut+'</span>';
-      const viewBtn=document.createElement('button');
-      viewBtn.textContent=' Voir';
-      viewBtn.style.cssText='background:transparent;border:1px solid rgba(201,168,76,0.25);color:rgba(255,255,255,0.55);padding:0.35rem 0.8rem;font-family:Jost,sans-serif;font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;border-radius:4px;';
-      viewBtn.onclick=(e)=>{e.stopPropagation();openFacturePreview(f);};
-      const delBtn=document.createElement('button');
-      delBtn.textContent='';
-      delBtn.style.cssText='background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.3);color:#e07070;padding:0.35rem 0.6rem;cursor:pointer;border-radius:4px;';
-      delBtn.onclick=(e)=>{e.stopPropagation();if(!confirm('Supprimer '+f.num+' ?'))return;adminConfig.factures.splice(i,1);localStorage.setItem('bylinoush_config',JSON.stringify(adminConfig));renderFactureList();};
-      row.appendChild(viewBtn);row.appendChild(delBtn);
-      row.onclick=()=>openFacturePreview(f);
-      container.appendChild(row);
-    });
-  }
-
-  function openFacturePreview(f) {
-    document.getElementById('fac-modal').style.display='block';
-    document.getElementById('fac-preview').innerHTML=buildFactureHTML(f);
-    window._currentFacture=f;
-  }
-
-  function buildFactureHTML(f) {
-    var dateStr=new Date(f.date).toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
-    var prodLines=f.produits.split('\n').map(function(l){return '<tr><td style="padding:0.55rem 0.5rem;border-bottom:1px solid #eee;color:#444;font-size:0.85rem;">'+l+'</td></tr>';}).join('');
-    var statutHTML;
-    if(f.statut==='Paye integralement') statutHTML='<div style="display:inline-block;background:#e8f5e9;color:#2e7d32;border:2px solid #2e7d32;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">&#10003; PAYE INTEGRALEMENT</div>';
-    else if(f.statut==='Acompte verse') statutHTML='<div style="display:inline-block;background:#fff8e1;color:#b8860b;border:2px solid #c9a84c;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">ACOMPTE VERSE</div>';
-    else statutHTML='<div style="display:inline-block;background:#fde8e8;color:#c62828;border:2px solid #c62828;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">EN ATTENTE DE PAIEMENT</div>';
-    var telLine = f.client.tel ? '<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">'+f.client.tel+'</div>' : '';
-    var adrLine = f.client.adresse ? '<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">'+f.client.adresse+'</div>' : '';
-    var totalLines;
-    if(f.acompte>0){
-      totalLines='<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#2e7d32;border-bottom:1px solid #eee;"><span>Acompte verse</span><span>- '+f.acompte+'EUR</span></div>'+
-        '<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;color:#111;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Reste a payer</span><span style="color:#c9a84c;">'+f.reste+'EUR</span></div>';
-    } else {
-      totalLines='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Total</span><span style="color:#c9a84c;">'+f.total+'EUR</span></div>';
-    }
-    return '<div style="font-family:\'Helvetica Neue\',Arial,sans-serif;color:#111;max-width:640px;margin:0 auto;">'+
-      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:3px solid #c9a84c;">'+
-        '<div>'+
-          '<div style="font-size:1.7rem;font-weight:900;letter-spacing:0.1em;color:#c9a84c;line-height:1;">BY.LINOUSH</div>'+
-          '<div style="font-size:0.65rem;color:#999;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.2rem;">Creations Florales . Lyon</div>'+
-          '<div style="font-size:0.7rem;color:#666;margin-top:0.7rem;line-height:1.8;">Lyon, France<br>+33 6 23 40 45 14</div>'+
-        '</div>'+
-        '<div style="text-align:right;">'+
-          '<div style="font-size:1.3rem;font-weight:700;color:#111;letter-spacing:0.05em;">FACTURE</div>'+
-          '<div style="font-size:0.95rem;font-weight:700;color:#c9a84c;margin-top:0.2rem;">'+f.num+'</div>'+
-          '<div style="font-size:0.7rem;color:#888;margin-top:0.5rem;line-height:1.8;">Date : '+dateStr+'<br>Paiement : '+f.paiement+'</div>'+
-        '</div>'+
-      '</div>'+
-      '<div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;border-left:4px solid #c9a84c;">'+
-        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.4rem;">Facture a</div>'+
-        '<div style="font-size:0.95rem;font-weight:600;">'+f.client.nom+'</div>'+
-        telLine+adrLine+
-      '</div>'+
-      '<div style="margin-bottom:1.5rem;">'+
-        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.6rem;">Detail de la commande</div>'+
-        '<table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #eee;">'+
-          '<thead><tr style="background:#f5f5f5;"><th style="text-align:left;padding:0.55rem 0.5rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;font-weight:500;">Designation</th></tr></thead>'+
-          '<tbody>'+prodLines+'</tbody>'+
-        '</table>'+
-      '</div>'+
-      '<div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;">'+
-        '<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#666;border-bottom:1px solid #eee;"><span>Sous-total</span><span>'+f.total+'EUR</span></div>'+
-        totalLines+
-      '</div>'+
-      '<div style="text-align:center;margin-bottom:1.5rem;">'+statutHTML+'</div>'+
-      '<div style="text-align:center;padding-top:1.2rem;border-top:1px solid #eee;font-size:0.68rem;color:#bbb;line-height:2;">ByLinoush Creations . Lyon . +33 6 23 40 45 14<br>Merci pour votre confiance</div>'+
-    '</div>';
-  }
-
-  function printFacture() {
-    var content = document.getElementById('fac-preview').innerHTML;
-    var w = window.open('','_blank','width=800,height=900');
-    w.document.write('<!DOCTYPE html><html><head><title>Facture ByLinoush</title><style>body{margin:2rem;font-family:Arial,sans-serif;}@media print{body{margin:1cm;}}</style></head><body>'+content+'<script>window.onload=function(){window.print();}<\/script></body></html>');
-
-```
-w.document.close();
-```
-
-}
-
-const defaultConfig = {
-password: ‘linoush2026’,
-ruptures: [],          // labels des options en rupture
-bouquetsDispo: [‘roses-13’,‘roses-18’,‘roses-30’,‘roses-50’,‘roses-101’],
-produitsDispo: [‘eternelle-cloche’,‘eternelle-perso’,‘bijoux-boite’,‘bijoux-box’,‘tapis’,‘coffret-s’,‘coffret-m’,‘coffret-l’,‘coffret-xl’],
-couleurs: [‘rouge’,‘rose’,‘bleu’],
-couleursEternelles: [‘rouge’,‘rose’,‘bleu’],
-promoCodes: [],
-factures: [],
-prix: {
-‘roses-13’:25,‘roses-18’:35,‘roses-30’:59,‘roses-50’:99,‘roses-101’:225,
-‘eternelle-cloche’:20,‘eternelle-perso’:25,
-‘bijoux-boite’:20,‘bijoux-box’:10,‘bijoux-perso’:5,
-‘tapis’:16,‘coffret-s’:40,‘coffret-m’:46,‘coffret-l’:48,‘coffret-xl’:75,
-‘stitch’:20,‘mini-stitch’:10,‘coeur’:10,‘grand-diademe’:8,
-‘petit-diademe’:4,‘ruban’:6,‘aiguilles’:6,‘papillons’:2,
-‘gypsophile’:5,‘lettre’:5,‘bordure’:4,‘paillettes’:4
-},
-banniere: ‘’
-};
-
-let adminConfig = JSON.parse(localStorage.getItem(‘bylinoush_config’) || ‘null’) || JSON.parse(JSON.stringify(defaultConfig));
-// Ensure critical fields always exist
-if (!adminConfig.password) adminConfig.password = DEFAULT_PASSWORD;
-if (!adminConfig.bouquetsDispo) adminConfig.bouquetsDispo = defaultConfig.bouquetsDispo.slice();
-if (!adminConfig.produitsDispo) adminConfig.produitsDispo = defaultConfig.produitsDispo.slice();
-if (!adminConfig.ruptures) adminConfig.ruptures = [];
-if (!adminConfig.couleurs) adminConfig.couleurs = [‘rouge’,‘rose’,‘bleu’];
-if (!adminConfig.couleursEternelles) adminConfig.couleursEternelles = [‘rouge’,‘rose’,‘bleu’];
-if (!adminConfig.promoCodes) adminConfig.promoCodes = [];
-if (!adminConfig.factures) adminConfig.factures = [];
-if (!adminConfig.prix) adminConfig.prix = JSON.parse(JSON.stringify(defaultConfig.prix));
-
-// – Apply config to the live site –
-function applyConfig() {
-// Banniere
-const bann = document.getElementById(‘site-banniere’);
-if (adminConfig.banniere) {
-bann.textContent = ’ ’ + adminConfig.banniere;
-bann.style.display = ‘block’;
-document.body.insertBefore(bann, document.body.firstChild);
-} else {
-bann.style.display = ‘none’;
-}
-
-```
-// Ruptures options perso
-document.querySelectorAll('#opts-list .option-item').forEach(el => {
-  const lbl = el.dataset.label;
-  const enRupture = adminConfig.ruptures.includes(lbl);
-  el.style.opacity = enRupture ? '0.4' : '';
-  el.style.pointerEvents = enRupture ? 'none' : '';
-  if (enRupture) el.classList.remove('checked');
-  const old = el.querySelector('.rbadge-live');
-  if (enRupture && !old) {
-    const b = document.createElement('span');
-    b.className = 'rbadge-live';
-    b.textContent = '- Rupture';
-    b.style.cssText = 'font-size:.6rem;letter-spacing:.1em;color:#e07070;margin-left:.5rem;';
-    el.querySelector('.option-label').appendChild(b);
-  } else if (!enRupture && old) old.remove();
-});
-
-// Couleurs roses normales
-const couleurSel = document.getElementById('couleur');
-Array.from(couleurSel.options).forEach(opt => {
-  if (!opt.value) return;
-  opt.disabled = !adminConfig.couleurs.includes(opt.value);
-  const n = {rouge:'Rouge',rose:'Rose',bleu:'Bleu'};
-  opt.text = n[opt.value] + (opt.disabled ? ' (indisponible)' : '');
-});
-
-// Couleurs roses eternelles
-['couleur-cloche','couleur-perso'].forEach(id => {
-  const sel = document.getElementById(id); if (!sel) return;
-  Array.from(sel.options).forEach(opt => {
-    opt.disabled = !adminConfig.couleursEternelles.includes(opt.value);
-    const n = {rouge:'Rouge Classique',rose:'Rose Doux',bleu:'Bleu Royal'};
-    opt.text = n[opt.value] + (opt.disabled ? ' (indisponible)' : '');
-  });
-});
-
-// Prix bouquets
-const prixLabels = {'roses-13':'13 Roses','roses-18':'18 Roses','roses-30':'30 Roses','roses-50':'50 Roses','roses-101':'101 Roses'};
-const rSel = document.getElementById('nb-roses');
-Array.from(rSel.options).forEach((opt,i) => {
-  const keys = ['roses-13','roses-18','roses-30','roses-50','roses-101'];
-  const key = keys[i]; if (!key) return;
-  const p = adminConfig.prix[key];
-  opt.value = p; opt.dataset.label = prixLabels[key];
-  opt.text = prixLabels[key] + '  -  ' + p + 'EUR' + (key==='roses-101'?' (3 decos offertes)':'');
-});
-
-// Prix produits select
-const prodNoms = {'eternelle-cloche':'Rose Sous Cloche','eternelle-perso':'Rose Sous Cloche + Prenom','bijoux-boite':'Rose Boite a Bijoux + Bague','bijoux-box':'Box Bijoux Bracelet','tapis':'Tapis Perso','coffret-s':'Coffret S','coffret-m':'Coffret M','coffret-l':'Coffret L','coffret-xl':'Coffret XL'};
-document.querySelectorAll('#produit option[value]').forEach(opt => {
-  if (!opt.value || opt.value === 'roses') return;
-  if (adminConfig.prix[opt.value] !== undefined) {
-    opt.dataset.price = adminConfig.prix[opt.value];
-    if (prodNoms[opt.value]) opt.text = prodNoms[opt.value] + '  -  ' + adminConfig.prix[opt.value] + 'EUR';
-  }
-});
-
-// Prix options perso
-const persoMap = {'Stitch Personnalise':'stitch','Mini Stitch':'mini-stitch','Coeur Inflammable':'coeur','Grand Diademe':'grand-diademe','Petit Diademe':'petit-diademe','Ruban Perso':'ruban','Aiguilles Cristal':'aiguilles','Papillons':'papillons','Gypsophile':'gypsophile','Lettre en Fleur':'lettre','Bordure Perles':'bordure','Paillettes':'paillettes'};
-document.querySelectorAll('#opts-list .option-item').forEach(el => {
-  const key = persoMap[el.dataset.label]; if (!key) return;
-  const p = adminConfig.prix[key];
-  el.dataset.price = p;
-  const pe = el.querySelector('.option-price'); if (pe) pe.textContent = '+' + p + 'EUR';
-});
-
-// Prix bijoux perso
-const bjp = document.getElementById('bijoux-perso-item');
-if (bjp) {
-  bjp.dataset.price = adminConfig.prix['bijoux-perso'];
-  const pe = bjp.querySelector('.option-price'); if (pe) pe.textContent = '+' + adminConfig.prix['bijoux-perso'] + 'EUR';
-}
-```
-
-}
-
-// – Admin open/close –
-let _adminClicks = 0, _adminTimer = null;
-function handleAdminClick() {
-_adminClicks++;
-clearTimeout(_adminTimer);
-_adminTimer = setTimeout(() => { _adminClicks = 0; }, 600);
-if (_adminClicks >= 3) { _adminClicks = 0; openAdmin(); }
-}
-
-function openAdmin() {
-document.getElementById(‘admin-overlay’).style.display = ‘block’;
-document.getElementById(‘admin-login’).style.display = ‘flex’;
-document.getElementById(‘admin-panel’).style.display = ‘none’;
-document.getElementById(‘admin-pwd’).value = ‘’;
-document.getElementById(‘admin-err’).style.display = ‘none’;
-document.body.style.overflow = ‘hidden’;
-}
-
-function closeAdmin() {
-document.getElementById(‘admin-overlay’).style.display = ‘none’;
-document.body.style.overflow = ‘’;
-}
-
-function checkPwd() {
-const pwd = document.getElementById(‘admin-pwd’).value;
-const correctPwd = adminConfig.password || DEFAULT_PASSWORD;
-if (pwd === correctPwd) {
-document.getElementById(‘admin-login’).style.display = ‘none’;
-document.getElementById(‘admin-panel’).style.display = ‘block’;
-buildAdminPanel();
-} else {
-document.getElementById(‘admin-err’).style.display = ‘block’;
-}
-}
-
-function switchTab(id) {
-document.querySelectorAll(’.adm-tab-content’).forEach(t => t.style.display = ‘none’);
-document.querySelectorAll(’.adm-tab’).forEach(t => t.classList.remove(‘active’));
-document.getElementById(id).style.display = ‘block’;
-document.getElementById(‘btn-’ + id).classList.add(‘active’);
-}
-
-// – Build Panel –
-function buildAdminPanel() {
-buildStockTab();
-buildPrixTab();
-buildCouleursTab();
-renderPromoList();
-renderFactureList();
-// Set today’s date as default
-const today = new Date().toISOString().split(‘T’)[0];
-const dateField = document.getElementById(‘fac-date’);
-if (dateField && !dateField.value) dateField.value = today;
-}
-
-function makeSwitch(checked, onChange) {
-const label = document.createElement(‘label’);
-label.className = ‘adm-switch’;
-const inp = document.createElement(‘input’);
-inp.type = ‘checkbox’; inp.checked = checked;
-inp.onchange = () => onChange(inp.checked);
-const track = document.createElement(‘div’);
-track.className = ‘adm-switch-track’;
-label.appendChild(inp); label.appendChild(track);
-return label;
-}
-
-function makeStockRow(name, price, isDispo, onToggle) {
-const div = document.createElement(‘div’);
-div.className = ‘adm-stock-row’;
-const info = document.createElement(‘div’); info.className = ‘adm-stock-info’;
-const nm = document.createElement(‘div’); nm.className = ‘adm-stock-name’; nm.textContent = name;
-const pr = document.createElement(‘div’); pr.className = ‘adm-stock-price’; pr.textContent = price;
-info.appendChild(nm); info.appendChild(pr);
-const badge = document.createElement(‘span’);
-badge.className = ’adm-stock-badge ’ + (isDispo ? ‘dispo’ : ‘rupture’);
-badge.textContent = isDispo ? ‘OK Disponible’ : ‘X Rupture’;
-const sw = makeSwitch(isDispo, (val) => {
-badge.className = ’adm-stock-badge ’ + (val ? ‘dispo’ : ‘rupture’);
-badge.textContent = val ? ‘OK Disponible’ : ‘X Rupture’;
-onToggle(val);
-});
-div.appendChild(info); div.appendChild(badge); div.appendChild(sw);
-return div;
-}
-
-function buildStockTab() {
-// BOUQUETS
-const bDiv = document.getElementById(‘stock-bouquets’);
-bDiv.innerHTML = ‘’;
-const bouquets = [
-{key:‘roses-13’,name:‘Bouquet 13 roses’,price:‘25EUR’},
-{key:‘roses-18’,name:‘Bouquet 18 roses’,price:‘35EUR’},
-{key:‘roses-30’,name:‘Bouquet 30 roses’,price:‘59EUR’},
-{key:‘roses-50’,name:‘Bouquet 50 roses’,price:‘99EUR’},
-{key:‘roses-101’,name:‘Bouquet 101 roses’,price:‘225EUR’},
-];
-bouquets.forEach(b => {
-const pill = document.createElement(‘div’);
-const dispo = adminConfig.bouquetsDispo.includes(b.key);
-pill.className = ‘adm-pill ’ + (dispo ? ‘on’ : ‘off’);
-pill.innerHTML = ‘<div class="pill-dot"></div>’+b.name+’  -  ’+b.price;
-pill.onclick = () => {
-const idx = adminConfig.bouquetsDispo.indexOf(b.key);
-if (idx >= 0) adminConfig.bouquetsDispo.splice(idx,1);
-else adminConfig.bouquetsDispo.push(b.key);
-pill.className = ’adm-pill ’ + (adminConfig.bouquetsDispo.includes(b.key) ? ‘on’ : ‘off’);
-};
-bDiv.appendChild(pill);
-});
-
-```
-// OPTIONS PERSO
-const oDiv = document.getElementById('stock-options');
-oDiv.innerHTML = '';
-const options = [
-  {label:'Stitch Personnalise',price:'+20EUR'},{label:'Mini Stitch',price:'+10EUR'},
-  {label:'Coeur Inflammable',price:'+10EUR'},{label:'Grand Diademe',price:'+8EUR'},
-  {label:'Petit Diademe',price:'+4EUR'},{label:'Ruban Perso',price:'+6EUR'},
-  {label:'Aiguilles Cristal',price:'+6EUR'},{label:'Papillons',price:'+2EUR'},
-  {label:'Gypsophile',price:'+5EUR'},{label:'Lettre en Fleur',price:'+5EUR'},
-  {label:'Bordure Perles',price:'+4EUR'},{label:'Paillettes',price:'+4EUR'},
-];
-options.forEach(o => {
-  const dispo = !adminConfig.ruptures.includes(o.label);
-  const row = makeStockRow(o.label, o.price, dispo, (val) => {
-    const idx = adminConfig.ruptures.indexOf(o.label);
-    if (val && idx >= 0) adminConfig.ruptures.splice(idx,1);
-    else if (!val && idx < 0) adminConfig.ruptures.push(o.label);
-  });
-  oDiv.appendChild(row);
-});
-
-// AUTRES PRODUITS
-const pDiv = document.getElementById('stock-produits');
-pDiv.innerHTML = '';
-const produits = [
-  {key:'eternelle-cloche',name:'Rose Sous Cloche',price:'20EUR'},
-  {key:'eternelle-perso',name:'Rose Sous Cloche + Prenom',price:'25EUR'},
-  {key:'bijoux-boite',name:'Rose Boite a Bijoux + Bague',price:'20EUR'},
-  {key:'bijoux-box',name:'Box Bijoux Bracelet',price:'10EUR'},
-  {key:'tapis',name:'Tapis Perso',price:'16EUR'},
-  {key:'coffret-s',name:'Coffret S',price:'40EUR'},
-  {key:'coffret-m',name:'Coffret M',price:'46EUR'},
-  {key:'coffret-l',name:'Coffret L',price:'48EUR'},
-  {key:'coffret-xl',name:'Coffret XL',price:'75EUR'},
-];
-produits.forEach(p => {
-  const dispo = adminConfig.produitsDispo.includes(p.key);
-  const row = makeStockRow(p.name, p.price, dispo, (val) => {
-    const idx = adminConfig.produitsDispo.indexOf(p.key);
-    if (val && idx < 0) adminConfig.produitsDispo.push(p.key);
-    else if (!val && idx >= 0) adminConfig.produitsDispo.splice(idx,1);
-  });
-  pDiv.appendChild(row);
-});
-```
-
-}
-
-function makePrixRow(label, hint, key) {
-const div = document.createElement(‘div’);
-div.className = ‘adm-prix-row’;
-div.innerHTML = ‘<div class="adm-prix-label">’+label+(hint?’<div class="adm-prix-hint">’+hint+’</div>’:’’)+’</div><input class="adm-prix-input" type="number" data-key="'+key+'" value="'+adminConfig.prix[key]+'" min="0"><span class="adm-euro">EUR</span>’;
-return div;
-}
-
-function buildPrixTab() {
-document.getElementById(‘prix-bouquets’).innerHTML = ‘’;
-[
-{key:‘roses-13’,label:‘Bouquet 13 roses’},
-{key:‘roses-18’,label:‘Bouquet 18 roses’},
-{key:‘roses-30’,label:‘Bouquet 30 roses’},
-{key:‘roses-50’,label:‘Bouquet 50 roses’},
-{key:‘roses-101’,label:‘Bouquet 101 roses’,hint:‘Inclut 3 decos offertes’},
-].forEach(i => document.getElementById(‘prix-bouquets’).appendChild(makePrixRow(i.label, i.hint||’’, i.key)));
-
-```
-document.getElementById('prix-eternelles').innerHTML = '';
-[
-  {key:'eternelle-cloche',label:'Rose Sous Cloche (standard)'},
-  {key:'eternelle-perso',label:'Rose Sous Cloche + Prenom',hint:'Avec personnalisation gravee'},
-].forEach(i => document.getElementById('prix-eternelles').appendChild(makePrixRow(i.label, i.hint||'', i.key)));
-
-document.getElementById('prix-bijoux').innerHTML = '';
-[
-  {key:'bijoux-boite',label:'Rose Boite a Bijoux + Bague'},
-  {key:'bijoux-box',label:'Box Bijoux Bracelet'},
-  {key:'bijoux-perso',label:'Option Personnalisation Box',hint:'Supplement ajoute a la box bijoux'},
-].forEach(i => document.getElementById('prix-bijoux').appendChild(makePrixRow(i.label, i.hint||'', i.key)));
-
-document.getElementById('prix-priere').innerHTML = '';
-[
-  {key:'tapis',label:'Tapis Personnalise'},
-  {key:'coffret-s',label:'Coffret Priere S'},
-  {key:'coffret-m',label:'Coffret Priere M'},
-  {key:'coffret-l',label:'Coffret Priere L'},
-  {key:'coffret-xl',label:'Coffret Priere XL'},
-].forEach(i => document.getElementById('prix-priere').appendChild(makePrixRow(i.label, '', i.key)));
-
-document.getElementById('prix-options').innerHTML = '';
-[
-  {key:'stitch',label:'Stitch Personnalise'},
-  {key:'mini-stitch',label:'Mini Stitch'},
-  {key:'coeur',label:'Coeur Inflammable'},
-  {key:'grand-diademe',label:'Grand Diademe'},
-  {key:'petit-diademe',label:'Petit Diademe'},
-  {key:'ruban',label:'Ruban Personnalise'},
-  {key:'aiguilles',label:'Aiguilles Cristal'},
-  {key:'papillons',label:'Papillons'},
-  {key:'gypsophile',label:'Gypsophile'},
-  {key:'lettre',label:'Lettre en Fleur'},
-  {key:'bordure',label:'Bordure Perles'},
-  {key:'paillettes',label:'Paillettes'},
-].forEach(i => document.getElementById('prix-options').appendChild(makePrixRow(i.label, '', i.key)));
-```
-
-}
-
-function makeCouleurPill(val, label, arr) {
-const pill = document.createElement(‘div’);
-const active = arr.includes(val);
-pill.className = ’adm-pill ’ + (active ? ‘on’ : ‘off’);
-pill.innerHTML = ‘<div class="pill-dot"></div>’+label;
-pill.onclick = () => {
-const idx = arr.indexOf(val);
-if (idx >= 0) arr.splice(idx,1);
-else arr.push(val);
-pill.className = ’adm-pill ’ + (arr.includes(val) ? ‘on’ : ‘off’);
-};
-return pill;
-}
-
-function buildCouleursTab() {
-const cDiv = document.getElementById(‘couleurs-roses’); cDiv.innerHTML = ‘’;
-[{v:‘rouge’,l:‘Rouge Rouge’},{v:‘rose’,l:‘Rose Rose’},{v:‘bleu’,l:‘Bleu Bleu’}]
-.forEach(c => cDiv.appendChild(makeCouleurPill(c.v, c.l, adminConfig.couleurs)));
-
-```
-const ceDiv = document.getElementById('couleurs-eternelles'); ceDiv.innerHTML = '';
-[{v:'rouge',l:'Rouge Rouge Classique'},{v:'rose',l:'Rose Rose Doux'},{v:'bleu',l:'Bleu Bleu Royal'}]
-  .forEach(c => ceDiv.appendChild(makeCouleurPill(c.v, c.l, adminConfig.couleursEternelles)));
-```
-
-}
-
-// – Save –
-function saveAdmin() {
-// Collect price inputs
-document.querySelectorAll(’.adm-prix-input’).forEach(inp => {
-const key = inp.dataset.key;
-const val = parseInt(inp.value);
-if (!isNaN(val) && val >= 0) adminConfig.prix[key] = val;
-});
-adminConfig.banniere = document.getElementById(‘adm-banniere’).value.trim();
-localStorage.setItem(‘bylinoush_config’, JSON.stringify(adminConfig));
-applyConfig();
-// Toast
-const t = document.getElementById(‘adm-toast’);
-t.style.display = ‘block’;
-setTimeout(() => t.style.display = ‘none’, 3000);
-}
-
-function changePwd() {
-const p1 = document.getElementById(‘adm-new-pwd’).value;
-const p2 = document.getElementById(‘adm-new-pwd2’).value;
-const msg = document.getElementById(‘adm-pwd-msg’);
-msg.style.display = ‘block’;
-if (!p1) { msg.style.color = ‘#e07070’; msg.textContent = ‘[X] Veuillez entrer un mot de passe.’; return; }
-if (p1 !== p2) { msg.style.color = ‘#e07070’; msg.textContent = ‘[X] Les mots de passe ne correspondent pas.’; return; }
-adminConfig.password = p1;
-localStorage.setItem(‘bylinoush_config’, JSON.stringify(adminConfig));
-msg.style.color = ‘#81c784’;
-msg.textContent = ‘[OK] Mot de passe mis a jour avec succes !’;
-document.getElementById(‘adm-new-pwd’).value = ‘’;
-document.getElementById(‘adm-new-pwd2’).value = ‘’;
-}
-
-function resetAdmin() {
-if (!confirm(’[!] Etes-vous sure de vouloir tout reinitialiser ? Cette action est irreversible.’)) return;
-adminConfig = JSON.parse(JSON.stringify(defaultConfig));
-localStorage.setItem(‘bylinoush_config’, JSON.stringify(adminConfig));
-applyConfig();
-buildAdminPanel();
-const t = document.getElementById(‘adm-toast’);
-t.textContent = ’ Configuration reinitialisee !’;
-t.style.display = ‘block’;
-setTimeout(() => { t.style.display = ‘none’; t.textContent = ‘[OK] Modifications enregistrees !’; }, 3000);
-}
-
-// Init
-try {
-applyConfig();
-document.getElementById(‘nb-roses’).addEventListener(‘change’, calcTotal);
-} catch(e) {
-console.error(‘Init error:’, e);
-}
-</script>
-
-<!-- FACTURE PREVIEW MODAL -->
-
-<div id="fac-modal" style="display:none !important;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9500;overflow-y:auto;padding:2rem;">
-  <div style="max-width:720px;margin:0 auto;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem;">
-      <div style="font-family:'Cinzel',serif;font-size:1rem;color:#c9a84c;letter-spacing:0.15em;">Aperçu de la facture</div>
-      <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-        <button onclick="printFacture()" style="background:#c9a84c;color:#000;border:none;padding:0.65rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;font-weight:600;">🖨️ Imprimer / PDF</button>
-        <button onclick="document.getElementById('fac-modal').style.display='none'" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.55);padding:0.65rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.65rem;cursor:pointer;border-radius:4px;">✕ Fermer</button>
-      </div>
-    </div>
-    <div id="fac-preview" style="background:white;color:#111;border-radius:8px;padding:3rem;font-family:'Jost',sans-serif;"></div>
-  </div>
-</div>
-
-<style>
-@media print {
-  body > *:not(#fac-print-area) { display: none !important; }
-  #fac-print-area { display: block !important; }
-}
-</style>
-
-<div id="fac-print-area" style="display:none;"></div>
-
+        function updateFormDisplay() {
+            const product = document.getElementById('mainProduct').value;
+            document.getElementById('bouquetDetails').style.display = (product === 'Bouquet Roses') ? 'block' : 'none';
+            document.getElementById('personalizationSection').style.display = (product === 'Bouquet Roses') ? 'block' : 'none';
+            document.getElementById('eternelleOptions').style.display = product.startsWith('Rose Eternelle') ? 'block' : 'none';
+            document.getElementById('prenomField').style.display = (product === 'Rose Eternelle Perso') ? 'block' : 'none';
+            document.getElementById('jewelOptions').style.display = (product.startsWith('Box')) ? 'block' : 'none';
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const productSelect = document.getElementById('mainProduct');
+            const livePricing = document.getElementById('livePricing');
+            livePricing.innerHTML = "";
+            
+            let total = 0;
+            let productPrice = 0;
+            let productName = "";
+
+            if(productSelect.value === 'Bouquet Roses') {
+                const opt = document.getElementById('bouquetQty').options[document.getElementById('bouquetQty').selectedIndex];
+                productPrice = parseInt(opt.getAttribute('data-price'));
+                productName = `Bouquet (${opt.value} roses)`;
+            } else {
+                productPrice = parseInt(productSelect.options[productSelect.selectedIndex].getAttribute('data-price'));
+                productName = productSelect.options[productSelect.selectedIndex].text.split('(')[0];
+            }
+            total += productPrice;
+            livePricing.innerHTML += `<div><span>${productName}</span><span>${productPrice}€</span></div>`;
+
+            document.querySelectorAll('.extra:checked').forEach(item => {
+                let p = parseInt(item.getAttribute('data-price'));
+                total += p;
+                let label = item.value;
+                if(item.id === 'checkStitchG') label += ` (${document.getElementById('fieldStitchG').value})`;
+                livePricing.innerHTML += `<div><span>+ ${label}</span><span>${p}€</span></div>`;
+            });
+
+            const delivery = document.getElementById('deliveryMethod');
+            const delPrice = parseInt(delivery.value);
+            if(delPrice > 0) {
+                total += delPrice;
+                const delLabel = delivery.options[delivery.selectedIndex].getAttribute('data-label') || "Livraison";
+                livePricing.innerHTML += `<div><span>+ ${delLabel}</span><span>${delPrice}€</span></div>`;
+            }
+
+            document.getElementById('fullPriceDisplay').innerText = total;
+            document.getElementById('depositDisplay').innerText = (total / 2).toFixed(2);
+            return total;
+        }
+
+        let currentPayPalURL = "";
+
+        async function prepareOrder(isDeposit) {
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            if(!name || !phone) { alert("Nom et téléphone requis."); return; }
+
+            const total = calculateTotal();
+            const amount = isDeposit ? (total / 2) : total;
+            const type = isDeposit ? "ACOMPTE 50%" : "PAYÉ 100%";
+            
+            const product = document.getElementById('mainProduct').value;
+            let qty = (product === 'Bouquet Roses') ? document.getElementById('bouquetQty').value + " roses" : "";
+            let extras = [];
+            document.querySelectorAll('.extra:checked').forEach(e => {
+                let val = e.value;
+                if(e.id === 'checkStitchG') val += ` (${document.getElementById('fieldStitchG').value})`;
+                extras.push(val);
+            });
+            
+            let recap = `📌 ${type}\n👤 Client: ${name}\n📞 Tél: ${phone}\n🎁 Produit: ${product} ${qty}`;
+            if(extras.length > 0) recap += `\n✨ Décos: ${extras.join(', ')}`;
+            if(document.getElementById('checkRuban').checked) recap += `\n🎗️ Ruban: ${document.getElementById('fieldRuban').value}`;
+            if(document.getElementById('checkLettre').checked) recap += `\n🔡 Lettre: ${document.getElementById('fieldLettre').value.toUpperCase()}`;
+            if(product === 'Rose Eternelle Perso') recap += `\n✍️ Prénom Rose: ${document.getElementById('eternellePrenom').value}`;
+            recap += `\n💰 Montant: ${amount.toFixed(2)}€`;
+
+            const formData = new FormData(document.getElementById('orderForm'));
+            formData.append("Recapitulatif_Complet", recap);
+
+            fetch("https://formspree.io/f/mlgwjnbq", {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            document.getElementById('orderSummaryText').innerText = recap;
+            currentPayPalURL = `https://www.paypal.com/paypalme/cherifilina/${amount.toFixed(2)}`;
+            navigator.clipboard.writeText(recap);
+            document.getElementById('thankYouModal').style.display = 'flex';
+        }
+
+        function redirectToPayPal() { window.location.href = currentPayPalURL; }
+
+        const bg = document.getElementById('rosesBg');
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.className = 'petal';
+            p.style.width = p.style.height = Math.random() * 15 + 10 + 'px';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDuration = Math.random() * 7 + 8 + 's';
+            bg.appendChild(p);
+        }
+        updateFormDisplay();
+    </script>
 </body>
 </html>
