@@ -1139,7 +1139,7 @@ padding: 3rem 2rem 0;
       const rOpt = rSel.selectedOptions[0];
       const rPrice = parseInt(rSel.value);
       total += rPrice;
-      lines.push({ label: `Bouquet (${rOpt.dataset.label})`, price: rPrice });
+      lines.push({ label: 'Bouquet (' + rOpt.dataset.label + ')', price: rPrice });
 
       document.querySelectorAll('#opts-list .option-item.checked').forEach(el => {
         const p = parseInt(el.dataset.price);
@@ -1182,11 +1182,11 @@ padding: 3rem 2rem 0;
     }
 
     window._total = total;
-    document.getElementById('total-lines').innerHTML = lines.map(l =>
-      `<div class="total-line"><span>${l.label}</span><span>${l.price}€</span></div>`
-    ).join('');
+    document.getElementById('total-lines').innerHTML = lines.map(function(l) {
+      return '<div class="total-line"><span>' + l.label + '</span><span>' + l.price + '€</span></div>';
+    }).join('');
     document.getElementById('total-display').textContent = total + '€';
-    document.getElementById('acompte-display').textContent = `Acompte calculé (50%) : ${(total * 0.5).toFixed(2)}€`;
+    document.getElementById('acompte-display').textContent = 'Acompte calculé (50%) : ' + (total * 0.5).toFixed(2) + '€';
     document.getElementById('total-box').style.display = 'block';
   }
 
@@ -1425,17 +1425,14 @@ padding: 3rem 2rem 0;
       const inactive = !p.active || expired || exhausted;
       const row = document.createElement('div');
       row.style.cssText='display:flex;align-items:center;gap:0.8rem;background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:0.9rem 1.2rem;flex-wrap:wrap;';
-      const codeLbl = `<div style="font-family:monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:${inactive?'rgba(255,255,255,0.25)':'#c9a84c'};min-width:110px;">${p.code}</div>`;
-      const reducLbl = `<div style="font-size:0.82rem;font-weight:600;color:${inactive?'rgba(255,255,255,0.2)':'#81c784'};">${p.type==='pct'?'-'+p.value+'%':'-'+p.value+'€'}</div>`;
-      let infoTxt = `<div style="flex:1;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.8;">`;
-      infoTxt += `Utilisations : ${p.usedCount} / ${p.uses||'∞'}`;
-      if (p.expiry) infoTxt += `  ·  Expire le ${new Date(p.expiry).toLocaleDateString('fr-FR')}`;
-      infoTxt += `</div>`;
+      var codeColor=inactive?'rgba(255,255,255,0.25)':'#c9a84c'; var codeLbl='<div style="font-family:monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:'+codeColor+';min-width:110px;">'+p.code+'</div>';
+      var reducColor=inactive?'rgba(255,255,255,0.2)':'#81c784'; var reducTxt=p.type==='pct'?'-'+p.value+'%':'-'+p.value+'€'; var reducLbl='<div style="font-size:0.82rem;font-weight:600;color:'+reducColor+';">'+reducTxt+'</div>';
+      var infoTxt='<div style="flex:1;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.8;">Utilisations : '+p.usedCount+' / '+(p.uses||'&#8734;'); if(p.expiry)infoTxt+='  ·  Expire le '+new Date(p.expiry).toLocaleDateString('fr-FR'); infoTxt+='</div>';
       let stBg='rgba(46,125,50,0.2)', stCol='#81c784', stTxt='✓ Actif';
       if (expired){stBg='rgba(150,50,50,0.2)';stCol='#e07070';stTxt='Expiré';}
       else if(exhausted){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Épuisé';}
       else if(!p.active){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Désactivé';}
-      const stBadge=`<span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:${stBg};color:${stCol};">${stTxt}</span>`;
+      var stBadge='<span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:'+stBg+';color:'+stCol+';">'+stTxt+'</span>';
       row.innerHTML = codeLbl+reducLbl+infoTxt+stBadge;
       const togBtn=document.createElement('button');
       togBtn.textContent=p.active?'Désactiver':'Activer';
@@ -1529,14 +1526,14 @@ padding: 3rem 2rem 0;
       row.onmouseenter=()=>row.style.borderColor='rgba(201,168,76,0.3)';
       row.onmouseleave=()=>row.style.borderColor='rgba(255,255,255,0.06)';
       const dateStr=new Date(f.date).toLocaleDateString('fr-FR');
-      row.innerHTML=`
-        <div style="font-family:monospace;font-size:0.8rem;font-weight:700;color:#c9a84c;min-width:140px;">${f.num}</div>
-        <div style="flex:1;min-width:120px;">
-          <div style="font-size:0.82rem;color:#ffffff;">${f.client.nom}</div>
-          <div style="font-size:0.67rem;color:rgba(255,255,255,0.55);">${dateStr}</div>
-        </div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:#ffffff;">${f.total}€</div>
-        <span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:${sc.bg};color:${sc.col};">${f.statut}</span>`;
+      row.innerHTML=
+        '<div style="font-family:monospace;font-size:0.8rem;font-weight:700;color:#c9a84c;min-width:140px;">'+f.num+'</div>'+
+        '<div style="flex:1;min-width:120px;">'+
+          '<div style="font-size:0.82rem;color:#ffffff;">'+f.client.nom+'</div>'+
+          '<div style="font-size:0.67rem;color:rgba(255,255,255,0.55);">'+dateStr+'</div>'+
+        '</div>'+
+        '<div style="font-family:\'Cormorant Garamond\',serif;font-size:1.1rem;font-weight:600;color:#ffffff;">'+f.total+'€</div>'+
+        '<span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:'+sc.bg+';color:'+sc.col+';">'+f.statut+'</span>';
       const viewBtn=document.createElement('button');
       viewBtn.textContent='👁️ Voir';
       viewBtn.style.cssText='background:transparent;border:1px solid rgba(201,168,76,0.25);color:rgba(255,255,255,0.55);padding:0.35rem 0.8rem;font-family:Jost,sans-serif;font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;border-radius:4px;';
@@ -1558,56 +1555,61 @@ padding: 3rem 2rem 0;
   }
 
   function buildFactureHTML(f) {
-    const dateStr=new Date(f.date).toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
-    const prodLines=f.produits.split('\n').map(l=>`<tr><td style="padding:0.55rem 0.5rem;border-bottom:1px solid #eee;color:#444;font-size:0.85rem;">${l}</td></tr>`).join('');
-    const statutHTML = f.statut==='Payé intégralement'
-      ? `<div style="display:inline-block;background:#e8f5e9;color:#2e7d32;border:2px solid #2e7d32;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">✓ PAYÉ INTÉGRALEMENT</div>`
-      : f.statut==='Acompte versé'
-      ? `<div style="display:inline-block;background:#fff8e1;color:#b8860b;border:2px solid #c9a84c;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">ACOMPTE VERSÉ</div>`
-      : `<div style="display:inline-block;background:#fde8e8;color:#c62828;border:2px solid #c62828;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">EN ATTENTE DE PAIEMENT</div>`;
-    return `<div style="font-family:'Helvetica Neue',Arial,sans-serif;color:#111;max-width:640px;margin:0 auto;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:3px solid #c9a84c;">
-        <div>
-          <div style="font-size:1.7rem;font-weight:900;letter-spacing:0.1em;color:#c9a84c;line-height:1;">BY.LINOUSH</div>
-          <div style="font-size:0.65rem;color:#999;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.2rem;">Créations Florales · Lyon</div>
-          <div style="font-size:0.7rem;color:#666;margin-top:0.7rem;line-height:1.8;">Lyon, France<br>+33 6 23 40 45 14</div>
-        </div>
-        <div style="text-align:right;">
-          <div style="font-size:1.3rem;font-weight:700;color:#111;letter-spacing:0.05em;">FACTURE</div>
-          <div style="font-size:0.95rem;font-weight:700;color:#c9a84c;margin-top:0.2rem;">${f.num}</div>
-          <div style="font-size:0.7rem;color:#888;margin-top:0.5rem;line-height:1.8;">Date : ${dateStr}<br>Paiement : ${f.paiement}</div>
-        </div>
-      </div>
-      <div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;border-left:4px solid #c9a84c;">
-        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.4rem;">Facturé à</div>
-        <div style="font-size:0.95rem;font-weight:600;">${f.client.nom}</div>
-        ${f.client.tel?`<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">${f.client.tel}</div>`:''}
-        ${f.client.adresse?`<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">${f.client.adresse}</div>`:''}
-      </div>
-      <div style="margin-bottom:1.5rem;">
-        <div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.6rem;">Détail de la commande</div>
-        <table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #eee;border-radius:6px;overflow:hidden;">
-          <thead><tr style="background:#f5f5f5;"><th style="text-align:left;padding:0.55rem 0.5rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;font-weight:500;">Désignation</th></tr></thead>
-          <tbody>${prodLines}</tbody>
-        </table>
-      </div>
-      <div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;">
-        <div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#666;border-bottom:1px solid #eee;"><span>Sous-total</span><span>${f.total}€</span></div>
-        ${f.acompte>0?`<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#2e7d32;border-bottom:1px solid #eee;"><span>Acompte versé</span><span>- ${f.acompte}€</span></div><div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;color:#111;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Reste à payer</span><span style="color:#c9a84c;">${f.reste}€</span></div>`:`<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Total</span><span style="color:#c9a84c;">${f.total}€</span></div>`}
-      </div>
-      <div style="text-align:center;margin-bottom:1.5rem;">${statutHTML}</div>
-      <div style="text-align:center;padding-top:1.2rem;border-top:1px solid #eee;font-size:0.68rem;color:#bbb;line-height:2;">ByLinoush Créations · Lyon · +33 6 23 40 45 14<br>Merci pour votre confiance 🌹</div>
-    </div>`;
+    var dateStr=new Date(f.date).toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
+    var prodLines=f.produits.split('\n').map(function(l){return '<tr><td style="padding:0.55rem 0.5rem;border-bottom:1px solid #eee;color:#444;font-size:0.85rem;">'+l+'</td></tr>';}).join('');
+    var statutHTML;
+    if(f.statut==='Payé intégralement') statutHTML='<div style="display:inline-block;background:#e8f5e9;color:#2e7d32;border:2px solid #2e7d32;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">&#10003; PAYÉ INTÉGRALEMENT</div>';
+    else if(f.statut==='Acompte versé') statutHTML='<div style="display:inline-block;background:#fff8e1;color:#b8860b;border:2px solid #c9a84c;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">ACOMPTE VERSÉ</div>';
+    else statutHTML='<div style="display:inline-block;background:#fde8e8;color:#c62828;border:2px solid #c62828;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">EN ATTENTE DE PAIEMENT</div>';
+    var telLine = f.client.tel ? '<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">'+f.client.tel+'</div>' : '';
+    var adrLine = f.client.adresse ? '<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">'+f.client.adresse+'</div>' : '';
+    var totalLines;
+    if(f.acompte>0){
+      totalLines='<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#2e7d32;border-bottom:1px solid #eee;"><span>Acompte versé</span><span>- '+f.acompte+'€</span></div>'+
+        '<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;color:#111;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Reste à payer</span><span style="color:#c9a84c;">'+f.reste+'€</span></div>';
+    } else {
+      totalLines='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Total</span><span style="color:#c9a84c;">'+f.total+'€</span></div>';
+    }
+    return '<div style="font-family:\'Helvetica Neue\',Arial,sans-serif;color:#111;max-width:640px;margin:0 auto;">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:3px solid #c9a84c;">'+
+        '<div>'+
+          '<div style="font-size:1.7rem;font-weight:900;letter-spacing:0.1em;color:#c9a84c;line-height:1;">BY.LINOUSH</div>'+
+          '<div style="font-size:0.65rem;color:#999;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.2rem;">Créations Florales · Lyon</div>'+
+          '<div style="font-size:0.7rem;color:#666;margin-top:0.7rem;line-height:1.8;">Lyon, France<br>+33 6 23 40 45 14</div>'+
+        '</div>'+
+        '<div style="text-align:right;">'+
+          '<div style="font-size:1.3rem;font-weight:700;color:#111;letter-spacing:0.05em;">FACTURE</div>'+
+          '<div style="font-size:0.95rem;font-weight:700;color:#c9a84c;margin-top:0.2rem;">'+f.num+'</div>'+
+          '<div style="font-size:0.7rem;color:#888;margin-top:0.5rem;line-height:1.8;">Date : '+dateStr+'<br>Paiement : '+f.paiement+'</div>'+
+        '</div>'+
+      '</div>'+
+      '<div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;border-left:4px solid #c9a84c;">'+
+        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.4rem;">Facturé à</div>'+
+        '<div style="font-size:0.95rem;font-weight:600;">'+f.client.nom+'</div>'+
+        telLine+adrLine+
+      '</div>'+
+      '<div style="margin-bottom:1.5rem;">'+
+        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.6rem;">Détail de la commande</div>'+
+        '<table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #eee;">'+
+          '<thead><tr style="background:#f5f5f5;"><th style="text-align:left;padding:0.55rem 0.5rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;font-weight:500;">Désignation</th></tr></thead>'+
+          '<tbody>'+prodLines+'</tbody>'+
+        '</table>'+
+      '</div>'+
+      '<div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;">'+
+        '<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#666;border-bottom:1px solid #eee;"><span>Sous-total</span><span>'+f.total+'€</span></div>'+
+        totalLines+
+      '</div>'+
+      '<div style="text-align:center;margin-bottom:1.5rem;">'+statutHTML+'</div>'+
+      '<div style="text-align:center;padding-top:1.2rem;border-top:1px solid #eee;font-size:0.68rem;color:#bbb;line-height:2;">ByLinoush Créations · Lyon · +33 6 23 40 45 14<br>Merci pour votre confiance</div>'+
+    '</div>';
   }
 
   function printFacture() {
-    const content = document.getElementById('fac-preview').innerHTML;
-    const w = window.open('','_blank','width=800,height=900');
-    w.document.write(`<!DOCTYPE html><html><head><title>Facture</title>
-    <style>body{margin:2rem;font-family:Arial,sans-serif;}@media print{body{margin:1cm;}}</style>
+    var content = document.getElementById('fac-preview').innerHTML;
+    var w = window.open('','_blank','width=800,height=900');
+    w.document.write('<!DOCTYPE html><html><head><title>Facture ByLinoush</title><style>body{margin:2rem;font-family:Arial,sans-serif;}@media print{body{margin:1cm;}}</style></head><body>'+content+'<script>window.onload=function(){window.print();}<\/script></body></html>');
 
 ```
-</head><body>${content}<script>window.onload=()=>{window.print();}<\/script></body></html>`);
 w.document.close();
 ```
 
@@ -1835,8 +1837,8 @@ const bouquets = [
 bouquets.forEach(b => {
 const pill = document.createElement(‘div’);
 const dispo = adminConfig.bouquetsDispo.includes(b.key);
-pill.className = ’adm-pill ’ + (dispo ? ‘on’ : ‘off’);
-pill.innerHTML = `<div class="pill-dot"></div>${b.name} — ${b.price}`;
+pill.className = ‘adm-pill ’ + (dispo ? ‘on’ : ‘off’);
+pill.innerHTML = ‘<div class="pill-dot"></div>’+b.name+’ — ’+b.price;
 pill.onclick = () => {
 const idx = adminConfig.bouquetsDispo.indexOf(b.key);
 if (idx >= 0) adminConfig.bouquetsDispo.splice(idx,1);
@@ -1898,7 +1900,7 @@ produits.forEach(p => {
 function makePrixRow(label, hint, key) {
 const div = document.createElement(‘div’);
 div.className = ‘adm-prix-row’;
-div.innerHTML = `<div class="adm-prix-label">${label}${hint ? `<div class="adm-prix-hint">${hint}</div>` : ''}</div><input class="adm-prix-input" type="number" data-key="${key}" value="${adminConfig.prix[key]}" min="0"><span class="adm-euro">€</span>`;
+div.innerHTML = ‘<div class="adm-prix-label">’+label+(hint?’<div class="adm-prix-hint">’+hint+’</div>’:’’)+’</div><input class="adm-prix-input" type="number" data-key="'+key+'" value="'+adminConfig.prix[key]+'" min="0"><span class="adm-euro">€</span>’;
 return div;
 }
 
@@ -1958,7 +1960,7 @@ function makeCouleurPill(val, label, arr) {
 const pill = document.createElement(‘div’);
 const active = arr.includes(val);
 pill.className = ’adm-pill ’ + (active ? ‘on’ : ‘off’);
-pill.innerHTML = `<div class="pill-dot"></div>${label}`;
+pill.innerHTML = ‘<div class="pill-dot"></div>’+label;
 pill.onclick = () => {
 const idx = arr.indexOf(val);
 if (idx >= 0) arr.splice(idx,1);
