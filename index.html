@@ -528,7 +528,7 @@ padding: 3rem 2rem 0;
 <div class="form-group-title">Produit Souhaité</div>
 <div class="form-row full">
   <select id="produit" onchange="onProduitChange()">
-    <option value="">Choisir un produit…</option>
+    <option value="">Choisir un produit...</option>
     <optgroup label="— Bouquet de Roses">
       <option value="roses" data-price="0" data-type="roses">Bouquet de Roses Personnalisé</option>
     </optgroup>
@@ -602,7 +602,7 @@ padding: 3rem 2rem 0;
     </select>
     <div>
       <select id="couleur">
-        <option value="">Couleur des roses…</option>
+        <option value="">Couleur des roses...</option>
         <option value="rouge">Rouge</option>
         <option value="rose">Rose</option>
         <option value="bleu">Bleu</option>
@@ -667,7 +667,7 @@ padding: 3rem 2rem 0;
 <!-- Adresse (visible si livraison) -->
 <div id="adresse-block" style="display:none;margin-top:1rem;">
   <div class="form-row full">
-    <input type="text" id="adresse-ligne1" placeholder="Adresse (numéro, rue…)">
+    <input type="text" id="adresse-ligne1" placeholder="Adresse (numéro, rue...)">
   </div>
   <div class="form-row" style="margin-top:0.6rem;">
     <input type="text" id="adresse-cp" placeholder="Code postal">
@@ -680,12 +680,12 @@ padding: 3rem 2rem 0;
 
 <div class="form-group-title" style="margin-top:2rem;">Message / Informations complémentaires</div>
 <div class="form-row full">
-  <textarea id="message" placeholder="Date souhaitée, prénom à personnaliser, message cadeau…"></textarea>
+  <textarea id="message" placeholder="Date souhaitée, prénom à personnaliser, message cadeau..."></textarea>
 </div>
 
 <div class="form-group-title" style="margin-top:2rem;">Code Promo</div>
 <div style="display:flex;gap:0.6rem;">
-  <input type="text" id="promo-client-input" placeholder="Entrez votre code promo…" style="flex:1;text-transform:uppercase;">
+  <input type="text" id="promo-client-input" placeholder="Entrez votre code promo..." style="flex:1;text-transform:uppercase;">
   <button onclick="applyPromo()" style="background:transparent;border:1px solid #c9a84c;color:#c9a84c;padding:0.9rem 1.2rem;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;border-radius:0;">Appliquer</button>
 </div>
 <p id="promo-client-msg" style="font-size:0.72rem;margin-top:0.5rem;display:none;"></p>
@@ -723,7 +723,7 @@ padding: 3rem 2rem 0;
     <div style="font-size:2.5rem;margin-bottom:.5rem;">🔐</div>
     <div style="font-family:'Cinzel',serif;font-size:1.6rem;letter-spacing:0.2em;color:#c9a84c;">ESPACE ADMIN</div>
     <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);letter-spacing:0.15em;margin-bottom:1rem;">BY.LINOUSH Créations</div>
-    <input id="admin-pwd" type="password" placeholder="Entrez votre mot de passe…" style="max-width:320px;text-align:center;font-size:0.9rem;padding:1rem 1.5rem;" onkeydown="if(event.key==='Enter')checkPwd()">
+    <input id="admin-pwd" type="password" placeholder="Entrez votre mot de passe..." style="max-width:320px;text-align:center;font-size:0.9rem;padding:1rem 1.5rem;" onkeydown="if(event.key==='Enter')checkPwd()">
     <p id="admin-err" style="color:#e05555;font-size:0.72rem;letter-spacing:0.1em;display:none;">❌ Mot de passe incorrect, réessayez.</p>
     <button onclick="checkPwd()" style="background:#c9a84c;color:#0a0a0a;border:none;padding:0.9rem 3rem;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;font-weight:500;margin-top:.5rem;">Se connecter</button>
     <button onclick="closeAdmin()" style="background:transparent;border:none;color:rgba(255,255,255,0.55);font-size:0.72rem;letter-spacing:0.1em;cursor:pointer;text-decoration:underline;">Annuler</button>
@@ -904,7 +904,7 @@ padding: 3rem 2rem 0;
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem;">
         <div>
           <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Code promo</div>
-          <input id="promo-code-input" type="text" placeholder="Ex : LINOUSH10, NOEL2026…" style="text-transform:uppercase;">
+          <input id="promo-code-input" type="text" placeholder="Ex : LINOUSH10, NOEL2026..." style="text-transform:uppercase;">
         </div>
         <div>
           <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;">Type de réduction</div>
@@ -1056,11 +1056,11 @@ padding: 3rem 2rem 0;
         </div>
       </div>
       <div style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
-        <input id="adm-banniere" type="text" placeholder="Ex : Fermeture du 20 au 25 déc. · Délais de livraison allongés · Promo -10% ce week-end…" style="flex:1;min-width:200px;">
+        <input id="adm-banniere" type="text" placeholder="Ex : Fermeture du 20 au 25 déc. · Délais de livraison allongés · Promo -10% ce week-end..." style="flex:1;min-width:200px;">
         <button onclick="document.getElementById('adm-banniere').value=''" style="background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);padding:0.9rem 1rem;font-size:0.7rem;cursor:pointer;white-space:nowrap;border-radius:4px;">Effacer</button>
       </div>
       <div style="margin-top:0.8rem;font-size:0.7rem;color:rgba(255,255,255,0.55);line-height:1.6;">
-        💡 <strong>Exemples :</strong> annonce de fermeture, délai de livraison exceptionnel, promotion en cours, nouvelle collection disponible…
+        💡 <strong>Exemples :</strong> annonce de fermeture, délai de livraison exceptionnel, promotion en cours, nouvelle collection disponible...
       </div>
     </div>
 
@@ -1073,8 +1073,8 @@ padding: 3rem 2rem 0;
         </div>
       </div>
       <div style="display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;">
-        <input id="adm-new-pwd" type="password" placeholder="Nouveau mot de passe…" style="flex:1;min-width:200px;">
-        <input id="adm-new-pwd2" type="password" placeholder="Confirmer le mot de passe…" style="flex:1;min-width:200px;">
+        <input id="adm-new-pwd" type="password" placeholder="Nouveau mot de passe..." style="flex:1;min-width:200px;">
+        <input id="adm-new-pwd2" type="password" placeholder="Confirmer le mot de passe..." style="flex:1;min-width:200px;">
       </div>
       <p id="adm-pwd-msg" style="font-size:0.72rem;margin-top:0.6rem;display:none;"></p>
       <button onclick="changePwd()" style="margin-top:0.8rem;background:transparent;border:1px solid #c9a84c;color:#c9a84c;padding:0.7rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;">Mettre à jour le mot de passe</button>
@@ -1149,7 +1149,7 @@ padding: 3rem 2rem 0;
     } else if (type === 'bijoux') {
       const price = parseInt(opt.dataset.price);
       total = price;
-      lines.push({ label: opt.text.split(' —')[0].trim(), price });
+      lines.push({ label: opt.text.split('  - ')[0].trim(), price });
       const persoItem = document.getElementById('bijoux-perso-item');
       if (persoItem.classList.contains('checked')) {
         total += 5;
@@ -1158,7 +1158,7 @@ padding: 3rem 2rem 0;
     } else {
       const price = parseInt(opt.dataset.price);
       total = price;
-      lines.push({ label: opt.text.split(' —')[0].trim(), price });
+      lines.push({ label: opt.text.split('  - ')[0].trim(), price });
     }
 
     window._total = total;
@@ -1177,16 +1177,16 @@ padding: 3rem 2rem 0;
       if (activePromo.type === 'pct') discount = Math.round(total * activePromo.value) / 100;
       else discount = Math.min(activePromo.value, total);
       discount = Math.round(discount * 100) / 100;
-      lines.push({ label: '🎟️ Code "' + activePromo.code + '"', price: -discount });
+      lines.push({ label: ' Code "' + activePromo.code + '"', price: -discount });
       total = Math.max(0, Math.round((total - discount) * 100) / 100);
     }
 
     window._total = total;
     document.getElementById('total-lines').innerHTML = lines.map(function(l) {
-      return '<div class="total-line"><span>' + l.label + '</span><span>' + l.price + '€</span></div>';
+      return '<div class="total-line"><span>' + l.label + '</span><span>' + l.price + 'EUR</span></div>';
     }).join('');
-    document.getElementById('total-display').textContent = total + '€';
-    document.getElementById('acompte-display').textContent = 'Acompte calculé (50%) : ' + (total * 0.5).toFixed(2) + '€';
+    document.getElementById('total-display').textContent = total + 'EUR';
+    document.getElementById('acompte-display').textContent = 'Acompte calcule (50%) : ' + (total * 0.5).toFixed(2) + 'EUR';
     document.getElementById('total-box').style.display = 'block';
   }
 
@@ -1200,24 +1200,24 @@ padding: 3rem 2rem 0;
   }
 
   function payer(full) {
-    if (!window._total) { alert('Veuillez sélectionner un produit.'); return; }
-    const nom = document.getElementById('nom').value.trim() || '—';
-    const tel = document.getElementById('tel').value.trim() || '—';
+    if (!window._total) { alert('Veuillez selectionner un produit.'); return; }
+    const nom = document.getElementById('nom').value.trim() || ' - ';
+    const tel = document.getElementById('tel').value.trim() || ' - ';
     const prodOpt = document.getElementById('produit').selectedOptions[0];
     const type = prodOpt ? prodOpt.dataset.type : '';
     const montant = full ? window._total : Math.round(window._total * 50) / 100;
 
-    let msg = 'ByLinoush Créations — Nouvelle Commande\n\n';
+    let msg = 'ByLinoush Creations  -  Nouvelle Commande\n\n';
     msg += 'Nom : ' + nom + '\n';
-    msg += 'Téléphone : ' + tel + '\n';
-    msg += 'Produit : ' + (prodOpt ? prodOpt.text.split(' —')[0].trim() : '—') + '\n';
+    msg += 'Telephone : ' + tel + '\n';
+    msg += 'Produit : ' + (prodOpt ? prodOpt.text.split('  - ')[0].trim() : ' - ') + '\n';
 
-    // Détails selon type
+    // Details selon type
     if (type === 'roses') {
       const rOpt = document.getElementById('nb-roses').selectedOptions[0];
       const couleur = document.getElementById('couleur').value;
-      msg += 'Bouquet : ' + (rOpt ? rOpt.dataset.label : '—') + '\n';
-      msg += 'Couleur : ' + (couleur || '—') + '\n';
+      msg += 'Bouquet : ' + (rOpt ? rOpt.dataset.label : ' - ') + '\n';
+      msg += 'Couleur : ' + (couleur || ' - ') + '\n';
 
       const decos = [];
       document.querySelectorAll('#opts-list .option-item.checked').forEach(el => {
@@ -1231,12 +1231,12 @@ padding: 3rem 2rem 0;
       }
     } else if (type === 'cloche') {
       const couleur = document.getElementById('couleur-cloche').selectedOptions[0];
-      msg += 'Couleur : ' + (couleur ? couleur.text : '—') + '\n';
+      msg += 'Couleur : ' + (couleur ? couleur.text : ' - ') + '\n';
     } else if (type === 'perso') {
       const couleur = document.getElementById('couleur-perso').selectedOptions[0];
       const prenom = document.getElementById('prenom-perso').value.trim();
-      msg += 'Couleur : ' + (couleur ? couleur.text : '—') + '\n';
-      msg += 'Prénom : ' + (prenom || '—') + '\n';
+      msg += 'Couleur : ' + (couleur ? couleur.text : ' - ') + '\n';
+      msg += 'Prenom : ' + (prenom || ' - ') + '\n';
     } else if (type === 'bijoux') {
       const persoBox = document.getElementById('bijoux-perso-item');
       msg += 'Personnalisation box : ' + (persoBox.classList.contains('checked') ? 'Oui (+5EUR)' : 'Non') + '\n';
@@ -1244,7 +1244,7 @@ padding: 3rem 2rem 0;
 
     const livraison = document.querySelector('.delivery-item.selected');
     const livraisonType = livraison ? livraison.dataset.type : '';
-    msg += 'Livraison : ' + (livraison ? livraison.textContent.trim() : '—') + '\n';
+    msg += 'Livraison : ' + (livraison ? livraison.textContent.trim() : ' - ') + '\n';
 
     if (livraisonType === 'colissimo-fr' || livraisonType === 'colissimo-intl') {
       const l1 = document.getElementById('adresse-ligne1').value.trim();
@@ -1259,12 +1259,12 @@ padding: 3rem 2rem 0;
 
     msg += '\nMontant : ' + montant + 'EUR (' + (full ? 'paiement total 100%' : 'acompte 50%') + ')';
     msg += '\nTotal commande : ' + window._total + 'EUR';
-    if (activePromo) msg += '\nCode promo : ' + activePromo.code + ' (' + (activePromo.type==='pct'?'-'+activePromo.value+'%':'-'+activePromo.value+'€') + ')';
+    if (activePromo) msg += '\nCode promo : ' + activePromo.code + ' (' + (activePromo.type==='pct'?'-'+activePromo.value+'%':'-'+activePromo.value+'EUR') + ')';
 
     window.open('https://wa.me/33623404514?text=' + encodeURIComponent(msg), '_blank');
   }
 
-  // ── PÉTALES ANIMÉS ──
+  // -- PETALES ANIMES --
   (function() {
     const canvas = document.getElementById('petals-canvas');
     const ctx = canvas.getContext('2d');
@@ -1277,11 +1277,11 @@ padding: 3rem 2rem 0;
     window.addEventListener('resize', resize);
     resize();
 
-    // Palette dorée/rosée sur fond noir
+    // Palette doree/rosee sur fond noir
     const colors = [
       'rgba(201,168,76,VAL)',   // or
-      'rgba(180,100,100,VAL)',  // rose foncé
-      'rgba(230,180,140,VAL)',  // pêche doré
+      'rgba(180,100,100,VAL)',  // rose fonce
+      'rgba(230,180,140,VAL)',  // peche dore
       'rgba(210,150,150,VAL)',  // rose
       'rgba(255,215,100,VAL)',  // or clair
     ];
@@ -1305,7 +1305,7 @@ padding: 3rem 2rem 0;
         swayAmp: 15 + Math.random() * 25,
         opacity: 0.3 + Math.random() * 0.5,
         color: randomColor(1),
-        type: Math.floor(Math.random() * 3), // 0=ovale, 1=pétale, 2=coeur
+        type: Math.floor(Math.random() * 3), // 0=ovale, 1=petale, 2=coeur
         scaleX: 0.5 + Math.random() * 0.5,
       };
     }
@@ -1313,7 +1313,7 @@ padding: 3rem 2rem 0;
     // Spawn initial
     for (let i = 0; i < 38; i++) {
       const p = createPetal();
-      p.y = Math.random() * H; // déjà sur l'écran au départ
+      p.y = Math.random() * H; // deja sur l'ecran au depart
       petals.push(p);
     }
 
@@ -1336,7 +1336,7 @@ padding: 3rem 2rem 0;
         ctx.ellipse(0, 0, s * 0.5, s, 0, 0, Math.PI * 2);
         ctx.fill();
       } else if (p.type === 1) {
-        // Forme pétale (deux courbes de Bézier)
+        // Forme petale (deux courbes de Bezier)
         ctx.beginPath();
         ctx.moveTo(0, -s);
         ctx.bezierCurveTo(s * 0.8, -s * 0.5, s * 0.8, s * 0.5, 0, s);
@@ -1368,7 +1368,7 @@ padding: 3rem 2rem 0;
         drawPetal(p);
       });
 
-      // Maintenir ~38 pétales
+      // Maintenir ~38 petales
       if (petals.length < 38) petals.push(createPetal());
 
       requestAnimationFrame(animate);
@@ -1377,12 +1377,12 @@ padding: 3rem 2rem 0;
     animate();
   })();
 
-  // ── CODES PROMO ──
+  // -- CODES PROMO --
   let activePromo = null;
 
   function togglePromoType() {
     const t = document.getElementById('promo-type').value;
-    document.getElementById('promo-unit').textContent = t === 'pct' ? '%' : '€';
+    document.getElementById('promo-unit').textContent = t === 'pct' ? '%' : 'EUR';
     document.getElementById('promo-value').max = t === 'pct' ? 100 : 9999;
   }
 
@@ -1393,14 +1393,14 @@ padding: 3rem 2rem 0;
     const uses = parseInt(document.getElementById('promo-uses').value) || null;
     const expiry = document.getElementById('promo-expiry').value || null;
     const msg = document.getElementById('promo-msg');
-    if (!code) { showPromoMsg(msg,'❌ Veuillez entrer un code.','error'); return; }
-    if (!value || value <= 0) { showPromoMsg(msg,'❌ Valeur invalide.','error'); return; }
-    if (type==='pct' && value>100) { showPromoMsg(msg,'❌ Max 100%.','error'); return; }
+    if (!code) { showPromoMsg(msg,'[X] Veuillez entrer un code.','error'); return; }
+    if (!value || value <= 0) { showPromoMsg(msg,'[X] Valeur invalide.','error'); return; }
+    if (type==='pct' && value>100) { showPromoMsg(msg,'[X] Max 100%.','error'); return; }
     if (!adminConfig.promoCodes) adminConfig.promoCodes = [];
-    if (adminConfig.promoCodes.find(p => p.code===code)) { showPromoMsg(msg,'❌ Ce code existe déjà.','error'); return; }
+    if (adminConfig.promoCodes.find(p => p.code===code)) { showPromoMsg(msg,'[X] Ce code existe deja.','error'); return; }
     adminConfig.promoCodes.push({code, type, value, uses, usedCount:0, expiry, active:true});
     localStorage.setItem('bylinoush_config', JSON.stringify(adminConfig));
-    showPromoMsg(msg,'✅ Code "'+code+'" créé !','success');
+    showPromoMsg(msg,'[OK] Code "'+code+'" cree !','success');
     document.getElementById('promo-code-input').value='';
     document.getElementById('promo-value').value='';
     document.getElementById('promo-uses').value='';
@@ -1416,7 +1416,7 @@ padding: 3rem 2rem 0;
   function renderPromoList() {
     const container = document.getElementById('promo-list'); if (!container) return;
     const codes = adminConfig.promoCodes || [];
-    if (!codes.length) { container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucun code promo créé pour le moment.</div>'; return; }
+    if (!codes.length) { container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucun code promo cree pour le moment.</div>'; return; }
     container.innerHTML='';
     codes.forEach((p,i) => {
       const now = new Date();
@@ -1426,20 +1426,20 @@ padding: 3rem 2rem 0;
       const row = document.createElement('div');
       row.style.cssText='display:flex;align-items:center;gap:0.8rem;background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:0.9rem 1.2rem;flex-wrap:wrap;';
       var codeColor=inactive?'rgba(255,255,255,0.25)':'#c9a84c'; var codeLbl='<div style="font-family:monospace;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;color:'+codeColor+';min-width:110px;">'+p.code+'</div>';
-      var reducColor=inactive?'rgba(255,255,255,0.2)':'#81c784'; var reducTxt=p.type==='pct'?'-'+p.value+'%':'-'+p.value+'€'; var reducLbl='<div style="font-size:0.82rem;font-weight:600;color:'+reducColor+';">'+reducTxt+'</div>';
-      var infoTxt='<div style="flex:1;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.8;">Utilisations : '+p.usedCount+' / '+(p.uses||'&#8734;'); if(p.expiry)infoTxt+='  ·  Expire le '+new Date(p.expiry).toLocaleDateString('fr-FR'); infoTxt+='</div>';
-      let stBg='rgba(46,125,50,0.2)', stCol='#81c784', stTxt='✓ Actif';
-      if (expired){stBg='rgba(150,50,50,0.2)';stCol='#e07070';stTxt='Expiré';}
-      else if(exhausted){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Épuisé';}
-      else if(!p.active){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Désactivé';}
+      var reducColor=inactive?'rgba(255,255,255,0.2)':'#81c784'; var reducTxt=p.type==='pct'?'-'+p.value+'%':'-'+p.value+'EUR'; var reducLbl='<div style="font-size:0.82rem;font-weight:600;color:'+reducColor+';">'+reducTxt+'</div>';
+      var infoTxt='<div style="flex:1;font-size:0.68rem;color:rgba(255,255,255,0.35);line-height:1.8;">Utilisations : '+p.usedCount+' / '+(p.uses||'&#8734;'); if(p.expiry)infoTxt+='  .  Expire le '+new Date(p.expiry).toLocaleDateString('fr-FR'); infoTxt+='</div>';
+      let stBg='rgba(46,125,50,0.2)', stCol='#81c784', stTxt='OK Actif';
+      if (expired){stBg='rgba(150,50,50,0.2)';stCol='#e07070';stTxt='Expire';}
+      else if(exhausted){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Epuise';}
+      else if(!p.active){stBg='rgba(80,80,80,0.2)';stCol='#888';stTxt='Desactive';}
       var stBadge='<span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:'+stBg+';color:'+stCol+';">'+stTxt+'</span>';
       row.innerHTML = codeLbl+reducLbl+infoTxt+stBadge;
       const togBtn=document.createElement('button');
-      togBtn.textContent=p.active?'Désactiver':'Activer';
+      togBtn.textContent=p.active?'Desactiver':'Activer';
       togBtn.style.cssText='background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);padding:0.35rem 0.8rem;font-family:Jost,sans-serif;font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;border-radius:4px;';
       togBtn.onclick=()=>{adminConfig.promoCodes[i].active=!adminConfig.promoCodes[i].active;localStorage.setItem('bylinoush_config',JSON.stringify(adminConfig));renderPromoList();};
       const delBtn=document.createElement('button');
-      delBtn.textContent='🗑️';
+      delBtn.textContent='';
       delBtn.style.cssText='background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.3);color:#e07070;padding:0.35rem 0.6rem;cursor:pointer;border-radius:4px;';
       delBtn.onclick=()=>{if(!confirm('Supprimer "'+p.code+'" ?'))return;adminConfig.promoCodes.splice(i,1);localStorage.setItem('bylinoush_config',JSON.stringify(adminConfig));renderPromoList();};
       row.appendChild(togBtn); row.appendChild(delBtn);
@@ -1450,23 +1450,23 @@ padding: 3rem 2rem 0;
   function applyPromo() {
     const input = document.getElementById('promo-client-input').value.trim().toUpperCase();
     const msg = document.getElementById('promo-client-msg');
-    if (!input) { showPromoMsg(msg,'❌ Entrez un code promo.','error'); return; }
+    if (!input) { showPromoMsg(msg,'[X] Entrez un code promo.','error'); return; }
     const codes = adminConfig.promoCodes || [];
     const promo = codes.find(p=>p.code===input && p.active);
-    if (!promo) { showPromoMsg(msg,'❌ Code invalide ou désactivé.','error'); activePromo=null; calcTotal(); return; }
-    if (promo.expiry && new Date(promo.expiry)<new Date()) { showPromoMsg(msg,'❌ Ce code a expiré.','error'); activePromo=null; calcTotal(); return; }
-    if (promo.uses!==null && promo.usedCount>=promo.uses) { showPromoMsg(msg,'❌ Code épuisé.','error'); activePromo=null; calcTotal(); return; }
+    if (!promo) { showPromoMsg(msg,'[X] Code invalide ou desactive.','error'); activePromo=null; calcTotal(); return; }
+    if (promo.expiry && new Date(promo.expiry)<new Date()) { showPromoMsg(msg,'[X] Ce code a expire.','error'); activePromo=null; calcTotal(); return; }
+    if (promo.uses!==null && promo.usedCount>=promo.uses) { showPromoMsg(msg,'[X] Code epuise.','error'); activePromo=null; calcTotal(); return; }
     activePromo = promo;
-    const label = promo.type==='pct'?'-'+promo.value+'%':'-'+promo.value+'€';
-    showPromoMsg(msg,'✅ Code "'+promo.code+'" appliqué : '+label,'success');
+    const label = promo.type==='pct'?'-'+promo.value+'%':'-'+promo.value+'EUR';
+    showPromoMsg(msg,'[OK] Code "'+promo.code+'" applique : '+label,'success');
     calcTotal();
   }
 
   const DEFAULT_PASSWORD = 'linoush2026';
 
-  // ══════════════════════════════════════
-  //  SYSTÈME DE FACTURES
-  // ══════════════════════════════════════
+  // ======================================
+  //  SYSTEME DE FACTURES
+  // ======================================
 
   function getNextFactureNum() {
     if (!adminConfig.factures) adminConfig.factures = [];
@@ -1486,9 +1486,9 @@ padding: 3rem 2rem 0;
     const acompte  = parseFloat(document.getElementById('fac-acompte').value) || 0;
     const statut   = document.getElementById('fac-statut').value;
 
-    if (!nom)     { showFacMsg('❌ Nom du client requis.','error'); return; }
-    if (!produits){ showFacMsg('❌ Produits requis.','error'); return; }
-    if (!total || total<=0){ showFacMsg('❌ Montant total requis.','error'); return; }
+    if (!nom)     { showFacMsg('[X] Nom du client requis.','error'); return; }
+    if (!produits){ showFacMsg('[X] Produits requis.','error'); return; }
+    if (!total || total<=0){ showFacMsg('[X] Montant total requis.','error'); return; }
 
     if (!adminConfig.factures) adminConfig.factures = [];
     const facture = {
@@ -1501,7 +1501,7 @@ padding: 3rem 2rem 0;
     };
     adminConfig.factures.push(facture);
     localStorage.setItem('bylinoush_config', JSON.stringify(adminConfig));
-    showFacMsg('✅ Facture '+facture.num+' créée !','success');
+    showFacMsg('[OK] Facture '+facture.num+' creee !','success');
     ['fac-nom','fac-tel','fac-adresse','fac-produits','fac-total','fac-acompte','fac-date'].forEach(id => document.getElementById(id).value='');
     renderFactureList();
     openFacturePreview(facture);
@@ -1516,11 +1516,11 @@ padding: 3rem 2rem 0;
   function renderFactureList() {
     const container=document.getElementById('fac-list'); if(!container)return;
     const factures=adminConfig.factures||[];
-    if(!factures.length){container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucune facture créée pour le moment.</div>';return;}
+    if(!factures.length){container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucune facture creee pour le moment.</div>';return;}
     container.innerHTML='';
     factures.slice().reverse().forEach((f,ri)=>{
       const i=factures.length-1-ri;
-      const sc={'Payé intégralement':{bg:'rgba(46,125,50,0.2)',col:'#81c784'},'Acompte versé':{bg:'rgba(201,168,76,0.15)',col:'#c9a84c'},'En attente':{bg:'rgba(200,50,50,0.15)',col:'#e07070'}}[f.statut]||{bg:'rgba(80,80,80,0.2)',col:'#888'};
+      const sc={'Paye integralement':{bg:'rgba(46,125,50,0.2)',col:'#81c784'},'Acompte verse':{bg:'rgba(201,168,76,0.15)',col:'#c9a84c'},'En attente':{bg:'rgba(200,50,50,0.15)',col:'#e07070'}}[f.statut]||{bg:'rgba(80,80,80,0.2)',col:'#888'};
       const row=document.createElement('div');
       row.style.cssText='display:flex;align-items:center;gap:0.8rem;background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:0.9rem 1.2rem;flex-wrap:wrap;cursor:pointer;transition:border-color 0.2s;';
       row.onmouseenter=()=>row.style.borderColor='rgba(201,168,76,0.3)';
@@ -1532,14 +1532,14 @@ padding: 3rem 2rem 0;
           '<div style="font-size:0.82rem;color:#ffffff;">'+f.client.nom+'</div>'+
           '<div style="font-size:0.67rem;color:rgba(255,255,255,0.55);">'+dateStr+'</div>'+
         '</div>'+
-        '<div style="font-family:\'Cormorant Garamond\',serif;font-size:1.1rem;font-weight:600;color:#ffffff;">'+f.total+'€</div>'+
+        '<div style="font-family:\'Cormorant Garamond\',serif;font-size:1.1rem;font-weight:600;color:#ffffff;">'+f.total+'EUR</div>'+
         '<span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:20px;background:'+sc.bg+';color:'+sc.col+';">'+f.statut+'</span>';
       const viewBtn=document.createElement('button');
-      viewBtn.textContent='👁️ Voir';
+      viewBtn.textContent=' Voir';
       viewBtn.style.cssText='background:transparent;border:1px solid rgba(201,168,76,0.25);color:rgba(255,255,255,0.55);padding:0.35rem 0.8rem;font-family:Jost,sans-serif;font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;border-radius:4px;';
       viewBtn.onclick=(e)=>{e.stopPropagation();openFacturePreview(f);};
       const delBtn=document.createElement('button');
-      delBtn.textContent='🗑️';
+      delBtn.textContent='';
       delBtn.style.cssText='background:rgba(200,50,50,0.1);border:1px solid rgba(200,50,50,0.3);color:#e07070;padding:0.35rem 0.6rem;cursor:pointer;border-radius:4px;';
       delBtn.onclick=(e)=>{e.stopPropagation();if(!confirm('Supprimer '+f.num+' ?'))return;adminConfig.factures.splice(i,1);localStorage.setItem('bylinoush_config',JSON.stringify(adminConfig));renderFactureList();};
       row.appendChild(viewBtn);row.appendChild(delBtn);
@@ -1558,23 +1558,23 @@ padding: 3rem 2rem 0;
     var dateStr=new Date(f.date).toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
     var prodLines=f.produits.split('\n').map(function(l){return '<tr><td style="padding:0.55rem 0.5rem;border-bottom:1px solid #eee;color:#444;font-size:0.85rem;">'+l+'</td></tr>';}).join('');
     var statutHTML;
-    if(f.statut==='Payé intégralement') statutHTML='<div style="display:inline-block;background:#e8f5e9;color:#2e7d32;border:2px solid #2e7d32;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">&#10003; PAYÉ INTÉGRALEMENT</div>';
-    else if(f.statut==='Acompte versé') statutHTML='<div style="display:inline-block;background:#fff8e1;color:#b8860b;border:2px solid #c9a84c;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">ACOMPTE VERSÉ</div>';
+    if(f.statut==='Paye integralement') statutHTML='<div style="display:inline-block;background:#e8f5e9;color:#2e7d32;border:2px solid #2e7d32;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">&#10003; PAYE INTEGRALEMENT</div>';
+    else if(f.statut==='Acompte verse') statutHTML='<div style="display:inline-block;background:#fff8e1;color:#b8860b;border:2px solid #c9a84c;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">ACOMPTE VERSE</div>';
     else statutHTML='<div style="display:inline-block;background:#fde8e8;color:#c62828;border:2px solid #c62828;padding:0.45rem 2rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">EN ATTENTE DE PAIEMENT</div>';
     var telLine = f.client.tel ? '<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">'+f.client.tel+'</div>' : '';
     var adrLine = f.client.adresse ? '<div style="font-size:0.75rem;color:#666;margin-top:0.1rem;">'+f.client.adresse+'</div>' : '';
     var totalLines;
     if(f.acompte>0){
-      totalLines='<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#2e7d32;border-bottom:1px solid #eee;"><span>Acompte versé</span><span>- '+f.acompte+'€</span></div>'+
-        '<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;color:#111;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Reste à payer</span><span style="color:#c9a84c;">'+f.reste+'€</span></div>';
+      totalLines='<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#2e7d32;border-bottom:1px solid #eee;"><span>Acompte verse</span><span>- '+f.acompte+'EUR</span></div>'+
+        '<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;color:#111;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Reste a payer</span><span style="color:#c9a84c;">'+f.reste+'EUR</span></div>';
     } else {
-      totalLines='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Total</span><span style="color:#c9a84c;">'+f.total+'€</span></div>';
+      totalLines='<div style="display:flex;justify-content:space-between;padding:0.5rem 0;font-size:1rem;font-weight:700;border-top:2px solid #c9a84c;margin-top:0.2rem;"><span>Total</span><span style="color:#c9a84c;">'+f.total+'EUR</span></div>';
     }
     return '<div style="font-family:\'Helvetica Neue\',Arial,sans-serif;color:#111;max-width:640px;margin:0 auto;">'+
       '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2rem;padding-bottom:1.2rem;border-bottom:3px solid #c9a84c;">'+
         '<div>'+
           '<div style="font-size:1.7rem;font-weight:900;letter-spacing:0.1em;color:#c9a84c;line-height:1;">BY.LINOUSH</div>'+
-          '<div style="font-size:0.65rem;color:#999;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.2rem;">Créations Florales · Lyon</div>'+
+          '<div style="font-size:0.65rem;color:#999;letter-spacing:0.15em;text-transform:uppercase;margin-top:0.2rem;">Creations Florales . Lyon</div>'+
           '<div style="font-size:0.7rem;color:#666;margin-top:0.7rem;line-height:1.8;">Lyon, France<br>+33 6 23 40 45 14</div>'+
         '</div>'+
         '<div style="text-align:right;">'+
@@ -1584,23 +1584,23 @@ padding: 3rem 2rem 0;
         '</div>'+
       '</div>'+
       '<div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;border-left:4px solid #c9a84c;">'+
-        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.4rem;">Facturé à</div>'+
+        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.4rem;">Facture a</div>'+
         '<div style="font-size:0.95rem;font-weight:600;">'+f.client.nom+'</div>'+
         telLine+adrLine+
       '</div>'+
       '<div style="margin-bottom:1.5rem;">'+
-        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.6rem;">Détail de la commande</div>'+
+        '<div style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#aaa;margin-bottom:0.6rem;">Detail de la commande</div>'+
         '<table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #eee;">'+
-          '<thead><tr style="background:#f5f5f5;"><th style="text-align:left;padding:0.55rem 0.5rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;font-weight:500;">Désignation</th></tr></thead>'+
+          '<thead><tr style="background:#f5f5f5;"><th style="text-align:left;padding:0.55rem 0.5rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#aaa;font-weight:500;">Designation</th></tr></thead>'+
           '<tbody>'+prodLines+'</tbody>'+
         '</table>'+
       '</div>'+
       '<div style="background:#f9f9f9;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;">'+
-        '<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#666;border-bottom:1px solid #eee;"><span>Sous-total</span><span>'+f.total+'€</span></div>'+
+        '<div style="display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.8rem;color:#666;border-bottom:1px solid #eee;"><span>Sous-total</span><span>'+f.total+'EUR</span></div>'+
         totalLines+
       '</div>'+
       '<div style="text-align:center;margin-bottom:1.5rem;">'+statutHTML+'</div>'+
-      '<div style="text-align:center;padding-top:1.2rem;border-top:1px solid #eee;font-size:0.68rem;color:#bbb;line-height:2;">ByLinoush Créations · Lyon · +33 6 23 40 45 14<br>Merci pour votre confiance</div>'+
+      '<div style="text-align:center;padding-top:1.2rem;border-top:1px solid #eee;font-size:0.68rem;color:#bbb;line-height:2;">ByLinoush Creations . Lyon . +33 6 23 40 45 14<br>Merci pour votre confiance</div>'+
     '</div>';
   }
 
@@ -1648,12 +1648,12 @@ if (!adminConfig.promoCodes) adminConfig.promoCodes = [];
 if (!adminConfig.factures) adminConfig.factures = [];
 if (!adminConfig.prix) adminConfig.prix = JSON.parse(JSON.stringify(defaultConfig.prix));
 
-// ── Apply config to the live site ──
+// – Apply config to the live site –
 function applyConfig() {
-// Bannière
+// Banniere
 const bann = document.getElementById(‘site-banniere’);
 if (adminConfig.banniere) {
-bann.textContent = ’📢 ’ + adminConfig.banniere;
+bann.textContent = ’ ’ + adminConfig.banniere;
 bann.style.display = ‘block’;
 document.body.insertBefore(bann, document.body.firstChild);
 } else {
@@ -1672,7 +1672,7 @@ document.querySelectorAll('#opts-list .option-item').forEach(el => {
   if (enRupture && !old) {
     const b = document.createElement('span');
     b.className = 'rbadge-live';
-    b.textContent = '• Rupture';
+    b.textContent = '- Rupture';
     b.style.cssText = 'font-size:.6rem;letter-spacing:.1em;color:#e07070;margin-left:.5rem;';
     el.querySelector('.option-label').appendChild(b);
   } else if (!enRupture && old) old.remove();
@@ -1687,7 +1687,7 @@ Array.from(couleurSel.options).forEach(opt => {
   opt.text = n[opt.value] + (opt.disabled ? ' (indisponible)' : '');
 });
 
-// Couleurs roses éternelles
+// Couleurs roses eternelles
 ['couleur-cloche','couleur-perso'].forEach(id => {
   const sel = document.getElementById(id); if (!sel) return;
   Array.from(sel.options).forEach(opt => {
@@ -1705,39 +1705,39 @@ Array.from(rSel.options).forEach((opt,i) => {
   const key = keys[i]; if (!key) return;
   const p = adminConfig.prix[key];
   opt.value = p; opt.dataset.label = prixLabels[key];
-  opt.text = prixLabels[key] + ' — ' + p + '€' + (key==='roses-101'?' (3 décos offertes)':'');
+  opt.text = prixLabels[key] + '  -  ' + p + 'EUR' + (key==='roses-101'?' (3 decos offertes)':'');
 });
 
 // Prix produits select
-const prodNoms = {'eternelle-cloche':'Rose Sous Cloche','eternelle-perso':'Rose Sous Cloche + Prénom','bijoux-boite':'Rose Boîte à Bijoux + Bague','bijoux-box':'Box Bijoux Bracelet','tapis':'Tapis Perso','coffret-s':'Coffret S','coffret-m':'Coffret M','coffret-l':'Coffret L','coffret-xl':'Coffret XL'};
+const prodNoms = {'eternelle-cloche':'Rose Sous Cloche','eternelle-perso':'Rose Sous Cloche + Prenom','bijoux-boite':'Rose Boite a Bijoux + Bague','bijoux-box':'Box Bijoux Bracelet','tapis':'Tapis Perso','coffret-s':'Coffret S','coffret-m':'Coffret M','coffret-l':'Coffret L','coffret-xl':'Coffret XL'};
 document.querySelectorAll('#produit option[value]').forEach(opt => {
   if (!opt.value || opt.value === 'roses') return;
   if (adminConfig.prix[opt.value] !== undefined) {
     opt.dataset.price = adminConfig.prix[opt.value];
-    if (prodNoms[opt.value]) opt.text = prodNoms[opt.value] + ' — ' + adminConfig.prix[opt.value] + '€';
+    if (prodNoms[opt.value]) opt.text = prodNoms[opt.value] + '  -  ' + adminConfig.prix[opt.value] + 'EUR';
   }
 });
 
 // Prix options perso
-const persoMap = {'Stitch Personnalisé':'stitch','Mini Stitch':'mini-stitch','Cœur Inflammable':'coeur','Grand Diadème':'grand-diademe','Petit Diadème':'petit-diademe','Ruban Perso':'ruban','Aiguilles Cristal':'aiguilles','Papillons':'papillons','Gypsophile':'gypsophile','Lettre en Fleur':'lettre','Bordure Perles':'bordure','Paillettes':'paillettes'};
+const persoMap = {'Stitch Personnalise':'stitch','Mini Stitch':'mini-stitch','Coeur Inflammable':'coeur','Grand Diademe':'grand-diademe','Petit Diademe':'petit-diademe','Ruban Perso':'ruban','Aiguilles Cristal':'aiguilles','Papillons':'papillons','Gypsophile':'gypsophile','Lettre en Fleur':'lettre','Bordure Perles':'bordure','Paillettes':'paillettes'};
 document.querySelectorAll('#opts-list .option-item').forEach(el => {
   const key = persoMap[el.dataset.label]; if (!key) return;
   const p = adminConfig.prix[key];
   el.dataset.price = p;
-  const pe = el.querySelector('.option-price'); if (pe) pe.textContent = '+' + p + '€';
+  const pe = el.querySelector('.option-price'); if (pe) pe.textContent = '+' + p + 'EUR';
 });
 
 // Prix bijoux perso
 const bjp = document.getElementById('bijoux-perso-item');
 if (bjp) {
   bjp.dataset.price = adminConfig.prix['bijoux-perso'];
-  const pe = bjp.querySelector('.option-price'); if (pe) pe.textContent = '+' + adminConfig.prix['bijoux-perso'] + '€';
+  const pe = bjp.querySelector('.option-price'); if (pe) pe.textContent = '+' + adminConfig.prix['bijoux-perso'] + 'EUR';
 }
 ```
 
 }
 
-// ── Admin open/close ──
+// – Admin open/close –
 let _adminClicks = 0, _adminTimer = null;
 function handleAdminClick() {
 _adminClicks++;
@@ -1779,7 +1779,7 @@ document.getElementById(id).style.display = ‘block’;
 document.getElementById(‘btn-’ + id).classList.add(‘active’);
 }
 
-// ── Build Panel ──
+// – Build Panel –
 function buildAdminPanel() {
 buildStockTab();
 buildPrixTab();
@@ -1813,10 +1813,10 @@ const pr = document.createElement(‘div’); pr.className = ‘adm-stock-price�
 info.appendChild(nm); info.appendChild(pr);
 const badge = document.createElement(‘span’);
 badge.className = ’adm-stock-badge ’ + (isDispo ? ‘dispo’ : ‘rupture’);
-badge.textContent = isDispo ? ‘✓ Disponible’ : ‘✗ Rupture’;
+badge.textContent = isDispo ? ‘OK Disponible’ : ‘X Rupture’;
 const sw = makeSwitch(isDispo, (val) => {
 badge.className = ’adm-stock-badge ’ + (val ? ‘dispo’ : ‘rupture’);
-badge.textContent = val ? ‘✓ Disponible’ : ‘✗ Rupture’;
+badge.textContent = val ? ‘OK Disponible’ : ‘X Rupture’;
 onToggle(val);
 });
 div.appendChild(info); div.appendChild(badge); div.appendChild(sw);
@@ -1828,17 +1828,17 @@ function buildStockTab() {
 const bDiv = document.getElementById(‘stock-bouquets’);
 bDiv.innerHTML = ‘’;
 const bouquets = [
-{key:‘roses-13’,name:‘Bouquet 13 roses’,price:‘25€’},
-{key:‘roses-18’,name:‘Bouquet 18 roses’,price:‘35€’},
-{key:‘roses-30’,name:‘Bouquet 30 roses’,price:‘59€’},
-{key:‘roses-50’,name:‘Bouquet 50 roses’,price:‘99€’},
-{key:‘roses-101’,name:‘Bouquet 101 roses’,price:‘225€’},
+{key:‘roses-13’,name:‘Bouquet 13 roses’,price:‘25EUR’},
+{key:‘roses-18’,name:‘Bouquet 18 roses’,price:‘35EUR’},
+{key:‘roses-30’,name:‘Bouquet 30 roses’,price:‘59EUR’},
+{key:‘roses-50’,name:‘Bouquet 50 roses’,price:‘99EUR’},
+{key:‘roses-101’,name:‘Bouquet 101 roses’,price:‘225EUR’},
 ];
 bouquets.forEach(b => {
 const pill = document.createElement(‘div’);
 const dispo = adminConfig.bouquetsDispo.includes(b.key);
 pill.className = ‘adm-pill ’ + (dispo ? ‘on’ : ‘off’);
-pill.innerHTML = ‘<div class="pill-dot"></div>’+b.name+’ — ’+b.price;
+pill.innerHTML = ‘<div class="pill-dot"></div>’+b.name+’  -  ’+b.price;
 pill.onclick = () => {
 const idx = adminConfig.bouquetsDispo.indexOf(b.key);
 if (idx >= 0) adminConfig.bouquetsDispo.splice(idx,1);
@@ -1853,12 +1853,12 @@ bDiv.appendChild(pill);
 const oDiv = document.getElementById('stock-options');
 oDiv.innerHTML = '';
 const options = [
-  {label:'Stitch Personnalisé',price:'+20€'},{label:'Mini Stitch',price:'+10€'},
-  {label:'Cœur Inflammable',price:'+10€'},{label:'Grand Diadème',price:'+8€'},
-  {label:'Petit Diadème',price:'+4€'},{label:'Ruban Perso',price:'+6€'},
-  {label:'Aiguilles Cristal',price:'+6€'},{label:'Papillons',price:'+2€'},
-  {label:'Gypsophile',price:'+5€'},{label:'Lettre en Fleur',price:'+5€'},
-  {label:'Bordure Perles',price:'+4€'},{label:'Paillettes',price:'+4€'},
+  {label:'Stitch Personnalise',price:'+20EUR'},{label:'Mini Stitch',price:'+10EUR'},
+  {label:'Coeur Inflammable',price:'+10EUR'},{label:'Grand Diademe',price:'+8EUR'},
+  {label:'Petit Diademe',price:'+4EUR'},{label:'Ruban Perso',price:'+6EUR'},
+  {label:'Aiguilles Cristal',price:'+6EUR'},{label:'Papillons',price:'+2EUR'},
+  {label:'Gypsophile',price:'+5EUR'},{label:'Lettre en Fleur',price:'+5EUR'},
+  {label:'Bordure Perles',price:'+4EUR'},{label:'Paillettes',price:'+4EUR'},
 ];
 options.forEach(o => {
   const dispo = !adminConfig.ruptures.includes(o.label);
@@ -1874,15 +1874,15 @@ options.forEach(o => {
 const pDiv = document.getElementById('stock-produits');
 pDiv.innerHTML = '';
 const produits = [
-  {key:'eternelle-cloche',name:'Rose Sous Cloche',price:'20€'},
-  {key:'eternelle-perso',name:'Rose Sous Cloche + Prénom',price:'25€'},
-  {key:'bijoux-boite',name:'Rose Boîte à Bijoux + Bague',price:'20€'},
-  {key:'bijoux-box',name:'Box Bijoux Bracelet',price:'10€'},
-  {key:'tapis',name:'Tapis Perso',price:'16€'},
-  {key:'coffret-s',name:'Coffret S',price:'40€'},
-  {key:'coffret-m',name:'Coffret M',price:'46€'},
-  {key:'coffret-l',name:'Coffret L',price:'48€'},
-  {key:'coffret-xl',name:'Coffret XL',price:'75€'},
+  {key:'eternelle-cloche',name:'Rose Sous Cloche',price:'20EUR'},
+  {key:'eternelle-perso',name:'Rose Sous Cloche + Prenom',price:'25EUR'},
+  {key:'bijoux-boite',name:'Rose Boite a Bijoux + Bague',price:'20EUR'},
+  {key:'bijoux-box',name:'Box Bijoux Bracelet',price:'10EUR'},
+  {key:'tapis',name:'Tapis Perso',price:'16EUR'},
+  {key:'coffret-s',name:'Coffret S',price:'40EUR'},
+  {key:'coffret-m',name:'Coffret M',price:'46EUR'},
+  {key:'coffret-l',name:'Coffret L',price:'48EUR'},
+  {key:'coffret-xl',name:'Coffret XL',price:'75EUR'},
 ];
 produits.forEach(p => {
   const dispo = adminConfig.produitsDispo.includes(p.key);
@@ -1900,7 +1900,7 @@ produits.forEach(p => {
 function makePrixRow(label, hint, key) {
 const div = document.createElement(‘div’);
 div.className = ‘adm-prix-row’;
-div.innerHTML = ‘<div class="adm-prix-label">’+label+(hint?’<div class="adm-prix-hint">’+hint+’</div>’:’’)+’</div><input class="adm-prix-input" type="number" data-key="'+key+'" value="'+adminConfig.prix[key]+'" min="0"><span class="adm-euro">€</span>’;
+div.innerHTML = ‘<div class="adm-prix-label">’+label+(hint?’<div class="adm-prix-hint">’+hint+’</div>’:’’)+’</div><input class="adm-prix-input" type="number" data-key="'+key+'" value="'+adminConfig.prix[key]+'" min="0"><span class="adm-euro">EUR</span>’;
 return div;
 }
 
@@ -1911,40 +1911,40 @@ document.getElementById(‘prix-bouquets’).innerHTML = ‘’;
 {key:‘roses-18’,label:‘Bouquet 18 roses’},
 {key:‘roses-30’,label:‘Bouquet 30 roses’},
 {key:‘roses-50’,label:‘Bouquet 50 roses’},
-{key:‘roses-101’,label:‘Bouquet 101 roses’,hint:‘Inclut 3 décos offertes’},
+{key:‘roses-101’,label:‘Bouquet 101 roses’,hint:‘Inclut 3 decos offertes’},
 ].forEach(i => document.getElementById(‘prix-bouquets’).appendChild(makePrixRow(i.label, i.hint||’’, i.key)));
 
 ```
 document.getElementById('prix-eternelles').innerHTML = '';
 [
   {key:'eternelle-cloche',label:'Rose Sous Cloche (standard)'},
-  {key:'eternelle-perso',label:'Rose Sous Cloche + Prénom',hint:'Avec personnalisation gravée'},
+  {key:'eternelle-perso',label:'Rose Sous Cloche + Prenom',hint:'Avec personnalisation gravee'},
 ].forEach(i => document.getElementById('prix-eternelles').appendChild(makePrixRow(i.label, i.hint||'', i.key)));
 
 document.getElementById('prix-bijoux').innerHTML = '';
 [
-  {key:'bijoux-boite',label:'Rose Boîte à Bijoux + Bague'},
+  {key:'bijoux-boite',label:'Rose Boite a Bijoux + Bague'},
   {key:'bijoux-box',label:'Box Bijoux Bracelet'},
-  {key:'bijoux-perso',label:'Option Personnalisation Box',hint:'Supplément ajouté à la box bijoux'},
+  {key:'bijoux-perso',label:'Option Personnalisation Box',hint:'Supplement ajoute a la box bijoux'},
 ].forEach(i => document.getElementById('prix-bijoux').appendChild(makePrixRow(i.label, i.hint||'', i.key)));
 
 document.getElementById('prix-priere').innerHTML = '';
 [
-  {key:'tapis',label:'Tapis Personnalisé'},
-  {key:'coffret-s',label:'Coffret Prière S'},
-  {key:'coffret-m',label:'Coffret Prière M'},
-  {key:'coffret-l',label:'Coffret Prière L'},
-  {key:'coffret-xl',label:'Coffret Prière XL'},
+  {key:'tapis',label:'Tapis Personnalise'},
+  {key:'coffret-s',label:'Coffret Priere S'},
+  {key:'coffret-m',label:'Coffret Priere M'},
+  {key:'coffret-l',label:'Coffret Priere L'},
+  {key:'coffret-xl',label:'Coffret Priere XL'},
 ].forEach(i => document.getElementById('prix-priere').appendChild(makePrixRow(i.label, '', i.key)));
 
 document.getElementById('prix-options').innerHTML = '';
 [
-  {key:'stitch',label:'Stitch Personnalisé'},
+  {key:'stitch',label:'Stitch Personnalise'},
   {key:'mini-stitch',label:'Mini Stitch'},
-  {key:'coeur',label:'Cœur Inflammable'},
-  {key:'grand-diademe',label:'Grand Diadème'},
-  {key:'petit-diademe',label:'Petit Diadème'},
-  {key:'ruban',label:'Ruban Personnalisé'},
+  {key:'coeur',label:'Coeur Inflammable'},
+  {key:'grand-diademe',label:'Grand Diademe'},
+  {key:'petit-diademe',label:'Petit Diademe'},
+  {key:'ruban',label:'Ruban Personnalise'},
   {key:'aiguilles',label:'Aiguilles Cristal'},
   {key:'papillons',label:'Papillons'},
   {key:'gypsophile',label:'Gypsophile'},
@@ -1972,18 +1972,18 @@ return pill;
 
 function buildCouleursTab() {
 const cDiv = document.getElementById(‘couleurs-roses’); cDiv.innerHTML = ‘’;
-[{v:‘rouge’,l:‘🔴 Rouge’},{v:‘rose’,l:‘🩷 Rose’},{v:‘bleu’,l:‘🔵 Bleu’}]
+[{v:‘rouge’,l:‘Rouge Rouge’},{v:‘rose’,l:‘Rose Rose’},{v:‘bleu’,l:‘Bleu Bleu’}]
 .forEach(c => cDiv.appendChild(makeCouleurPill(c.v, c.l, adminConfig.couleurs)));
 
 ```
 const ceDiv = document.getElementById('couleurs-eternelles'); ceDiv.innerHTML = '';
-[{v:'rouge',l:'🔴 Rouge Classique'},{v:'rose',l:'🩷 Rose Doux'},{v:'bleu',l:'🔵 Bleu Royal'}]
+[{v:'rouge',l:'Rouge Rouge Classique'},{v:'rose',l:'Rose Rose Doux'},{v:'bleu',l:'Bleu Bleu Royal'}]
   .forEach(c => ceDiv.appendChild(makeCouleurPill(c.v, c.l, adminConfig.couleursEternelles)));
 ```
 
 }
 
-// ── Save ──
+// – Save –
 function saveAdmin() {
 // Collect price inputs
 document.querySelectorAll(’.adm-prix-input’).forEach(inp => {
@@ -2005,26 +2005,26 @@ const p1 = document.getElementById(‘adm-new-pwd’).value;
 const p2 = document.getElementById(‘adm-new-pwd2’).value;
 const msg = document.getElementById(‘adm-pwd-msg’);
 msg.style.display = ‘block’;
-if (!p1) { msg.style.color = ‘#e07070’; msg.textContent = ‘❌ Veuillez entrer un mot de passe.’; return; }
-if (p1 !== p2) { msg.style.color = ‘#e07070’; msg.textContent = ‘❌ Les mots de passe ne correspondent pas.’; return; }
+if (!p1) { msg.style.color = ‘#e07070’; msg.textContent = ‘[X] Veuillez entrer un mot de passe.’; return; }
+if (p1 !== p2) { msg.style.color = ‘#e07070’; msg.textContent = ‘[X] Les mots de passe ne correspondent pas.’; return; }
 adminConfig.password = p1;
 localStorage.setItem(‘bylinoush_config’, JSON.stringify(adminConfig));
 msg.style.color = ‘#81c784’;
-msg.textContent = ‘✅ Mot de passe mis à jour avec succès !’;
+msg.textContent = ‘[OK] Mot de passe mis a jour avec succes !’;
 document.getElementById(‘adm-new-pwd’).value = ‘’;
 document.getElementById(‘adm-new-pwd2’).value = ‘’;
 }
 
 function resetAdmin() {
-if (!confirm(‘⚠️ Êtes-vous sûre de vouloir tout réinitialiser ? Cette action est irréversible.’)) return;
+if (!confirm(’[!] Etes-vous sure de vouloir tout reinitialiser ? Cette action est irreversible.’)) return;
 adminConfig = JSON.parse(JSON.stringify(defaultConfig));
 localStorage.setItem(‘bylinoush_config’, JSON.stringify(adminConfig));
 applyConfig();
 buildAdminPanel();
 const t = document.getElementById(‘adm-toast’);
-t.textContent = ‘🔄 Configuration réinitialisée !’;
+t.textContent = ’ Configuration reinitialisee !’;
 t.style.display = ‘block’;
-setTimeout(() => { t.style.display = ‘none’; t.textContent = ‘✅ Modifications enregistrées !’; }, 3000);
+setTimeout(() => { t.style.display = ‘none’; t.textContent = ‘[OK] Modifications enregistrees !’; }, 3000);
 }
 
 // Init
