@@ -1518,7 +1518,7 @@ padding: 3rem 2rem 0;
     const factures=adminConfig.factures||[];
     if(!factures.length){container.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;">Aucune facture créée pour le moment.</div>';return;}
     container.innerHTML='';
-    [...factures].reverse().forEach((f,ri)=>{
+    factures.slice().reverse().forEach((f,ri)=>{
       const i=factures.length-1-ri;
       const sc={'Payé intégralement':{bg:'rgba(46,125,50,0.2)',col:'#81c784'},'Acompte versé':{bg:'rgba(201,168,76,0.15)',col:'#c9a84c'},'En attente':{bg:'rgba(200,50,50,0.15)',col:'#e07070'}}[f.statut]||{bg:'rgba(80,80,80,0.2)',col:'#888'};
       const row=document.createElement('div');
