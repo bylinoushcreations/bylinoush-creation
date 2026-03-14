@@ -1271,9 +1271,10 @@ padding: 3rem 2rem 0;
 
   // -- PETALES ANIMES --
   (function() {
-    const canvas = document.getElementById('petals-canvas');
-    const ctx = canvas.getContext('2d');
-    let W, H, petals = [];
+    var canvas = document.getElementById('petals-canvas');
+    if (!canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext('2d');
+    var W, H, petals = [];
 
     function resize() {
       W = canvas.width = window.innerWidth;
@@ -2033,9 +2034,12 @@ setTimeout(() => { t.style.display = ‘none’; t.textContent = ‘[OK] Modific
 }
 
 // Init
+try {
 applyConfig();
-
 document.getElementById(‘nb-roses’).addEventListener(‘change’, calcTotal);
+} catch(e) {
+console.error(‘Init error:’, e);
+}
 </script>
 
 <!-- FACTURE PREVIEW MODAL -->
