@@ -47,6 +47,11 @@ position: relative;
 z-index: 1;
 }
 
+/* Force hidden elements */
+#cloche-options, #perso-options, #bijoux-options, #roses-options,
+#adresse-block, #fac-modal {
+display: none;
+}
 /* NAV */
 nav {
 position: sticky; top: 0; z-index: 100;
@@ -529,29 +534,29 @@ padding: 3rem 2rem 0;
 <div class="form-row full">
   <select id="produit" onchange="onProduitChange()">
     <option value="">Choisir un produit...</option>
-    <optgroup label="— Bouquet de Roses">
+    <optgroup label="Bouquet de Roses">
       <option value="roses" data-price="0" data-type="roses">Bouquet de Roses Personnalisé</option>
     </optgroup>
-    <optgroup label="— Roses Éternelles">
-      <option value="eternelle-cloche" data-price="20" data-type="cloche">Rose Sous Cloche — 20€</option>
-      <option value="eternelle-perso" data-price="25" data-type="perso">Rose Sous Cloche + Prénom — 25€</option>
+    <optgroup label="Roses Éternelles">
+      <option value="eternelle-cloche" data-price="20" data-type="cloche">Rose Sous Cloche - 20€</option>
+      <option value="eternelle-perso" data-price="25" data-type="perso">Rose Sous Cloche + Prénom - 25€</option>
     </optgroup>
-    <optgroup label="— Collection Bijoux">
-      <option value="bijoux-boite" data-price="20" data-type="bijoux">Rose Boîte à Bijoux + Bague — 20€</option>
-      <option value="bijoux-box" data-price="10" data-type="bijoux">Box Bijoux Bracelet — 10€</option>
+    <optgroup label="Collection Bijoux">
+      <option value="bijoux-boite" data-price="20" data-type="bijoux">Rose Boîte à Bijoux + Bague - 20€</option>
+      <option value="bijoux-box" data-price="10" data-type="bijoux">Box Bijoux Bracelet - 10€</option>
     </optgroup>
-    <optgroup label="— Univers Prière">
-      <option value="tapis" data-price="16" data-type="autre">Tapis Perso — 16€</option>
-      <option value="coffret-s" data-price="40" data-type="autre">Coffret S — 40€</option>
-      <option value="coffret-m" data-price="46" data-type="autre">Coffret M — 46€</option>
-      <option value="coffret-l" data-price="48" data-type="autre">Coffret L — 48€</option>
-      <option value="coffret-xl" data-price="75" data-type="autre">Coffret XL — 75€</option>
+    <optgroup label="Univers Prière">
+      <option value="tapis" data-price="16" data-type="autre">Tapis Perso - 16€</option>
+      <option value="coffret-s" data-price="40" data-type="autre">Coffret S - 40€</option>
+      <option value="coffret-m" data-price="46" data-type="autre">Coffret M - 46€</option>
+      <option value="coffret-l" data-price="48" data-type="autre">Coffret L - 48€</option>
+      <option value="coffret-xl" data-price="75" data-type="autre">Coffret XL - 75€</option>
     </optgroup>
   </select>
 </div>
 
-<!-- Collection Bijoux — option perso -->
-<div id="bijoux-options" style="display:none;">
+<!-- Collection Bijoux -->
+<div id="bijoux-options" style="display:none !important;">
   <div class="form-group-title" style="margin-top:1.5rem;">Options Bijoux</div>
   <div class="options-list">
     <div class="option-item" id="bijoux-perso-item" data-price="5" data-label="Personnalisation de la Box" onclick="toggleOpt(this); calcTotal();">
@@ -562,8 +567,8 @@ padding: 3rem 2rem 0;
   </div>
 </div>
 
-<!-- Rose Éternelle Personnalisée — couleur + prénom -->
-<div id="perso-options" style="display:none;">
+<!-- Rose Eternelle Perso -->
+<div id="perso-options" style="display:none !important;">
   <div class="form-group-title" style="margin-top:1.5rem;">Configuration Rose Éternelle</div>
   <div class="form-row full">
     <select id="couleur-perso">
@@ -577,8 +582,8 @@ padding: 3rem 2rem 0;
   </div>
 </div>
 
-<!-- Rose Éternelle Sous Cloche — couleur -->
-<div id="cloche-options" style="display:none;">
+<!-- Rose Eternelle Cloche -->
+<div id="cloche-options" style="display:none !important;">
   <div class="form-group-title" style="margin-top:1.5rem;">Configuration Rose Éternelle</div>
   <div class="form-row full">
     <select id="couleur-cloche">
@@ -590,15 +595,15 @@ padding: 3rem 2rem 0;
 </div>
 
 <!-- Roses options -->
-<div id="roses-options" style="display:none;">
+<div id="roses-options" style="display:none !important;">
   <div class="form-group-title" style="margin-top:1.5rem;">Nombre de Roses &amp; Couleur</div>
   <div class="form-row">
     <select id="nb-roses" onchange="calcTotal()">
-      <option value="25" data-label="13 Roses">13 Roses — 25€</option>
-      <option value="35" data-label="18 Roses">18 Roses — 35€</option>
-      <option value="59" data-label="30 Roses">30 Roses — 59€</option>
-      <option value="99" data-label="50 Roses">50 Roses — 99€</option>
-      <option value="225" data-label="101 Roses">101 Roses — 225€</option>
+      <option value="25" data-label="13 Roses">13 Roses - 25€</option>
+      <option value="35" data-label="18 Roses">18 Roses - 35€</option>
+      <option value="59" data-label="30 Roses">30 Roses - 59€</option>
+      <option value="99" data-label="50 Roses">50 Roses - 99€</option>
+      <option value="225" data-label="101 Roses">101 Roses - 225€</option>
     </select>
     <div>
       <select id="couleur">
@@ -654,18 +659,18 @@ padding: 3rem 2rem 0;
 <div class="form-group-title" style="margin-top:2rem;">Mode de Réception</div>
 <div class="delivery-options">
   <div class="delivery-item selected" data-cost="0" data-type="main-propre" onclick="selectDelivery(this)">
-    Remise en main propre (Lyon) — Gratuit
+    Remise en main propre (Lyon) - Gratuit
   </div>
   <div class="delivery-item" data-cost="10" data-type="colissimo-fr" onclick="selectDelivery(this)">
-    Colissimo France — 10€
+    Colissimo France - 10€
   </div>
   <div class="delivery-item" data-cost="15" data-type="colissimo-intl" onclick="selectDelivery(this)">
-    Colissimo International — 15€
+    Colissimo International - 15€
   </div>
 </div>
 
 <!-- Adresse (visible si livraison) -->
-<div id="adresse-block" style="display:none;margin-top:1rem;">
+<div id="adresse-block" style="display:none !important;margin-top:1rem;">
   <div class="form-row full">
     <input type="text" id="adresse-ligne1" placeholder="Adresse (numéro, rue...)">
   </div>
@@ -690,7 +695,7 @@ padding: 3rem 2rem 0;
 </div>
 <p id="promo-client-msg" style="font-size:0.72rem;margin-top:0.5rem;display:none;"></p>
 
-<div class="total-box" id="total-box" style="display:none;">
+<div class="total-box" id="total-box" style="display:none !important;">
   <div class="total-items" id="total-lines"></div>
   <div class="total-amount" id="total-display">0€</div>
   <div class="total-acompte" id="acompte-display"></div>
@@ -708,14 +713,14 @@ padding: 3rem 2rem 0;
 <!-- FOOTER -->
 
 <footer>
-  <p>Site réalisé avec <span>♥</span> — bylinoushcreations</p>
+  <p>Site réalisé avec <span>♥</span> &mdash; bylinoushcreations</p>
   <!-- Admin access: triple-click on copyright text -->
   <span id="admin-trigger" onclick="handleAdminClick()" style="cursor:default;user-select:none;display:block;margin-top:0.5rem;">BY.LINOUSH CRÉATION © 2026 | LYON</span>
 </footer>
 
 <!-- ADMIN OVERLAY -->
 
-<div id="admin-overlay" style="display:none;position:fixed;inset:0;z-index:9000;overflow-y:auto;">
+<div id="admin-overlay" style="display:none !important;position:fixed;inset:0;z-index:9000;overflow-y:auto;">
 
   <!-- LOGIN SCREEN -->
 
@@ -771,7 +776,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">🌹</div>
         <div>
-          <div class="adm-card-title">Bouquets de roses — Disponibilité</div>
+          <div class="adm-card-title">Bouquets de roses : Disponibilite</div>
           <div class="adm-card-sub">Désactivez un format pour le masquer dans le formulaire de commande</div>
         </div>
       </div>
@@ -782,7 +787,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">✨</div>
         <div>
-          <div class="adm-card-title">Options & Personnalisations — Ruptures de stock</div>
+          <div class="adm-card-title">Options &amp; Personnalisations — Ruptures de stock</div>
           <div class="adm-card-sub">Activez le bouton rouge pour signaler une rupture. L'option sera grisée et bloquée pour les clients.</div>
         </div>
       </div>
@@ -793,7 +798,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">💎</div>
         <div>
-          <div class="adm-card-title">Autres produits — Disponibilité</div>
+          <div class="adm-card-title">Autres produits : Disponibilite</div>
           <div class="adm-card-sub">Désactivez un produit pour le retirer du formulaire de commande</div>
         </div>
       </div>
@@ -820,7 +825,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">♾️</div>
         <div>
-          <div class="adm-card-title">Prix — Roses Éternelles</div>
+          <div class="adm-card-title">Prix : Roses Éternelles</div>
           <div class="adm-card-sub">Rose sous cloche standard et avec personnalisation prénom</div>
         </div>
       </div>
@@ -831,7 +836,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">💎</div>
         <div>
-          <div class="adm-card-title">Prix — Collection Bijoux</div>
+          <div class="adm-card-title">Prix : Collection Bijoux</div>
           <div class="adm-card-sub">Box bijoux et options de personnalisation</div>
         </div>
       </div>
@@ -842,7 +847,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">🕌</div>
         <div>
-          <div class="adm-card-title">Prix — Univers Prière</div>
+          <div class="adm-card-title">Prix : Univers Prière</div>
           <div class="adm-card-sub">Tapis personnalisés et coffrets</div>
         </div>
       </div>
@@ -853,7 +858,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">🎀</div>
         <div>
-          <div class="adm-card-title">Prix — Options & Personnalisations bouquet</div>
+          <div class="adm-card-title">Prix : Options &amp; Personnalisations bouquet</div>
           <div class="adm-card-sub">Suppléments ajoutés au prix du bouquet de roses</div>
         </div>
       </div>
@@ -869,7 +874,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">🌹</div>
         <div>
-          <div class="adm-card-title">Couleurs disponibles — Bouquets de roses fraîches</div>
+          <div class="adm-card-title">Couleurs disponibles : Bouquets de roses fraîches</div>
           <div class="adm-card-sub">Les couleurs désactivées n'apparaîtront plus dans le formulaire de commande des bouquets</div>
         </div>
       </div>
@@ -880,7 +885,7 @@ padding: 3rem 2rem 0;
       <div class="adm-card-header">
         <div class="adm-card-icon">♾️</div>
         <div>
-          <div class="adm-card-title">Couleurs disponibles — Roses Éternelles (Sous Cloche)</div>
+          <div class="adm-card-title">Couleurs disponibles : Roses Éternelles (Sous Cloche)</div>
           <div class="adm-card-sub">Applicable à la Rose Sous Cloche standard ET à la version avec prénom</div>
         </div>
       </div>
@@ -1101,7 +1106,7 @@ padding: 3rem 2rem 0;
 
 <!-- BANNIÈRE SITE -->
 
-<div id="site-banniere" style="display:none;background:rgba(201,168,76,0.15);border-bottom:1px solid #c9a84c;text-align:center;padding:0.7rem 2rem;font-size:0.78rem;letter-spacing:0.08em;color:#c9a84c;position:relative;z-index:200;"></div>
+<div id="site-banniere" style="display:none !important;background:rgba(201,168,76,0.15);border-bottom:1px solid #c9a84c;text-align:center;padding:0.7rem 2rem;font-size:0.78rem;letter-spacing:0.08em;color:#c9a84c;position:relative;z-index:200;"></div>
 
 <script>
   window._total = 0;
@@ -1115,10 +1120,10 @@ padding: 3rem 2rem 0;
     const sel = document.getElementById('produit');
     const opt = sel.selectedOptions[0];
     const type = opt ? opt.dataset.type : '';
-    document.getElementById('roses-options').style.display = type === 'roses' ? 'block' : 'none';
-    document.getElementById('cloche-options').style.display = type === 'cloche' ? 'block' : 'none';
-    document.getElementById('perso-options').style.display = type === 'perso' ? 'block' : 'none';
-    document.getElementById('bijoux-options').style.display = type === 'bijoux' ? 'block' : 'none';
+    document.getElementById('roses-options').style.cssText = type === 'roses' ? 'display:block' : 'display:none';
+    document.getElementById('cloche-options').style.cssText = type === 'cloche' ? 'display:block' : 'display:none';
+    document.getElementById('perso-options').style.cssText = type === 'perso' ? 'display:block' : 'display:none';
+    document.getElementById('bijoux-options').style.cssText = type === 'bijoux' ? 'display:block' : 'display:none';
     // Reset bijoux perso checkbox when switching
     if (type !== 'bijoux') {
       document.getElementById('bijoux-perso-item').classList.remove('checked');
@@ -1149,7 +1154,7 @@ padding: 3rem 2rem 0;
     } else if (type === 'bijoux') {
       const price = parseInt(opt.dataset.price);
       total = price;
-      lines.push({ label: opt.text.split('  - ')[0].trim(), price });
+      lines.push({ label: opt.text.split(' - ')[0].trim(), price });
       const persoItem = document.getElementById('bijoux-perso-item');
       if (persoItem.classList.contains('checked')) {
         total += 5;
@@ -1158,7 +1163,7 @@ padding: 3rem 2rem 0;
     } else {
       const price = parseInt(opt.dataset.price);
       total = price;
-      lines.push({ label: opt.text.split('  - ')[0].trim(), price });
+      lines.push({ label: opt.text.split(' - ')[0].trim(), price });
     }
 
     window._total = total;
@@ -1210,7 +1215,7 @@ padding: 3rem 2rem 0;
     let msg = 'ByLinoush Creations  -  Nouvelle Commande\n\n';
     msg += 'Nom : ' + nom + '\n';
     msg += 'Telephone : ' + tel + '\n';
-    msg += 'Produit : ' + (prodOpt ? prodOpt.text.split('  - ')[0].trim() : ' - ') + '\n';
+    msg += 'Produit : ' + (prodOpt ? prodOpt.text.split(' - ')[0].trim() : ' - ') + '\n';
 
     // Details selon type
     if (type === 'roses') {
@@ -2035,7 +2040,7 @@ document.getElementById(‘nb-roses’).addEventListener(‘change’, calcTotal
 
 <!-- FACTURE PREVIEW MODAL -->
 
-<div id="fac-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9500;overflow-y:auto;padding:2rem;">
+<div id="fac-modal" style="display:none !important;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9500;overflow-y:auto;padding:2rem;">
   <div style="max-width:720px;margin:0 auto;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem;">
       <div style="font-family:'Cinzel',serif;font-size:1rem;color:#c9a84c;letter-spacing:0.15em;">Aperçu de la facture</div>
